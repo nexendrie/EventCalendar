@@ -1,11 +1,11 @@
 EventCalendar
 ============
 
-- add-on component for Nette framework - http://nette.org/
+- add-on component for Nette framework - https://nette.org/
 - enable displaying various events in calendar
 - provide methods for localisation & customization
 - you can also use html and Texy! in your event texts
-- http://addons.nette.org/cs/eventcalendar
+- https://addons.nette.org/jaroslav-kubicek/event-calendar
 
 Installing
 ============
@@ -22,7 +22,7 @@ Quick start
 
 Add to your code (in presenter/control):
 
-    public function createComponentCalendar() {
+    protected function createComponentCalendar() {
         $cal = new EventCalendar\Simple\SimpleCalendar();
         return $cal;
     }
@@ -30,8 +30,3 @@ Add to your code (in presenter/control):
 and in template:
 
     {control calendar}
-
-API Docs
-============
-
-http://www.nimral.cz/calendar/docs/index.html
