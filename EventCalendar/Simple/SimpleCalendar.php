@@ -3,7 +3,7 @@
 namespace EventCalendar\Simple;
 
 use \EventCalendar\AbstractCalendar;
-use \Nette\Utils\Neon;
+use \Nette\Neon\Neon;
 
 /**
  * Simple alternative for calendar control if you don't want to use translator.
