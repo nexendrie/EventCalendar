@@ -3,7 +3,6 @@
 namespace EventCalendar;
 
 use \Nette\Application\UI;
-use \EventCalendar\IEventModel;
 
 /**
  * @property-write string $firstDay
