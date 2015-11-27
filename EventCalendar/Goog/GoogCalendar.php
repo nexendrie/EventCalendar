@@ -9,6 +9,7 @@ use EventCalendar\BasicCalendar;
  * 
  * Experimental
  * 
+ * @property-write GoogAdapter $googAdapter
  * @todo Allow mix of events from Google Calendar with custom events
  */
 class GoogCalendar extends BasicCalendar

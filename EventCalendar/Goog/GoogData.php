@@ -4,6 +4,10 @@ namespace EventCalendar\Goog;
 
 use \EventCalendar\IEventModel;
 
+/**
+ * @property string $name
+ * @property string $description
+ */
 class GoogData extends \Nette\Object implements IEventModel
 {
     

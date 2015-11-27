@@ -5,6 +5,12 @@ namespace EventCalendar;
 use \Nette\Application\UI;
 use \EventCalendar\IEventModel;
 
+/**
+ * @property-write string $firstDay
+ * @property-write array $options
+ * @property-write IEventModel $events
+ * @method void onMonthChange(int $year, int $month)
+ */
 abstract class AbstractCalendar extends UI\Control
 {
 

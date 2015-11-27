@@ -11,6 +11,10 @@ use \Nette\Caching\Cache;
  * 
  * See API doc for Google Calendar events: https://developers.google.com/google-apps/calendar/v3/reference/events/list
  * 
+ * @property-write Cache $cache
+ * @property-write \DateTime $cacheExpiration
+ * @property-write string $searchTerm
+ * @property-write \DateTimeZone $timeZone
  */
 class GoogAdapter extends \Nette\Object
 {

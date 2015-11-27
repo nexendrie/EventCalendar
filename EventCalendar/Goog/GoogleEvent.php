@@ -4,6 +4,18 @@ namespace EventCalendar\Goog;
 
 /**
  * Represent single event from Google Calendar
+ * 
+ * @property-read int $id
+ * @property string $status
+ * @property string $htmlLink
+ * @property \DateTime|string $created
+ * @property \DateTime|string $updated
+ * @property string $summary
+ * @property string $location
+ * @property string $description
+ * @property-read string $creator
+ * @property \DateTime|string $start
+ * @property \DateTime|string $end
  */
 class GoogleEvent extends \Nette\Object
 {

@@ -2,6 +2,9 @@
 
 namespace EventCalendar;
 
+/**
+ * @property-write \Nette\Localization\ITranslator $translator
+ */
 abstract class BasicCalendar extends AbstractCalendar
 {
 
