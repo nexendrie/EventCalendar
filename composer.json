@@ -26,5 +26,8 @@
         "psr-0": {
             "EventCalendar\\": "/"
         }
+    },
+    "replace": {
+        "jaroslav-kubicek/event-calendar": "~0.2"
     }
 }
