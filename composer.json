@@ -31,6 +31,8 @@
         "jaroslav-kubicek/event-calendar": "~0.2"
     },
     "extra": {
-        "branch-alias": "0.2.x-dev"
+        "branch-alias": {
+            "dev-master": "0.2.x-dev"
+        }
     }
 }
