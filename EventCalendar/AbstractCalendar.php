@@ -8,7 +8,7 @@ use \Nette\Application\UI;
  * @property-write string $firstDay
  * @property-write array $options
  * @property-write IEventModel $events
- * @method void onMonthChange(int $year, int $month)
+ * @method void onDateChange(int $year, int $month)
  */
 abstract class AbstractCalendar extends UI\Control
 {
