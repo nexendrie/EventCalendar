@@ -20,7 +20,7 @@
         "apigen/apigen": "2.8.0"
     },
     "suggest": {
-        "dg/texy": ">= v2.2.0"
+        "texy/texy": ">= v2.2.0"
     },
     "autoload": {
         "psr-0": {
