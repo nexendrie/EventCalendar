@@ -5,7 +5,7 @@ EventCalendar
 - enable displaying various events in calendar
 - provide methods for localisation & customization
 - you can also use html and Texy! in your event texts
-- https://addons.nette.org/jaroslav-kubicek/event-calendar
+- https://componette.com/jaroslav-kubicek/eventcalendar/
 
 Installing
 ============
