@@ -12,7 +12,7 @@ class SimpleCalendarTest extends Tester\TestCase
 {
 
     /**
-     * @var EventCalendar\Simple\SimpleCalendar
+     * @var SimpleCalendar
      */
     private $calendar;
 

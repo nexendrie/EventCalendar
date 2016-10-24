@@ -3,7 +3,7 @@
 
 namespace EventCalendar;
 /**
- * <i>Tip:</i> For max performace you can load events only for current month. If user change month, handle this by event onDateChange.
+ * <i>Tip:</i> For max performance you can load events only for current month. If user changes month, handle this by event onDateChange.
  */
 interface IEventModel
 {
