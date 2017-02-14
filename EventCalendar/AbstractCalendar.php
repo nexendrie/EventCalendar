@@ -36,7 +36,7 @@ abstract class AbstractCalendar extends UI\Control
 
     /**
      * Model which implements ICalendarEvent
-     * @var ICalendarEvent 
+     * @var IEventModel
      */
     protected $events;
 
