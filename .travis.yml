@@ -30,8 +30,8 @@ install:
     - composer install -a --prefer-dist --no-progress --no-suggest --no-interaction
 
 script:
-   - ./vendor/bin/parallel-lint EventCalendar tests -e php,phpt
-   - ./vendor/bin/phpstan analyze -l 6 -c phpstan.neon EventCalendar tests
+    - ./vendor/bin/parallel-lint EventCalendar tests -e php,phpt
+    - ./vendor/bin/phpstan analyze -l 6 -c phpstan.neon EventCalendar tests
     - if [ "$TESTER_PHP_BIN" == "php" ]; then ./vendor/bin/run-tests -p php tests -s; fi
     - if [ "$TESTER_PHP_BIN" == "phpdbg" ]; then ./vendor/bin/run-tests -p phpdbg tests -s --coverage coverage.xml --coverage-src EventCalendar; fi
 
