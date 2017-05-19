@@ -31,16 +31,17 @@ class EventCalendar extends \EventCalendar\BasicCalendar
         'showBottomNav' => TRUE,
         'wdayMaxLen' => null
     );
-
-    protected function createTemplate($class = NULL)
+    
+    protected function createTemplate()
     {
-        $template = parent::createTemplate($class);
+        /** @var \Nette\Bridges\ApplicationLatte\Template $template */
+        $template = parent::createTemplate();
         if (class_exists('\Texy')) {
             $texy = new \Texy();
-            $template->registerHelper('texy', callback($texy, 'process'));
+            $template->getLatte()->addFilter('texy', [$texy, 'process']);
         } else {
-            $template->registerHelper('texy', function($string) {
-                        return $string;
+            $template->getLatte()->addFilter('texy', function ($string) {
+                return $string;
                     });
         }
 
