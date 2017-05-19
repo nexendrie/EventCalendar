@@ -19,7 +19,6 @@
     "require-dev": {
         "nexendrie/code-quality": "@dev",
         "phpstan/phpstan-nette": "^0.7",
-        "nette/robot-loader": "~2.4",
         "tracy/tracy": "~2.4"
     },
     "suggest": {
@@ -28,6 +27,11 @@
     "autoload": {
         "psr-4": {
             "EventCalendar\\": "EventCalendar/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EventCalendar\\": "tests/"
         }
     },
     "replace": {

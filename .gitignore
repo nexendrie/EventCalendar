@@ -1,4 +1,4 @@
 /vendor/
-temp/
+tests/_temp/
 composer.lock
 coverage.*
