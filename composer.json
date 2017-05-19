@@ -2,7 +2,7 @@
     "name": "konecnyjakub/event-calendar",
     "description": "Plugin for Nette based web applications for creating calendar with custom events",
     "homepage": "http://www.nimral.cz/calendar",
-    "license": ["BSD-3-Clause"],
+    "license": "BSD-3-Clause",
     "authors": [
     {
         "name": "Jaroslav Kubíček",
@@ -31,7 +31,7 @@
         }
     },
     "replace": {
-        "jaroslav-kubicek/event-calendar": "~0.2"
+        "jaroslav-kubicek/event-calendar": ">=0.2"
     },
     "extra": {
         "branch-alias": {
