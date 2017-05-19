@@ -16,13 +16,13 @@ abstract class AbstractCalendar extends UI\Control
     const FIRST_SUNDAY = 0, FIRST_MONDAY = 1;
 
     /**
-     * @var int
+     * @var int|NULL
      * @persistent 
      */
     public $year = NULL;
 
     /**
-     * @var int
+     * @var int|NULL
      * @persistent
      */
     public $month = NULL;
@@ -39,6 +39,11 @@ abstract class AbstractCalendar extends UI\Control
      * @var IEventModel
      */
     protected $events;
+  
+  /**
+   * @var array
+   */
+    protected $options = array();
 
     abstract protected function getTemplateFile();
 

@@ -1,0 +1,10 @@
+includes:
+    - vendor/nexendrie/code-quality/phpstan.neon
+    - vendor/phpstan/phpstan-nette/extension.neon
+parameters:
+    autoload_files:
+        - %rootDir%/../../../tests/bootstrap.php
+    ignoreErrors:
+            - '#Call to an undefined method Nette\\Application\\UI\\ITemplate::[a-zA-Z0-9_]+\(\)#'
+            - '#Instantiated class Texy not found#'
+            - '#Function (callback|xdebug_disable) not found#'
