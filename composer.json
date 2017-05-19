@@ -26,8 +26,8 @@
         "texy/texy": ">= v2.2.0"
     },
     "autoload": {
-        "psr-0": {
-            "EventCalendar\\": "/"
+        "psr-4": {
+            "EventCalendar\\": "EventCalendar/"
         }
     },
     "replace": {
