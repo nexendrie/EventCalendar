@@ -16,8 +16,9 @@ use \Nette\Caching\Cache;
  * @property-write string $searchTerm
  * @property-write \DateTimeZone $timeZone
  */
-class GoogAdapter extends \Nette\Object
+class GoogAdapter
 {
+    use \Nette\SmartObject;
 
     private $calendarId;
     private $apiKey;

@@ -8,8 +8,9 @@ use \EventCalendar\IEventModel;
  * @property string $name
  * @property string $description
  */
-class GoogData extends \Nette\Object implements IEventModel
+class GoogData implements IEventModel
 {
+    use \Nette\SmartObject;
     
     const DATE_FORMAT = 'Y-m-d';
 

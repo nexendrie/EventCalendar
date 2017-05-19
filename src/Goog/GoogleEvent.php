@@ -17,8 +17,10 @@ namespace EventCalendar\Goog;
  * @property \DateTime|string $start
  * @property \DateTime|string $end
  */
-class GoogleEvent extends \Nette\Object
+class GoogleEvent
 {
+    use \Nette\SmartObject;
+    
     private $id;
     private $status;
     private $htmlLink;
