@@ -9,6 +9,7 @@ use Nette\Utils\Strings;
  * @property-write string $firstDay
  * @property-write array $options
  * @property-write IEventModel $events
+ * @property-read \Nette\Bridges\ApplicationLatte\Template $template
  * @method void onDateChange(int $year, int $month)
  */
 abstract class AbstractCalendar extends UI\Control
