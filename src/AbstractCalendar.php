@@ -2,7 +2,8 @@
 
 namespace EventCalendar;
 
-use \Nette\Application\UI;
+use Nette\Application\UI;
+use Nette\Utils\Strings;
 
 /**
  * @property-write string $firstDay
@@ -149,7 +150,7 @@ abstract class AbstractCalendar extends UI\Control
     {
         if ($this->options['wdayMaxLen'] > 0) {
             foreach ($wdays as &$value) {
-                $value = \Nette\Utils\Strings::substring($value, 0, $this->options['wdayMaxLen']);
+                $value = Strings::substring($value, 0, $this->options['wdayMaxLen']);
             }
         }
         return $wdays;
