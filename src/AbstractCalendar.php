@@ -78,7 +78,7 @@ abstract class AbstractCalendar extends UI\Control
     {
         $this->onDateChange($this->year, $this->month);
         if ($this->presenter->isAjax()) {
-            $this->invalidateControl('ecCalendar');
+            $this->redrawControl('ecCalendar');
         } else {
             $this->redirect('this');
         }
