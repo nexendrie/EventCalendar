@@ -6,7 +6,7 @@ use Nette\Application\UI;
 use Nette\Utils\Strings;
 
 /**
- * @property-write string $firstDay
+ * @property-write int $firstDay
  * @property-write array $options
  * @property-write IEventModel $events
  * @property-read \Nette\Bridges\ApplicationLatte\Template $template
