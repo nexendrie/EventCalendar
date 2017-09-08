@@ -32,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "EventCalendar\\": "tests/"
+            "EventCalendar\\": "tests/EventCalendar"
         }
     },
     "replace": {
