@@ -76,10 +76,7 @@ class GoogCalendar extends BasicCalendar
     {
         return __DIR__ . '/GoogCalendar.latte';
     }
-
-    /**
-     * @param \EventCalendar\Goog\GoogAdapter $googAdapter
-     */
+    
     public function setGoogAdapter(GoogAdapter $googAdapter)
     {
         $this->googAdapter = $googAdapter;
@@ -87,7 +84,6 @@ class GoogCalendar extends BasicCalendar
     
     /**
      * Do not set events directly, use GoogAdapter. Mix of events from Google with customs events is not implemented yet.
-     * @param \EventCalendar\IEventModel $events
      * @throws \LogicException
      */
     public function setEvents(\EventCalendar\IEventModel $events)

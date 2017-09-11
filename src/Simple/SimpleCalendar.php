@@ -49,7 +49,7 @@ class SimpleCalendar extends AbstractCalendar
     protected $language = self::LANG_EN;
 
     /**
-     * @var array default options for calendar - you can change defauls by setOptions()
+     * @var array default options for calendar - you can change defaults by setOptions()
      */
     protected $options = [
         'showTopNav' => TRUE,

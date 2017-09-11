@@ -51,7 +51,6 @@ class GoogAdapter
     }
 
     /**
-     * @param \Nette\Caching\Cache $cache
      * @return \EventCalendar\Goog\GoogAdapter
      */
     public function setCache(Cache $cache)
@@ -62,7 +61,6 @@ class GoogAdapter
 
     /**
      * set expiration for cache
-     * @param \DateTime $dateTime
      * @return \EventCalendar\Goog\GoogAdapter
      */
     public function setCacheExpiration(\DateTime $dateTime)
@@ -105,7 +103,6 @@ class GoogAdapter
 
     /**
      * Set timezone in which results are returned
-     * @param \DateTimeZone $timeZone
      * @return \EventCalendar\Goog\GoogAdapter
      */
     public function setTimeZone(\DateTimeZone $timeZone)

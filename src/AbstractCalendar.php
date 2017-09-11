@@ -30,8 +30,7 @@ abstract class AbstractCalendar extends UI\Control
     public $month = NULL;
 
     /**
-     * array of callbacks fn(year, month)
-     * @var array
+     * @var callable[]
      */
     public $onDateChange;
     protected $firstDay = self::FIRST_SUNDAY;
