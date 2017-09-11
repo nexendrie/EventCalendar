@@ -51,7 +51,7 @@ class SimpleCalendar extends AbstractCalendar
     /**
      * @var array default options for calendar - you can change defauls by setOptions()
      */
-    protected $options = array(
+    protected $options = [
         'showTopNav' => TRUE,
         'showBottomNav' => TRUE,
         'topNavPrev' => '<',
@@ -59,7 +59,7 @@ class SimpleCalendar extends AbstractCalendar
         'bottomNavPrev' => 'Previous month',
         'bottomNavNext' => 'Next month',
         'wdayMaxLen' => null
-    );
+    ];
 
     public function setLanguage($lang)
     {
@@ -80,7 +80,7 @@ class SimpleCalendar extends AbstractCalendar
             if ($this->firstDay === self::FIRST_MONDAY) {
                 array_push($wdays, array_shift($wdays));
             }
-            return array('monthNames' => $neon[$lang]['monthNames'], 'wdays' => $wdays);
+            return ['monthNames' => $neon[$lang]['monthNames'], 'wdays' => $wdays];
         } else {
             throw new \LogicException('Specified language is not supported.');
         }

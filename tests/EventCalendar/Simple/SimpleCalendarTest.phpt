@@ -62,7 +62,7 @@ class SimpleCalendarTest extends \Tester\TestCase
     }
     
     public function testDisabledBottomNav() {
-        $this->calendar->setOptions(array(SimpleCalendar::OPT_SHOW_BOTTOM_NAV => false));
+        $this->calendar->setOptions([SimpleCalendar::OPT_SHOW_BOTTOM_NAV => false]);
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         Assert::true(!$dom->has('.ec-bottomNavigation'));
@@ -74,7 +74,7 @@ class SimpleCalendarTest extends \Tester\TestCase
     public function testMaxLenOfWday() {
         $this->calendar->setLanguage(SimpleCalendar::LANG_DE);
         $this->calendar->setFirstDay(SimpleCalendar::FIRST_MONDAY);
-        $this->calendar->setOptions(array(SimpleCalendar::OPT_WDAY_MAX_LEN => 3));
+        $this->calendar->setOptions([SimpleCalendar::OPT_WDAY_MAX_LEN => 3]);
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $wednesElem = $dom->find('.ec-monthTable th');

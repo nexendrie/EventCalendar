@@ -24,13 +24,13 @@ class EventCalendar extends \EventCalendar\BasicCalendar
     const OPT_WDAY_MAX_LEN = 'wdayMaxLen';
 
     /**
-     * @var array default options for calendar - you can change defauls by setOptions()
+     * @var array default options for calendar - you can change defaults by setOptions()
      */
-    protected $options = array(
+    protected $options = [
         'showTopNav' => TRUE,
         'showBottomNav' => TRUE,
         'wdayMaxLen' => null
-    );
+    ];
     
     protected function createTemplate()
     {

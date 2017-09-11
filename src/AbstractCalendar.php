@@ -45,7 +45,7 @@ abstract class AbstractCalendar extends UI\Control
   /**
    * @var array
    */
-    protected $options = array();
+    protected $options = [];
 
     abstract protected function getTemplateFile();
 
@@ -91,8 +91,8 @@ abstract class AbstractCalendar extends UI\Control
         $this->template->setFile($this->getTemplateFile());
 
         $this->prepareDate();
-
-        $dateInfo = array();
+    
+        $dateInfo = [];
         $dateInfo['year'] = $this->year; // current year
         $dateInfo['month'] = $this->month; // current month
         $dateInfo['noOfDays'] = cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year); // count of days in month
@@ -123,7 +123,7 @@ abstract class AbstractCalendar extends UI\Control
 
     protected function getNextMonth($year, $month)
     {
-        $next = array();
+        $next = [];
         if ($month == 12) {
             $next['month'] = 1;
             $next['year'] = $year + 1;
@@ -136,7 +136,7 @@ abstract class AbstractCalendar extends UI\Control
 
     protected function getPrevMonth($year, $month)
     {
-        $prev = array();
+        $prev = [];
         if ($month == 1) {
             $prev['month'] = 12;
             $prev['year'] = $year - 1;

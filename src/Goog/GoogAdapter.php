@@ -182,7 +182,7 @@ class GoogAdapter
         // save loaded data to cache
         if (isset($this->cache)) {
             if (isset($this->cacheExpiration)) {
-                $dependencies = array(Cache::EXPIRATION => $this->cacheExpiration->getTimestamp());
+                $dependencies = [Cache::EXPIRATION => $this->cacheExpiration->getTimestamp()];
             } else {
                 $dependencies = null;
             }

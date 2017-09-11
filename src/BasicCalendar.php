@@ -32,7 +32,7 @@ abstract class BasicCalendar extends AbstractCalendar
 
     protected function getWdays()
     {
-        $wdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+        $wdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         if ($this->firstDay == self::FIRST_MONDAY) {
             array_push($wdays, array_shift($wdays));
         }
@@ -41,7 +41,7 @@ abstract class BasicCalendar extends AbstractCalendar
 
     protected function getMonthNames()
     {
-        $month = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+        $month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         return $month;
     }
 

@@ -55,7 +55,7 @@ class GoogCalendar extends BasicCalendar
     /**
      * @var array default options for calendar - you can change defauls by setOptions()
      */
-    protected $options = array(
+    protected $options = [
         'showTopNav' => TRUE,
         'showBottomNav' => TRUE,
         'wdayMaxLen' => null,
@@ -65,7 +65,7 @@ class GoogCalendar extends BasicCalendar
         'showEventStart' => true,
         'showEventEnd' => true,
         'eventDateformat' => 'F j, Y, g:i a'
-    );
+    ];
 
     /**
      * @var GoogAdapter 
