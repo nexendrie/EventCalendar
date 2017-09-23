@@ -9,7 +9,7 @@ class TestEvent implements IEventModel {
     private $events = [];
     
     public function __construct() {
-        $this->events['2012-02-02'] = ['Custom event', 'Another event'];
+        $this->events['2012-02-02'] = ['Custom event with **bold** text', 'Another event'];
     }
     
     public function getForDate($year, $month, $day) {
