@@ -21,7 +21,7 @@ matrix:
         - php: 7.1
           env: TESTER_PHP_BIN=phpdbg
         - php: 7.2
-        - php: nigthly
+        - php: nightly
 
 before_install:
     - composer self-update
