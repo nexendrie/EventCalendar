@@ -51,7 +51,7 @@ class GoogAdapter
     }
 
     /**
-     * @return \EventCalendar\Goog\GoogAdapter
+     * @return GoogAdapter
      */
     public function setCache(Cache $cache)
     {
@@ -61,7 +61,7 @@ class GoogAdapter
 
     /**
      * set expiration for cache
-     * @return \EventCalendar\Goog\GoogAdapter
+     * @return GoogAdapter
      */
     public function setCacheExpiration(\DateTime $dateTime)
     {
@@ -72,7 +72,7 @@ class GoogAdapter
     /**
      * filter events by search term
      * @param string $searchTerm
-     * @return \EventCalendar\Goog\GoogAdapter
+     * @return GoogAdapter
      */
     public function setSearchTerm($searchTerm)
     {
@@ -82,7 +82,7 @@ class GoogAdapter
 
     /**
      * @param boolean $boolean
-     * @return \EventCalendar\Goog\GoogAdapter
+     * @return GoogAdapter
      */
     public function showDeleted($boolean)
     {
@@ -93,7 +93,7 @@ class GoogAdapter
     /**
      * Return recurring events one by one
      * @param boolean $boolean
-     * @return \EventCalendar\Goog\GoogAdapter
+     * @return GoogAdapter
      */
     public function expandRecurringEvents($boolean)
     {
@@ -103,7 +103,7 @@ class GoogAdapter
 
     /**
      * Set timezone in which results are returned
-     * @return \EventCalendar\Goog\GoogAdapter
+     * @return GoogAdapter
      */
     public function setTimeZone(\DateTimeZone $timeZone)
     {
@@ -115,7 +115,7 @@ class GoogAdapter
      * Time constraint for events from Google Calendar. Used by GoogleCalendar for getting events only for current month.
      * @param int $year
      * @param int $month
-     * @return \EventCalendar\Goog\GoogAdapter
+     * @return GoogAdapter
      */
     public function setBoundary($year, $month)
     {
@@ -136,7 +136,7 @@ class GoogAdapter
 
     /**
      * Load events from Google Calendar via API or from cache
-     * @return \EventCalendar\Goog\GoogData
+     * @return GoogData
      * @throws GoogApiException
      */
     public function loadEvents()

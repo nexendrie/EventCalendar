@@ -101,7 +101,7 @@ class GoogleEvent
 
     /**
      * @param string $htmlLink
-     * @return \EventCalendar\Goog\GoogleEvent
+     * @return GoogleEvent
      */
     public function setHtmlLink($htmlLink)
     {
@@ -111,7 +111,7 @@ class GoogleEvent
 
     /**
      * @param string|\DateTime $created
-     * @return \EventCalendar\Goog\GoogleEvent
+     * @return GoogleEvent
      */
     public function setCreated($created)
     {
@@ -124,7 +124,7 @@ class GoogleEvent
 
     /**
      * @param string|\DateTime $updated
-     * @return \EventCalendar\Goog\GoogleEvent
+     * @return GoogleEvent
      */
     public function setUpdated($updated)
     {
@@ -137,7 +137,7 @@ class GoogleEvent
 
     /**
      * @param string $summary
-     * @return \EventCalendar\Goog\GoogleEvent
+     * @return GoogleEvent
      */
     public function setSummary($summary)
     {
@@ -147,7 +147,7 @@ class GoogleEvent
 
     /**
      * @param string $location
-     * @return \EventCalendar\Goog\GoogleEvent
+     * @return GoogleEvent
      */
     public function setLocation($location)
     {
@@ -157,7 +157,7 @@ class GoogleEvent
     
     /**
      * @param string $description
-     * @return \EventCalendar\Goog\GoogleEvent
+     * @return GoogleEvent
      */
     public function setDescription($description)
     {
@@ -167,7 +167,7 @@ class GoogleEvent
 
     /**
      * @param string|\DateTime $start
-     * @return \EventCalendar\Goog\GoogleEvent
+     * @return GoogleEvent
      */
     public function setStart($start)
     {
@@ -180,7 +180,7 @@ class GoogleEvent
 
     /**
      * @param string|\DateTime $end
-     * @return \EventCalendar\Goog\GoogleEvent
+     * @return GoogleEvent
      */
     public function setEnd($end)
     {
