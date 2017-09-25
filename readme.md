@@ -1,6 +1,8 @@
 EventCalendar
 ============
 
+[![Total Downloads](https://poser.pugx.org/konecnyjakub/event-calendar/downloads)](https://packagist.org/packages/konecnyjakub/event-calendar)  [![Latest Stable Version](https://poser.pugx.org/konecnyjakub/event-calendar/v/stable)](https://packagist.org/konecnyjakub/event-calendar/translation) [![Latest Unstable Version](https://poser.pugx.org/konecnyjakub/event-calendar/v/unstable)](https://packagist.org/konecnyjakub/event-calendar/translation) [![Build Status](https://travis-ci.org/konecnyjakub/EventCalendar.svg?branch=master)](https://travis-ci.org/konecnyjakub/EventCalendar) ![License](https://poser.pugx.org/konecnyjakub/event-calendar/license)
+
 This is an add-on component for [Nette framework] (https://nette.org/) which enables displaying various events in calendar. It provides methods for localisation & customization. You can also use html and Texy! in your event texts.
 
 Installation
