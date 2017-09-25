@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace EventCalendar\Simple;
 
@@ -32,7 +33,7 @@ class EventCalendar extends \EventCalendar\BasicCalendar
         'wdayMaxLen' => null
     ];
     
-    protected function createTemplate()
+    protected function createTemplate(): \Nette\Application\UI\ITemplate
     {
         /** @var \Nette\Bridges\ApplicationLatte\Template $template */
         $template = parent::createTemplate();
@@ -47,8 +48,8 @@ class EventCalendar extends \EventCalendar\BasicCalendar
 
         return $template;
     }
-
-    protected function getTemplateFile()
+    
+    protected function getTemplateFile(): string
     {
         return __DIR__ . '/EventCalendar.latte';
     }

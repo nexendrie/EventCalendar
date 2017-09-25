@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace EventCalendar\Goog;
 
@@ -71,8 +72,8 @@ class GoogCalendar extends BasicCalendar
      * @var GoogAdapter 
      */
     private $googAdapter;
-
-    protected function getTemplateFile()
+    
+    protected function getTemplateFile(): string
     {
         return __DIR__ . '/GoogCalendar.latte';
     }
@@ -94,7 +95,7 @@ class GoogCalendar extends BasicCalendar
     /**
      * @throws \EventCalendar\Goog\GoogApiException
      */
-    public function render()
+    public function render(): void
     {
         $this->prepareDate();
         $this->googAdapter->setBoundary($this->year, $this->month);

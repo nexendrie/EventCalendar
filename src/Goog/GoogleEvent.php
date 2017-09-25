@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace EventCalendar\Goog;
 
@@ -92,18 +93,14 @@ class GoogleEvent
     {
         return $this->end;
     }
-
-    public function setStatus($status)
+    
+    public function setStatus($status): GoogleEvent
     {
         $this->status = $status;
         return $this;
     }
-
-    /**
-     * @param string $htmlLink
-     * @return GoogleEvent
-     */
-    public function setHtmlLink($htmlLink)
+    
+    public function setHtmlLink(string $htmlLink): GoogleEvent
     {
         $this->htmlLink = $htmlLink;
         return $this;
@@ -111,9 +108,8 @@ class GoogleEvent
 
     /**
      * @param string|\DateTime $created
-     * @return GoogleEvent
      */
-    public function setCreated($created)
+    public function setCreated($created): GoogleEvent
     {
         if (!$created instanceof \DateTime) {
             $created = new \DateTime($created);
@@ -124,9 +120,8 @@ class GoogleEvent
 
     /**
      * @param string|\DateTime $updated
-     * @return GoogleEvent
      */
-    public function setUpdated($updated)
+    public function setUpdated($updated): GoogleEvent
     {
         if (!$updated instanceof \DateTime) {
             $updated = new \DateTime($updated);
@@ -134,32 +129,20 @@ class GoogleEvent
         $this->updated = $updated;
         return $this;
     }
-
-    /**
-     * @param string $summary
-     * @return GoogleEvent
-     */
-    public function setSummary($summary)
+    
+    public function setSummary(string $summary): GoogleEvent
     {
         $this->summary = $summary;
         return $this;
     }
-
-    /**
-     * @param string $location
-     * @return GoogleEvent
-     */
-    public function setLocation($location)
+    
+    public function setLocation(string $location): GoogleEvent
     {
         $this->location = $location;
         return $this;
     }
     
-    /**
-     * @param string $description
-     * @return GoogleEvent
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): GoogleEvent
     {
         $this->description = $description;
         return $this;
@@ -167,9 +150,8 @@ class GoogleEvent
 
     /**
      * @param string|\DateTime $start
-     * @return GoogleEvent
      */
-    public function setStart($start)
+    public function setStart($start): GoogleEvent
     {
         if (!($start instanceof \DateTime)) {
             $start = new \DateTime($start);
@@ -180,9 +162,8 @@ class GoogleEvent
 
     /**
      * @param string|\DateTime $end
-     * @return GoogleEvent
      */
-    public function setEnd($end)
+    public function setEnd($end): GoogleEvent
     {
         if (!$end instanceof \DateTime) {
             $end = new \DateTime($end);

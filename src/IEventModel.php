@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace EventCalendar;
 /**
@@ -10,13 +10,12 @@ interface IEventModel
 
     /**
      * exists some event for that day?
-     * @return boolean
      */
-    public function isForDate($year, $month, $day);
+    public function isForDate(int $year, int $month, int $day): bool;
 
     /**
      * return array with events - output is NOT escaped (you can use html)
      * @return array
      */
-    public function getForDate($year, $month, $day);
+    public function getForDate(int $year, int $month, int $day): array;
 }

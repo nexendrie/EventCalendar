@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace EventCalendar\Simple;
 
@@ -63,10 +64,7 @@ class EventCalendarTest extends \Tester\TestCase
         Assert::true($texyOn || $texyOff);
     }
     
-    /**
-     * @return string
-     */
-    private function renderAndReturnHtml() {
+    private function renderAndReturnHtml(): string {
         ob_start();
         $this->calendar->render();
         $html = ob_get_clean();

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace EventCalendar;
 
@@ -52,15 +53,13 @@ abstract class AbstractCalendar extends UI\Control
      * Specify the date on which the week starts
      * @param int $day
      */
-    public function setFirstDay($day)
+    public function setFirstDay(int $day)
     {
         $this->firstDay = $day;
     }
 
     /**
      * Changes default options, see OPT constants for currently supported options for each type of calendar
-     * 
-     * @param array $options array of options
      */
     public function setOptions(array $options)
     {
@@ -75,7 +74,7 @@ abstract class AbstractCalendar extends UI\Control
     }
 
     /** changes current month and invokes onDateChange event */
-    public function handleChangeMonth()
+    public function handleChangeMonth(): void
     {
         $this->onDateChange($this->year, $this->month);
         if ($this->presenter->isAjax()) {
@@ -84,8 +83,8 @@ abstract class AbstractCalendar extends UI\Control
             $this->redirect('this');
         }
     }
-
-    public function render()
+    
+    public function render(): void
     {
         $this->template->setFile($this->getTemplateFile());
 
@@ -105,8 +104,8 @@ abstract class AbstractCalendar extends UI\Control
 
         $this->template->render();
     }
-
-    protected function getFirstDayInMonth($year, $month)
+    
+    protected function getFirstDayInMonth(int $year, int $month): int
     {
         $day = getdate(mktime(0, 0, 0, $month, 1, $year));
         if ($this->firstDay == self::FIRST_SUNDAY) {
@@ -119,8 +118,8 @@ abstract class AbstractCalendar extends UI\Control
             }
         }
     }
-
-    protected function getNextMonth($year, $month)
+    
+    protected function getNextMonth(int $year, int $month): array
     {
         $next = [];
         if ($month == 12) {
@@ -132,8 +131,8 @@ abstract class AbstractCalendar extends UI\Control
         }
         return $next;
     }
-
-    protected function getPrevMonth($year, $month)
+    
+    protected function getPrevMonth(int $year, int $month): array
     {
         $prev = [];
         if ($month == 1) {
@@ -145,8 +144,8 @@ abstract class AbstractCalendar extends UI\Control
         }
         return $prev;
     }
-
-    protected function truncateWdays($wdays)
+    
+    protected function truncateWdays(array $wdays): array
     {
         if ($this->options['wdayMaxLen'] > 0) {
             foreach ($wdays as &$value) {
@@ -155,8 +154,8 @@ abstract class AbstractCalendar extends UI\Control
         }
         return $wdays;
     }
-
-    protected function prepareDate()
+    
+    protected function prepareDate(): void
     {
         if ($this->month === NULL || $this->year === NULL) {
             $today = getdate();

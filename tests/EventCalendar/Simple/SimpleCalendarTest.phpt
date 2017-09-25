@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace EventCalendar\Simple;
 
@@ -103,10 +104,7 @@ class SimpleCalendarTest extends \Tester\TestCase
         Assert::true($dom->has('.ec-eventDay .ec-eventBox') && $day === 2);
     }
     
-    /**
-     * @return string
-     */
-    private function renderAndReturnHtml() {
+    private function renderAndReturnHtml(): string {
         ob_start();
         $this->calendar->render();
         $html = ob_get_clean();

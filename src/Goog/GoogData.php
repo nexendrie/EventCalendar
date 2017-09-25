@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace EventCalendar\Goog;
 
@@ -15,15 +16,17 @@ class GoogData implements IEventModel
     const DATE_FORMAT = 'Y-m-d';
     
     private $events = [];
+    /** @var string */
     private $name;
+    /** @var string */
     private $description;
-
-    public function setName($name)
+    
+    public function setName(string $name)
     {
         $this->name = $name;
     }
-
-    public function setDescription($description)
+    
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
@@ -33,33 +36,33 @@ class GoogData implements IEventModel
         $this->events[$event->getStart()->format(self::DATE_FORMAT)][$event->id] = $event;
         $this->events[$event->getEnd()->format(self::DATE_FORMAT)][$event->id] = $event;
     }
-
-    public function getName()
+    
+    public function getName(): string
     {
         return $this->name;
     }
-
-    public function getDescription()
+    
+    public function getDescription(): string
     {
         return $this->description;
     }
-
-    public function getEvents()
+    
+    public function getEvents(): array
     {
         return $this->events;
     }
-
-    public function getForDate($year, $month, $day)
+    
+    public function getForDate(int $year, int $month, int $day): array
     {
         return $this->events[$this->numbersToDate($year, $month, $day)];
     }
-
-    public function isForDate($year, $month, $day)
+    
+    public function isForDate(int $year, int $month, int $day): bool
     {
         return isset($this->events[$this->numbersToDate($year, $month, $day)]);
     }
-
-    private function numbersToDate($year, $month, $day)
+    
+    private function numbersToDate(int $year, int $month, int $day)
     {
         $dateTime = \DateTime::createFromFormat(self::DATE_FORMAT, $year . '-' . $month . '-' . $day);
         return $dateTime->format(self::DATE_FORMAT);

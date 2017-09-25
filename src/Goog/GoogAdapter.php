@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace EventCalendar\Goog;
 
@@ -49,11 +50,8 @@ class GoogAdapter
         $this->calendarId = $calendarId;
         $this->apiKey = $apiKey;
     }
-
-    /**
-     * @return GoogAdapter
-     */
-    public function setCache(Cache $cache)
+    
+    public function setCache(Cache $cache): GoogAdapter
     {
         $this->cache = $cache;
         return $this;
@@ -61,9 +59,8 @@ class GoogAdapter
 
     /**
      * set expiration for cache
-     * @return GoogAdapter
      */
-    public function setCacheExpiration(\DateTime $dateTime)
+    public function setCacheExpiration(\DateTime $dateTime): GoogAdapter
     {
         $this->cacheExpiration = $dateTime;
         return $this;
@@ -71,20 +68,14 @@ class GoogAdapter
 
     /**
      * filter events by search term
-     * @param string $searchTerm
-     * @return GoogAdapter
      */
-    public function setSearchTerm($searchTerm)
+    public function setSearchTerm(string $searchTerm): GoogAdapter
     {
         $this->searchTerm = $searchTerm;
         return $this;
     }
-
-    /**
-     * @param boolean $boolean
-     * @return GoogAdapter
-     */
-    public function showDeleted($boolean)
+    
+    public function showDeleted(bool $boolean): GoogAdapter
     {
         $this->showDeleted = $boolean;
         return $this;
@@ -92,10 +83,8 @@ class GoogAdapter
 
     /**
      * Return recurring events one by one
-     * @param boolean $boolean
-     * @return GoogAdapter
      */
-    public function expandRecurringEvents($boolean)
+    public function expandRecurringEvents(bool $boolean): GoogAdapter
     {
         $this->expandRecurringEvents = $boolean;
         return $this;
@@ -103,9 +92,8 @@ class GoogAdapter
 
     /**
      * Set timezone in which results are returned
-     * @return GoogAdapter
      */
-    public function setTimeZone(\DateTimeZone $timeZone)
+    public function setTimeZone(\DateTimeZone $timeZone): GoogAdapter
     {
         $this->timeZone = $timeZone;
         return $this;
@@ -113,11 +101,8 @@ class GoogAdapter
 
     /**
      * Time constraint for events from Google Calendar. Used by GoogleCalendar for getting events only for current month.
-     * @param int $year
-     * @param int $month
-     * @return GoogAdapter
      */
-    public function setBoundary($year, $month)
+    public function setBoundary(int $year, int $month): GoogAdapter
     {
         $this->year = $year;
         $this->month = $month;
@@ -136,10 +121,9 @@ class GoogAdapter
 
     /**
      * Load events from Google Calendar via API or from cache
-     * @return GoogData
      * @throws GoogApiException
      */
-    public function loadEvents()
+    public function loadEvents(): GoogData
     {
         // return from cache
         if (isset($this->cache)) {
@@ -197,8 +181,8 @@ class GoogAdapter
         curl_close($curl);
         return $response;
     }
-
-    private function prepareUrl()
+    
+    private function prepareUrl(): string
     {
         $url = 'https://www.googleapis.com/calendar/v3/calendars/';
         $url .= urlencode($this->calendarId);

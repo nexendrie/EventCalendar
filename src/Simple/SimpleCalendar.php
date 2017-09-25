@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace EventCalendar\Simple;
 
@@ -60,19 +61,19 @@ class SimpleCalendar extends AbstractCalendar
         'bottomNavNext' => 'Next month',
         'wdayMaxLen' => null
     ];
-
-    public function setLanguage($lang)
+    
+    public function setLanguage(string $lang)
     {
         $this->language = $lang;
     }
-
-    public function render()
+    
+    public function render(): void
     {
         $this->template->names = $this->getNames($this->language);
         parent::render();
     }
-
-    protected function getNames($lang)
+    
+    protected function getNames(string $lang): array
     {
         $neon = Neon::decode(file_get_contents(__DIR__ . '/simpleCalData.neon'));
         if (array_key_exists($lang, $neon)) {
@@ -85,8 +86,8 @@ class SimpleCalendar extends AbstractCalendar
             throw new \LogicException('Specified language is not supported.');
         }
     }
-
-    protected function getTemplateFile()
+    
+    protected function getTemplateFile(): string
     {
         return __DIR__ . '/SimpleCalendar.latte';
     }
