@@ -1,5 +1,5 @@
 Version 0.2.2+dev
-- raised minimal version of PHP to 5.6
+- raised minimal version of PHP to 7.1
 - updated for Nette 2.4, dropped support for older versions
 - fixed Composer autoloading
 
