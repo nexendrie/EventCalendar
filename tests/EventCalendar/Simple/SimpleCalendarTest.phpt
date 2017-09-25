@@ -17,14 +17,16 @@ class SimpleCalendarTest extends \Tester\TestCase
      */
     private $calendar;
     
-    protected function setUp() {
+    protected function setUp()
+    {
         if (is_null($this->calendar)) {
             $this->calendar = new SimpleCalendar();
         }
         $this->attachToPresenter($this->calendar);
     }
     
-    public function testBasic() {
+    public function testBasic()
+    {
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         Assert::true($dom->has('.ec-monthTable'));
@@ -33,7 +35,8 @@ class SimpleCalendarTest extends \Tester\TestCase
     /**
      * Check if the month name is called January
      */
-    public function testEnglishMonthName() {
+    public function testEnglishMonthName()
+    {
         $this->calendar->year = 2013;
         $this->calendar->month = 1;
         $html = $this->renderAndReturnHtml();
@@ -42,7 +45,8 @@ class SimpleCalendarTest extends \Tester\TestCase
         Assert::contains('January', $elem[0]->asXML());
     }
     
-    public function testWrongLang() {
+    public function testWrongLang()
+    {
         $this->calendar->setLanguage('esperanto');
         Assert::exception(function () {
             $this->calendar->render();
@@ -52,7 +56,8 @@ class SimpleCalendarTest extends \Tester\TestCase
     /**
      * Check if the first day of week is called "Pondělí"
      */
-    public function testCzechCalendar() {
+    public function testCzechCalendar()
+    {
         $this->calendar->setFirstDay(SimpleCalendar::FIRST_MONDAY);
         $this->calendar->setLanguage(SimpleCalendar::LANG_CZ);
         $html = $this->renderAndReturnHtml();
@@ -62,7 +67,8 @@ class SimpleCalendarTest extends \Tester\TestCase
         Assert::same('Pondělí', utf8_decode(strip_tags($mondayName)));
     }
     
-    public function testDisabledBottomNav() {
+    public function testDisabledBottomNav()
+    {
         $this->calendar->setOptions([SimpleCalendar::OPT_SHOW_BOTTOM_NAV => false]);
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
@@ -72,7 +78,8 @@ class SimpleCalendarTest extends \Tester\TestCase
     /**
      * Check if the german calendar starting on Monday has wday truncated to three chars
      */
-    public function testMaxLenOfWday() {
+    public function testMaxLenOfWday()
+    {
         $this->calendar->setLanguage(SimpleCalendar::LANG_DE);
         $this->calendar->setFirstDay(SimpleCalendar::FIRST_MONDAY);
         $this->calendar->setOptions([SimpleCalendar::OPT_WDAY_MAX_LEN => 3]);
@@ -83,7 +90,8 @@ class SimpleCalendarTest extends \Tester\TestCase
         Assert::same('Mit', strip_tags($wednesdayName));
     }
     
-    public function testEvent() {
+    public function testEvent()
+    {
         $this->calendar->year = 2012;
         $this->calendar->month = 2;
         $this->calendar->setEvents(new TestEvent());
@@ -93,7 +101,8 @@ class SimpleCalendarTest extends \Tester\TestCase
         Assert::equal(2, $noOfEvents);
     }
     
-    public function testEventPosition() {
+    public function testEventPosition()
+    {
         $this->calendar->year = 2012;
         $this->calendar->month = 2;
         $this->calendar->setEvents(new TestEvent());
@@ -104,7 +113,8 @@ class SimpleCalendarTest extends \Tester\TestCase
         Assert::true($dom->has('.ec-eventDay .ec-eventBox') && $day === 2);
     }
     
-    private function renderAndReturnHtml(): string {
+    private function renderAndReturnHtml(): string
+    {
         ob_start();
         $this->calendar->render();
         $html = ob_get_clean();

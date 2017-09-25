@@ -17,11 +17,14 @@ class EventCalendarTest extends \Tester\TestCase
      */
     private $calendar;
     
-    protected function setUp() {
+    protected function setUp()
+    {
         if (is_null($this->calendar)) {
             $this->calendar = new EventCalendar();
-            $this->calendar->setTranslator(new class implements \Nette\Localization\ITranslator {
-                public function translate($message, $count = NULL) {
+            $this->calendar->setTranslator(new class implements \Nette\Localization\ITranslator
+            {
+                public function translate($message, $count = NULL)
+                {
                     return $message;
                 }
             });
@@ -29,7 +32,8 @@ class EventCalendarTest extends \Tester\TestCase
         $this->attachToPresenter($this->calendar);
     }
     
-    public function testStructure() {
+    public function testStructure()
+    {
         $this->calendar->year = 2013;
         $this->calendar->month = 1;
         $html = $this->renderAndReturnHtml();
@@ -39,7 +43,8 @@ class EventCalendarTest extends \Tester\TestCase
         Assert::true($noOfValidDays === 31 && $noOfEmptyDays === 4);
     }
     
-    public function testMaxLenOfWday() {
+    public function testMaxLenOfWday()
+    {
         $this->calendar->setFirstDay(EventCalendar::FIRST_MONDAY);
         $this->calendar->setOptions([EventCalendar::OPT_WDAY_MAX_LEN => 3]);
         $html = $this->renderAndReturnHtml();
@@ -49,14 +54,16 @@ class EventCalendarTest extends \Tester\TestCase
         Assert::same('Wed', strip_tags($wednesdayName));
     }
     
-    public function testDisabledTopNav() {
+    public function testDisabledTopNav()
+    {
         $this->calendar->setOptions([EventCalendar::OPT_SHOW_TOP_NAV => false]);
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         Assert::true(!$dom->has('.ec-monthTable a'));
     }
     
-    public function testTexy() {
+    public function testTexy()
+    {
         $this->calendar->year = 2012;
         $this->calendar->month = 2;
         $this->calendar->setEvents(new TestEvent());
