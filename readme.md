@@ -1,21 +1,12 @@
 EventCalendar
 ============
 
-- add-on component for Nette framework - https://nette.org/
-- enable displaying various events in calendar
-- provide methods for localisation & customization
-- you can also use html and Texy! in your event texts
-- https://componette.com/jaroslav-kubicek/eventcalendar/
+This is an add-on component for [Nette framework] (https://nette.org/) which enables displaying various events in calendar. It provides methods for localisation & customization. You can also use html and Texy! in your event texts.
 
-Installing
+Installation
 ============
 
-Install component to your project via Composer:
-
-    "require": {
-        ...
-        "konecnyjakub/event-calendar": "@dev"
-    }
+The best way to install it is via Composer. Just add konecnyjakub/event-calendar to your dependencies. Latest stable version does not work with latest Nette 2.3+ so you have to use current master for now.
 
 Quick start
 ============
