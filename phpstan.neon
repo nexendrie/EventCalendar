@@ -4,4 +4,4 @@ includes:
     - vendor/phpstan/phpstan-nette/rules.neon
 parameters:
     ignoreErrors:
-            - '#Instantiated class Texy not found#'
+            - '#(Instantiated c|C)lass Texy not found#'

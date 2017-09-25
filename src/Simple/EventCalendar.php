@@ -36,7 +36,7 @@ class EventCalendar extends \EventCalendar\BasicCalendar
     {
         /** @var \Nette\Bridges\ApplicationLatte\Template $template */
         $template = parent::createTemplate();
-        if (class_exists('\Texy')) {
+        if (class_exists(\Texy::class)) {
             $texy = new \Texy();
             $template->getLatte()->addFilter('texy', [$texy, 'process']);
         } else {
