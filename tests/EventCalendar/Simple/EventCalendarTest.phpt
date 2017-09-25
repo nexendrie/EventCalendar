@@ -20,7 +20,11 @@ class EventCalendarTest extends \Tester\TestCase
     protected function setUp() {
         if (is_null($this->calendar)) {
             $this->calendar = new EventCalendar();
-            $this->calendar->setTranslator(new TestTranslator());
+            $this->calendar->setTranslator(new class implements \Nette\Localization\ITranslator {
+                public function translate($message, $count = NULL) {
+                    return $message;
+                }
+            });
         }
         $this->attachToPresenter($this->calendar);
     }
