@@ -69,42 +69,42 @@ class GoogleEvent
         $this->id = $id;
     }
     
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
-
-    public function getStatus()
+    
+    public function getStatus(): string
     {
         return $this->status;
     }
-
-    public function getHtmlLink()
+    
+    public function getHtmlLink(): string
     {
         return $this->htmlLink;
     }
-
-    public function getCreated()
+    
+    public function getCreated(): \DateTime
     {
         return $this->created;
     }
-
-    public function getUpdated()
+    
+    public function getUpdated(): \DateTime
     {
         return $this->updated;
     }
-
-    public function getSummary()
+    
+    public function getSummary(): string
     {
         return $this->summary;
     }
-
-    public function getLocation()
+    
+    public function getLocation(): ?string
     {
         return $this->location;
     }
     
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -113,13 +113,13 @@ class GoogleEvent
     {
         return $this->creator;
     }
-
-    public function getStart()
+    
+    public function getStart(): \DateTime
     {
         return $this->start;
     }
-
-    public function getEnd()
+    
+    public function getEnd(): \DateTime
     {
         return $this->end;
     }

@@ -50,7 +50,7 @@ abstract class AbstractCalendar extends UI\Control
    */
     protected $options = [];
     
-    abstract protected function getTemplateFile();
+    abstract protected function getTemplateFile(): string;
 
     /**
      * Specify the date on which the week starts

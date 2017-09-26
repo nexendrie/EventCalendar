@@ -34,8 +34,8 @@ class GoogData implements IEventModel
     {
         $this->description = $description;
     }
-
-    public function addEvent(GoogleEvent $event)
+    
+    public function addEvent(GoogleEvent $event): void
     {
         $this->events[$event->getStart()->format(self::DATE_FORMAT)][$event->id] = $event;
         $this->events[$event->getEnd()->format(self::DATE_FORMAT)][$event->id] = $event;
@@ -66,7 +66,7 @@ class GoogData implements IEventModel
         return isset($this->events[$this->numbersToDate($year, $month, $day)]);
     }
     
-    private function numbersToDate(int $year, int $month, int $day)
+    private function numbersToDate(int $year, int $month, int $day): string
     {
         $dateTime = \DateTime::createFromFormat(self::DATE_FORMAT, $year . '-' . $month . '-' . $day);
         return $dateTime->format(self::DATE_FORMAT);
