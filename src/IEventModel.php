@@ -15,7 +15,6 @@ interface IEventModel
 
     /**
      * return array with events - output is NOT escaped (you can use html)
-     * @return array
      */
     public function getForDate(int $year, int $month, int $day): array;
 }

@@ -34,10 +34,13 @@ abstract class AbstractCalendar extends UI\Control
      * @var callable[]
      */
     public $onDateChange;
+    
+    /**
+     * @var int
+     */
     protected $firstDay = self::FIRST_SUNDAY;
 
     /**
-     * Model which implements ICalendarEvent
      * @var IEventModel
      */
     protected $events;
@@ -46,12 +49,11 @@ abstract class AbstractCalendar extends UI\Control
    * @var array
    */
     protected $options = [];
-
+    
     abstract protected function getTemplateFile();
 
     /**
      * Specify the date on which the week starts
-     * @param int $day
      */
     public function setFirstDay(int $day)
     {

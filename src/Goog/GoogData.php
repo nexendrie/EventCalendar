@@ -16,9 +16,13 @@ class GoogData implements IEventModel
     const DATE_FORMAT = 'Y-m-d';
     
     private $events = [];
-    /** @var string */
+    /**
+     * @var string
+     */
     private $name;
-    /** @var string */
+    /**
+     * @var string
+     */
     private $description;
     
     public function setName(string $name)

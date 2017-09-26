@@ -6,35 +6,65 @@ namespace EventCalendar\Goog;
 /**
  * Represent single event from Google Calendar
  * 
- * @property-read int $id
+ * @property-read string $id
  * @property string $status
  * @property string $htmlLink
- * @property \DateTime|string $created
- * @property \DateTime|string $updated
+ * @property \DateTime $created
+ * @property \DateTime $updated
  * @property string $summary
- * @property string $location
- * @property string $description
+ * @property string|NULL $location
+ * @property string|NULL $description
  * @property-read string $creator
- * @property \DateTime|string $start
- * @property \DateTime|string $end
+ * @property \DateTime $start
+ * @property \DateTime $end
  */
 class GoogleEvent
 {
     use \Nette\SmartObject;
     
+    /**
+     * @var string
+     */
     private $id;
+    /**
+     * @var string
+     */
     private $status;
+    /**
+     * @var string
+     */
     private $htmlLink;
+    /**
+     * @var \DateTime
+     */
     private $created;
+    /**
+     * @var \DateTime
+     */
     private $updated;
+    /**
+     * @var string
+     */
     private $summary;
+    /**
+     * @var string|NULL
+     */
     private $location = null;
+    /**
+     * @var string|NULL
+     */
     private $description = null;
     private $creator;
+    /**
+     * @var \DateTime
+     */
     private $start;
+    /**
+     * @var \DateTime
+     */
     private $end;
     
-    public function __construct($id)
+    public function __construct(string $id)
     {
         $this->id = $id;
     }
