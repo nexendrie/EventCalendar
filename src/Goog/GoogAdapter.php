@@ -20,10 +20,12 @@ use \Nette\Caching\Cache;
 class GoogAdapter
 {
     use \Nette\SmartObject;
-
+    
+    /**
+     * @var string
+     */
     private $calendarId;
     private $apiKey;
-
     /**
      * @var Cache
      */
@@ -44,8 +46,8 @@ class GoogAdapter
      * @var \DateTimeZone
      */
     private $timeZone;
-
-    public function __construct($calendarId, $apiKey)
+    
+    public function __construct(string $calendarId, $apiKey)
     {
         $this->calendarId = $calendarId;
         $this->apiKey = $apiKey;
