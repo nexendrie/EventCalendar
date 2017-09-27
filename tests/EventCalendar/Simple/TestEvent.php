@@ -29,5 +29,4 @@ class TestEvent implements IEventModel
     {
         return sprintf('%d-%02d-%02d', $year, $month, $day);
     }
-    
 }

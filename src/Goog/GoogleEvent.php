@@ -5,7 +5,7 @@ namespace EventCalendar\Goog;
 
 /**
  * Represent single event from Google Calendar
- * 
+ *
  * @property-read string $id
  * @property string $status
  * @property string $htmlLink
@@ -201,5 +201,4 @@ class GoogleEvent
         $this->end = $end;
         return $this;
     }
-
 }

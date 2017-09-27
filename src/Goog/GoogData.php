@@ -71,5 +71,4 @@ class GoogData implements IEventModel
         $dateTime = \DateTime::createFromFormat(self::DATE_FORMAT, $year . '-' . $month . '-' . $day);
         return $dateTime->format(self::DATE_FORMAT);
     }
-
 }

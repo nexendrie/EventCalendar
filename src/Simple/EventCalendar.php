@@ -5,9 +5,9 @@ namespace EventCalendar\Simple;
 
 /**
  * Calendar control with the need to define a translator
- * 
+ *
  * Also, you can use Texy! syntax in your events, just install Texy! into your project and use it.
- * 
+ *
  */
 class EventCalendar extends \EventCalendar\BasicCalendar
 {
@@ -43,7 +43,7 @@ class EventCalendar extends \EventCalendar\BasicCalendar
         } else {
             $template->getLatte()->addFilter('texy', function ($string) {
                 return $string;
-                    });
+            });
         }
 
         return $template;
@@ -53,5 +53,4 @@ class EventCalendar extends \EventCalendar\BasicCalendar
     {
         return __DIR__ . '/EventCalendar.latte';
     }
-
 }

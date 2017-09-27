@@ -81,7 +81,6 @@ class EventCalendarTest extends \Tester\TestCase
         $html = ob_get_clean();
         return $html;
     }
-    
 }
 
 

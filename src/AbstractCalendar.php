@@ -20,7 +20,7 @@ abstract class AbstractCalendar extends UI\Control
 
     /**
      * @var int|NULL
-     * @persistent 
+     * @persistent
      */
     public $year = NULL;
 
@@ -44,10 +44,10 @@ abstract class AbstractCalendar extends UI\Control
      * @var IEventModel
      */
     protected $events;
-  
-  /**
-   * @var array
-   */
+    
+    /**
+     * @var array
+     */
     protected $options = [];
     
     abstract protected function getTemplateFile(): string;
@@ -165,5 +165,4 @@ abstract class AbstractCalendar extends UI\Control
             $this->year = $today['year'];
         }
     }
-
 }

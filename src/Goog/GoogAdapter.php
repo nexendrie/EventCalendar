@@ -7,11 +7,11 @@ use \Nette\Caching\Cache;
 
 /**
  * Class for accessing data in Google Calendar by its API
- * 
- * Currently, only public calendars are allowed 
- * 
+ *
+ * Currently, only public calendars are allowed
+ *
  * See API doc for Google Calendar events: https://developers.google.com/google-apps/calendar/v3/reference/events/list
- * 
+ *
  * @property-write Cache $cache
  * @property-write \DateTime $cacheExpiration
  * @property-write string $searchTerm
@@ -152,7 +152,7 @@ class GoogAdapter
                         ->setEnd($item->end->dateTime);
                 if (isset($item->location)) {
                     $event->setLocation($item->location);
-                } 
+                }
                 if (isset($item->description)) {
                     $event->setDescription($item->description);
                 }
@@ -203,5 +203,4 @@ class GoogAdapter
         }
         return $url;
     }
-
 }

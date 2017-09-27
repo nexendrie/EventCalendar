@@ -7,9 +7,9 @@ use EventCalendar\BasicCalendar;
 
 /**
  * Integration with events from Google Calendar
- * 
+ *
  * Experimental
- * 
+ *
  * @property-write GoogAdapter $googAdapter
  * @todo Allow mix of events from Google Calendar with custom events
  */
@@ -69,7 +69,7 @@ class GoogCalendar extends BasicCalendar
     ];
 
     /**
-     * @var GoogAdapter 
+     * @var GoogAdapter
      */
     private $googAdapter;
     
@@ -106,5 +106,4 @@ class GoogCalendar extends BasicCalendar
         }
         parent::render();
     }
-
 }

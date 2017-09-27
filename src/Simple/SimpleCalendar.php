@@ -8,9 +8,9 @@ use \Nette\Neon\Neon;
 
 /**
  * Simple alternative for calendar control if you don't want to use translator.
- * 
+ *
  * Specify your language by calling setLanguage($lang)
- * 
+ *
  * @property-write string $language
  */
 class SimpleCalendar extends AbstractCalendar
@@ -91,6 +91,4 @@ class SimpleCalendar extends AbstractCalendar
     {
         return __DIR__ . '/SimpleCalendar.latte';
     }
-
 }
-
