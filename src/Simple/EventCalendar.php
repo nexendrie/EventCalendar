@@ -16,14 +16,13 @@ class EventCalendar extends \EventCalendar\BasicCalendar
     {
         /** @var \Nette\Bridges\ApplicationLatte\Template $template */
         $template = parent::createTemplate();
+        $callback = function ($string) {
+            return $string;
+        };
         if (class_exists(\Texy::class)) {
-            $texy = new \Texy();
-            $template->getLatte()->addFilter('texy', [$texy, 'process']);
-        } else {
-            $template->getLatte()->addFilter('texy', function ($string) {
-                return $string;
-            });
+            $callback = [new \Texy(), "process"];
         }
+        $template->getLatte()->addFilter('texy', $callback);
 
         return $template;
     }
