@@ -50,7 +50,7 @@ class SimpleCalendarTest extends \Tester\TestCase
         $this->calendar->setLanguage('esperanto');
         Assert::exception(function () {
             $this->calendar->render();
-        }, 'LogicException');
+        }, \LogicException::class);
     }
     
     /**
