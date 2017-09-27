@@ -75,7 +75,8 @@ class EventCalendarTest extends \Tester\TestCase
         Assert::true($texyOn || $texyOff);
     }
     
-    private function renderAndReturnHtml(): string {
+    private function renderAndReturnHtml(): string
+    {
         ob_start();
         $this->calendar->render();
         $html = ob_get_clean();
