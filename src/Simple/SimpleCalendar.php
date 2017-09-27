@@ -19,14 +19,6 @@ class SimpleCalendar extends AbstractCalendar
     const LANG_EN = 'en', LANG_CZ = 'cz', LANG_SK = 'sk', LANG_DE = 'de';
     
     /**
-     * Show top navigation for changing months, default <b>true</b>
-     */
-    const OPT_SHOW_TOP_NAV = 'showTopNav';
-    /**
-     * Show bottom navigation for changing months, default <b>true</b>
-     */
-    const OPT_SHOW_BOTTOM_NAV = 'showBottomNav';
-    /**
      * text for top link to previous month, default <b><</b>
      */
     const OPT_TOP_NAV_PREV = 'topNavPrev';
@@ -42,25 +34,19 @@ class SimpleCalendar extends AbstractCalendar
      * text for bottom link to next month, default <b>Next month</b>
      */
     const OPT_BOTTOM_NAV_NEXT = 'bottomNavNext';
-    /**
-     * maximum length of wday names, by default, full name is used (<b>null</b>)
-     */
-    const OPT_WDAY_MAX_LEN = 'wdayMaxLen';
 
     protected $language = self::LANG_EN;
-
-    /**
-     * @var array default options for calendar - you can change defaults by setOptions()
-     */
-    protected $options = [
-        'showTopNav' => TRUE,
-        'showBottomNav' => TRUE,
-        'topNavPrev' => '<',
-        'topNavNext' => '>',
-        'bottomNavPrev' => 'Previous month',
-        'bottomNavNext' => 'Next month',
-        'wdayMaxLen' => null
-    ];
+    
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setOptions([
+            'topNavPrev' => '<',
+            'topNavNext' => '>',
+            'bottomNavPrev' => 'Previous month',
+            'bottomNavNext' => 'Next month',
+        ]);
+    }
     
     public function setLanguage(string $lang)
     {

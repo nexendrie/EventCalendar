@@ -17,6 +17,19 @@ abstract class AbstractCalendar extends UI\Control
 {
 
     const FIRST_SUNDAY = 0, FIRST_MONDAY = 1;
+    
+    /**
+     * Show top navigation for changing months, default <b>true</b>
+     */
+    const OPT_SHOW_TOP_NAV = 'showTopNav';
+    /**
+     * Show bottom navigation for changing months, default <b>true</b>
+     */
+    const OPT_SHOW_BOTTOM_NAV = 'showBottomNav';
+    /**
+     * maximum length of wday names, by default, full name is used (<b>null</b>)
+     */
+    const OPT_WDAY_MAX_LEN = 'wdayMaxLen';
 
     /**
      * @var int|NULL
@@ -46,9 +59,13 @@ abstract class AbstractCalendar extends UI\Control
     protected $events;
     
     /**
-     * @var array
+     * @var array default options for calendar - you can change defaults by setOptions()
      */
-    protected $options = [];
+    protected $options = [
+        'showTopNav' => true,
+        'showBottomNav' => true,
+        'wdayMaxLen' => NULL,
+    ];
     
     abstract protected function getTemplateFile(): string;
 

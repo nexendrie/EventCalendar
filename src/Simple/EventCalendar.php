@@ -11,27 +11,6 @@ namespace EventCalendar\Simple;
  */
 class EventCalendar extends \EventCalendar\BasicCalendar
 {
-    /**
-     * Show top navigation for changing months, default <b>true</b>
-     */
-    const OPT_SHOW_TOP_NAV = 'showTopNav';
-    /**
-     * Show bottom navigation for changing months, default <b>true</b>
-     */
-    const OPT_SHOW_BOTTOM_NAV = 'showBottomNav';
-    /**
-     * maximum length of wday names, by default, full name is used (<b>null</b>)
-     */
-    const OPT_WDAY_MAX_LEN = 'wdayMaxLen';
-
-    /**
-     * @var array default options for calendar - you can change defaults by setOptions()
-     */
-    protected $options = [
-        'showTopNav' => TRUE,
-        'showBottomNav' => TRUE,
-        'wdayMaxLen' => null
-    ];
     
     protected function createTemplate(): \Nette\Application\UI\ITemplate
     {

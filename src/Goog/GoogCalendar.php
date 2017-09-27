@@ -19,15 +19,6 @@ class GoogCalendar extends BasicCalendar
      * Show top navigation for changing months, default <b>true</b>
      */
 
-    const OPT_SHOW_TOP_NAV = 'showTopNav';
-    /**
-     * Show bottom navigation for changing months, default <b>true</b>
-     */
-    const OPT_SHOW_BOTTOM_NAV = 'showBottomNav';
-    /**
-     * maximum length of wday names, by default, full name is used (<b>null</b>)
-     */
-    const OPT_WDAY_MAX_LEN = 'wdayMaxLen';
     /**
      * show link to event in Google Calendar, default is <b>true</b>
      */
@@ -54,24 +45,22 @@ class GoogCalendar extends BasicCalendar
     const OPT_EVENT_DATEFORMAT = 'eventDateformat';
 
     /**
-     * @var array default options for calendar - you can change defauls by setOptions()
-     */
-    protected $options = [
-        'showTopNav' => TRUE,
-        'showBottomNav' => TRUE,
-        'wdayMaxLen' => null,
-        'showEventLink' => true,
-        'showEventLocation' => true,
-        'showEventDescription' => true,
-        'showEventStart' => true,
-        'showEventEnd' => true,
-        'eventDateformat' => 'F j, Y, g:i a'
-    ];
-
-    /**
      * @var GoogAdapter
      */
     private $googAdapter;
+    
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setOptions([
+            'showEventLink' => true,
+            'showEventLocation' => true,
+            'showEventDescription' => true,
+            'showEventStart' => true,
+            'showEventEnd' => true,
+            'eventDateformat' => 'F j, Y, g:i a',
+        ]);
+    }
     
     protected function getTemplateFile(): string
     {
