@@ -9,30 +9,20 @@
   <exclude-pattern>*/temp/*</exclude-pattern>
   <exclude-pattern>*/_temp/*</exclude-pattern>
   <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
-  <rule ref="Generic.Classes">
-    <exclude name="Generic.Classes.OpeningBraceSameLine"/>
-  </rule>
+  <rule ref="Generic.Classes.DuplicateClassName"/>
   <rule ref="Generic.CodeAnalysis"/>
   <rule ref="Generic.ControlStructures.InlineControlStructure">
     <properties>
       <property name="error" value="false"/>
     </properties>
   </rule>
-  <rule ref="Generic.Files.ByteOrderMark"/>
   <rule ref="Generic.Files.EndFileNewline"/>
   <rule ref="Generic.Files.InlineHTML"/>
   <rule ref="Generic.Files.LineEndings"/>
-  <rule ref="Generic.Files.LineLength">
-    <properties>
-      <property name="absoluteLineLimit" value="261"/>
-    </properties>
-  </rule>
-  <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
   <rule ref="Generic.Formatting.SpaceAfterCast"/>
   <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
-  <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
   <rule ref="Generic.Metrics"/>
-  <rule ref="Generic.NamingConventions"/>
+  <rule ref="Generic.NamingConventions.ConstructorName"/>
   <rule ref="Generic.PHP">
     <exclude name="Generic.PHP.ClosingPHPTag"/>
     <exclude name="Generic.PHP.LowerCaseConstant"/>
@@ -40,15 +30,8 @@
     <exclude name="Generic.PHP.UpperCaseConstant"/>
   </rule>
   <rule ref="Generic.Strings"/>
-  <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
-  <rule ref="Generic.WhiteSpace.ScopeIndent">
-    <properties>
-      <property name="indent" value="4"/>
-    </properties>
-  </rule>
   <rule ref="Squiz.Classes.ClassFileName"/>
   <rule ref="Squiz.Classes.DuplicateProperty"/>
-  <rule ref="Squiz.Classes.ValidClassName"/>
   <rule ref="Squiz.ControlStructures"/>
   <rule ref="Squiz.PHP.CommentedOutCode"/>
   <rule ref="Squiz.PHP.DiscouragedFunctions"/>
@@ -57,11 +40,8 @@
   <rule ref="Squiz.PHP.LowercasePHPFunctions"/>
   <rule ref="Squiz.PHP.NonExecutableCode"/>
   <rule ref="Squiz.Scope.MemberVarScope"/>
-  <rule ref="Squiz.Scope.MethodScope"/>
   <rule ref="Squiz.Scope.StaticThisUsage"/>
   <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
-  <rule ref="PSR1.Classes"/>
-  <rule ref="PSR1.Methods"/>
   <rule ref="PSR1.Files.SideEffects">
     <exclude-pattern>*/tests/*</exclude-pattern>
   </rule>
