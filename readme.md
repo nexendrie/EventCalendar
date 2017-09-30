@@ -8,7 +8,7 @@ This is an add-on component for Nette framework which enables displaying various
 Installation
 ============
 
-The best way to install it is via Composer. Just add **konecnyjakub/event-calendar** to your dependencies. Latest stable version does not work with current Nette so you have to use current master for now.
+The best way to install it is via Composer. Just add **konecnyjakub/event-calendar** to your dependencies.
 
 Quick start
 ============
