@@ -87,7 +87,11 @@ class GoogCalendar extends BasicCalendar
     public function render(): void
     {
         $this->prepareDate();
-        $this->googAdapter->setBoundary($this->year, $this->month);
+        /** @var int $year */
+        $year = $this->year;
+        /** @var int $month */
+        $month = $this->month;
+        $this->googAdapter->setBoundary($year, $month);
         try {
             $this->events = $this->googAdapter->loadEvents();
         } catch (GoogApiException $e) {

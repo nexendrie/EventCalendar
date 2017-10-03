@@ -29,7 +29,7 @@ install:
 script:
     - ./vendor/bin/parallel-lint src tests -e php,phpt
     - ./vendor/bin/phpcs --extensions=php,phpt . --colors -p
-    - ./vendor/bin/phpstan analyze -l 6 -c phpstan.neon src tests
+    - ./vendor/bin/phpstan analyze -l 7 -c phpstan.neon src tests
     - if [ "$TESTER_PHP_BIN" == "php" ]; then ./vendor/bin/run-tests -p php tests -s; fi
     - if [ "$TESTER_PHP_BIN" == "phpdbg" ]; then ./vendor/bin/run-tests -p phpdbg tests -s --coverage coverage.xml --coverage-src src; fi
 

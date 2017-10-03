@@ -109,15 +109,19 @@ abstract class AbstractCalendar extends UI\Control
 
         $this->prepareDate();
     
+        /** @var int $year */
+        $year = $this->year;
+        /** @var int $month */
+        $month = $this->month;
         $dateInfo = [];
-        $dateInfo['year'] = $this->year; // current year
-        $dateInfo['month'] = $this->month; // current month
-        $dateInfo['noOfDays'] = cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year); // count of days in month
-        $dateInfo['firstDayInMonth'] = $this->getFirstDayInMonth($this->year, $this->month); // first day of month
+        $dateInfo['year'] = $year; // current year
+        $dateInfo['month'] = $month; // current month
+        $dateInfo['noOfDays'] = cal_days_in_month(CAL_GREGORIAN, $month, $year); // count of days in month
+        $dateInfo['firstDayInMonth'] = $this->getFirstDayInMonth($year, $month); // first day of month
 
         $this->template->dateInfo = $dateInfo;
-        $this->template->next = $this->getNextMonth($this->year, $this->month);
-        $this->template->prev = $this->getPrevMonth($this->year, $this->month);
+        $this->template->next = $this->getNextMonth($year, $month);
+        $this->template->prev = $this->getPrevMonth($year, $month);
         $this->template->options = $this->options;
         $this->template->events = $this->events;
 
