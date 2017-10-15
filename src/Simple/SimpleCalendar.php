@@ -15,25 +15,25 @@ use \Nette\Neon\Neon;
  */
 class SimpleCalendar extends AbstractCalendar
 {
-
-    const LANG_EN = 'en', LANG_CZ = 'cz', LANG_SK = 'sk', LANG_DE = 'de';
+    
+    public const LANG_EN = 'en', LANG_CZ = 'cz', LANG_SK = 'sk', LANG_DE = 'de';
     
     /**
      * text for top link to previous month, default <b><</b>
      */
-    const OPT_TOP_NAV_PREV = 'topNavPrev';
+    public const OPT_TOP_NAV_PREV = 'topNavPrev';
     /**
      * text for top link to next month, default <b>></b>
      */
-    const OPT_TOP_NAV_NEXT = 'topNavNext';
+    public const OPT_TOP_NAV_NEXT = 'topNavNext';
     /**
      * text for bottom link to previous month, default <b>Previous month</b>
      */
-    const OPT_BOTTOM_NAV_PREV = 'bottomNavPrev';
+    public const OPT_BOTTOM_NAV_PREV = 'bottomNavPrev';
     /**
      * text for bottom link to next month, default <b>Next month</b>
      */
-    const OPT_BOTTOM_NAV_NEXT = 'bottomNavNext';
+    public const OPT_BOTTOM_NAV_NEXT = 'bottomNavNext';
 
     protected $language = self::LANG_EN;
     
