@@ -8,6 +8,7 @@ use \EventCalendar\IEventModel;
 /**
  * @property string $name
  * @property string $description
+ * @property-read array $events
  */
 class GoogData implements IEventModel
 {
