@@ -5,7 +5,7 @@ namespace EventCalendar\Simple;
 
 use EventCalendar\IEventModel;
 
-class TestEvent implements IEventModel
+final class TestEvent implements IEventModel
 {
     
     private $events = [];
