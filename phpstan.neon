@@ -6,3 +6,10 @@ includes:
 parameters:
     ignoreErrors:
             - '#(Instantiated c|C)lass Texy not found#'
+            - '#Parameter \#1 \$input of static method Nette\\Neon\\Neon::decode\(\) expects string, string\|false given#'
+            - '#Construct empty\(\) is not allowed. Use more strict comparison#'
+            - '#Cannot call method format\(\) on DateTime\|false#'
+            - '#Only booleans are allowed in an if condition, mixed given#'
+            - '#Property EventCalendar\\Goog\\[a-zA-Z0-9\\_]+::\$[a-zA-Z0-9\\_]+ has no typehint specified#'
+            - '#Method EventCalendar\\Goog\\[a-zA-Z0-9\\_]+::[a-zA-Z0-9\\_]+\(\) has no return typehint specified#'
+            - '#Method EventCalendar\\Goog\\[a-zA-Z0-9\\_]+::[a-zA-Z0-9\\_]+\(\) has parameter \$[a-zA-Z0-9\\_]+ with no typehint specified#'

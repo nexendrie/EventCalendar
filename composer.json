@@ -18,7 +18,7 @@
     },
     "require-dev": {
         "nexendrie/code-quality": "@dev",
-        "phpstan/phpstan-nette": "^0.9",
+        "phpstan/phpstan-nette": "^0.10",
         "tracy/tracy": "^2.4"
     },
     "suggest": {

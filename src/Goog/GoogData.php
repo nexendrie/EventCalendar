@@ -26,12 +26,12 @@ class GoogData implements IEventModel
      */
     private $description;
     
-    public function setName(string $name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
     
-    public function setDescription(string $description)
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }

@@ -35,6 +35,7 @@ class SimpleCalendar extends AbstractCalendar
      */
     public const OPT_BOTTOM_NAV_NEXT = 'bottomNavNext';
 
+    /** @var string */
     protected $language = self::LANG_EN;
     
     public function __construct()
@@ -48,7 +49,7 @@ class SimpleCalendar extends AbstractCalendar
         ]);
     }
     
-    public function setLanguage(string $lang)
+    public function setLanguage(string $lang): void
     {
         $this->language = $lang;
     }

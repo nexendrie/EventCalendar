@@ -17,7 +17,7 @@ abstract class BasicCalendar extends AbstractCalendar
     /**
      * set translator for calendar control
      */
-    public function setTranslator(\Nette\Localization\ITranslator $translator)
+    public function setTranslator(\Nette\Localization\ITranslator $translator): void
     {
         $this->translator = $translator;
     }

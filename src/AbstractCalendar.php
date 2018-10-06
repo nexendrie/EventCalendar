@@ -72,7 +72,7 @@ abstract class AbstractCalendar extends UI\Control
     /**
      * Specify the date on which the week starts
      */
-    public function setFirstDay(int $day)
+    public function setFirstDay(int $day): void
     {
         $this->firstDay = $day;
     }
@@ -80,14 +80,14 @@ abstract class AbstractCalendar extends UI\Control
     /**
      * Changes default options, see OPT constants for currently supported options for each type of calendar
      */
-    public function setOptions(array $options)
+    public function setOptions(array $options): void
     {
         foreach ($options as $key => $value) {
             $this->options[$key] = $value;
         }
     }
 
-    public function setEvents(IEventModel $events)
+    public function setEvents(IEventModel $events): void
     {
         $this->events = $events;
     }
