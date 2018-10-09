@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": ">=7.1.0",
+        "ext-calendar": "*",
         "nette/utils": "^2.4",
         "latte/latte": "^2.4",
         "nette/application": "^2.4",
