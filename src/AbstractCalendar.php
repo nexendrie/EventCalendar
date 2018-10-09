@@ -108,7 +108,7 @@ abstract class AbstractCalendar extends UI\Control
         $this->template->setFile($this->getTemplateFile());
 
         $this->prepareDate();
-    
+
         /** @var int $year */
         $year = $this->year;
         /** @var int $month */
@@ -185,5 +185,7 @@ abstract class AbstractCalendar extends UI\Control
             $this->month = $today['mon'];
             $this->year = $today['year'];
         }
+        $this->year = (int) $this->year;
+        $this->month = (int) $this->month;
     }
 }
