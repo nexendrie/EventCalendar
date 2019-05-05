@@ -5,7 +5,6 @@ includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
 parameters:
     ignoreErrors:
-            - '#(Instantiated c|C)lass Texy not found#'
             - '#Parameter \#1 \$input of static method Nette\\Neon\\Neon::decode\(\) expects string, string\|false given#'
             - '#Construct empty\(\) is not allowed. Use more strict comparison#'
             - '#Cannot call method format\(\) on DateTime\|false#'

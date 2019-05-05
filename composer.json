@@ -19,8 +19,10 @@
     },
     "require-dev": {
         "nexendrie/code-quality": "@dev",
-        "phpstan/phpstan-nette": "^0.10",
-        "tracy/tracy": "^2.4"
+        "phpstan/phpstan-nette": "^0.11",
+        "tracy/tracy": "^2.4",
+        "texy/texy": "^3.0",
+        "nette/security": "^2.4"
     },
     "suggest": {
         "texy/texy": ">= v2.2.0"
