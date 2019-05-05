@@ -10,7 +10,7 @@
     }
     ],
     "require": {
-        "php": ">=7.1.0",
+        "php": ">=7.2.0",
         "ext-calendar": "*",
         "nette/utils": "^3.0",
         "latte/latte": "^3.0",

@@ -1,3 +1,6 @@
+Version 0.4.0+dev
+- raised minimal version of PHP to 7.2
+
 Version 0.4.0
 - updated for Nette 3, dropped support for older versions
 
