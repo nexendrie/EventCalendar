@@ -40,7 +40,6 @@ class SimpleCalendar extends AbstractCalendar
     
     public function __construct()
     {
-        parent::__construct();
         $this->setOptions([
             'topNavPrev' => '<',
             'topNavNext' => '>',

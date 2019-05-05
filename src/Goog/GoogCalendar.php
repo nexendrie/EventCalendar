@@ -51,7 +51,6 @@ class GoogCalendar extends BasicCalendar
     
     public function __construct()
     {
-        parent::__construct();
         $this->setOptions([
             'showEventLink' => true,
             'showEventLocation' => true,
