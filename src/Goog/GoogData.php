@@ -15,7 +15,10 @@ class GoogData implements IEventModel
     use \Nette\SmartObject;
     
     public const DATE_FORMAT = 'Y-m-d';
-    
+
+  /**
+   * @var array
+   */
     private $events = [];
     /**
      * @var string

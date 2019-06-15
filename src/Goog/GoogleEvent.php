@@ -54,7 +54,10 @@ class GoogleEvent
      * @var string|NULL
      */
     private $description = null;
-    private $creator;
+  /**
+   * @var string
+   */
+    private $creator = '';
     /**
      * @var \DateTime
      */
@@ -109,7 +112,7 @@ class GoogleEvent
         return $this->description;
     }
 
-    public function getCreator()
+    public function getCreator(): string
     {
         return $this->creator;
     }
@@ -124,7 +127,7 @@ class GoogleEvent
         return $this->end;
     }
     
-    public function setStatus($status): GoogleEvent
+    public function setStatus(string $status): GoogleEvent
     {
         $this->status = $status;
         return $this;

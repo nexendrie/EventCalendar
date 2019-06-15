@@ -25,6 +25,9 @@ class GoogAdapter
      * @var string
      */
     private $calendarId;
+  /**
+   * @var string
+   */
     private $apiKey;
     /**
      * @var Cache
@@ -34,12 +37,33 @@ class GoogAdapter
      * @var \DateTime
      */
     private $cacheExpiration;
+  /**
+   * @var string
+   */
     private $searchTerm;
+  /**
+   * @var bool
+   */
     private $showDeleted = false;
+  /**
+   * @var bool
+   */
     private $expandRecurringEvents = false;
+  /**
+   * @var string
+   */
     private $timeMax;
+  /**
+   * @var string
+   */
     private $timeMin;
+  /**
+   * @var int
+   */
     private $year;
+  /**
+   * @var int
+   */
     private $month;
 
     /**
@@ -47,7 +71,7 @@ class GoogAdapter
      */
     private $timeZone;
     
-    public function __construct(string $calendarId, $apiKey)
+    public function __construct(string $calendarId, string $apiKey)
     {
         $this->calendarId = $calendarId;
         $this->apiKey = $apiKey;
@@ -174,11 +198,12 @@ class GoogAdapter
         return $googData;
     }
 
-    private function loadByApi()
+    private function loadByApi(): string
     {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_URL, $this->prepareUrl());
+        /** @var string $response */
         $response = curl_exec($curl);
         curl_close($curl);
         return $response;
