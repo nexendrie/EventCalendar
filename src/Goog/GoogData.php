@@ -72,6 +72,7 @@ class GoogData implements IEventModel
     
     private function numbersToDate(int $year, int $month, int $day): string
     {
+        /** @var \DateTime $dateTime */
         $dateTime = \DateTime::createFromFormat(self::DATE_FORMAT, $year . '-' . $month . '-' . $day);
         return $dateTime->format(self::DATE_FORMAT);
     }

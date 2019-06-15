@@ -5,7 +5,5 @@ includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
 parameters:
     ignoreErrors:
-            - '#Parameter \#1 \$input of static method Nette\\Neon\\Neon::decode\(\) expects string, string\|false given#'
-            - '#Construct empty\(\) is not allowed. Use more strict comparison#'
-            - '#Cannot call method format\(\) on DateTime\|false#'
-            - '#Only booleans are allowed in an if condition, mixed given#'
+        - '#Parameter \#1 \$input of static method Nette\\Neon\\Neon::decode\(\) expects string, string\|false given#'
+        - '#Construct empty\(\) is not allowed. Use more strict comparison#'

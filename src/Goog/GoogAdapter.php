@@ -154,7 +154,7 @@ class GoogAdapter
         // return from cache
         if (isset($this->cache)) {
             $alreadySaved = $this->cache->load($this->year . '-' . $this->month);
-            if ($alreadySaved) {
+            if ($alreadySaved !== NULL) {
                 return $alreadySaved;
             }
         }
