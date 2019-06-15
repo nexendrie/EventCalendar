@@ -32,7 +32,8 @@
         "texy/texy": "To use Texy! syntax in events"
     },
     "conflict": {
-        "texy/texy": "<3.0"
+        "texy/texy": "<3.0",
+        "nette/caching": "<3.0"
     },
     "autoload": {
         "psr-4": {
