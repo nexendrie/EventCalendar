@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace EventCalendar\Goog;
+namespace EventCalendar\Google;
 
 use EventCalendar\BasicCalendar;
 
@@ -10,10 +10,10 @@ use EventCalendar\BasicCalendar;
  *
  * Experimental
  *
- * @property-write GoogAdapter $googAdapter
+ * @property-write GoogleAdapter $googleAdapter
  * @todo Allow mix of events from Google Calendar with custom events
  */
-class GoogCalendar extends BasicCalendar
+class GoogleCalendar extends BasicCalendar
 {
     /**
      * Show top navigation for changing months, default <b>true</b>
@@ -45,9 +45,9 @@ class GoogCalendar extends BasicCalendar
     public const OPT_EVENT_DATEFORMAT = 'eventDateformat';
 
     /**
-     * @var GoogAdapter
+     * @var GoogleAdapter
      */
-    private $googAdapter;
+    private $googleAdapter;
     
     public function __construct()
     {
@@ -66,9 +66,9 @@ class GoogCalendar extends BasicCalendar
         return __DIR__ . '/GoogCalendar.latte';
     }
     
-    public function setGoogAdapter(GoogAdapter $googAdapter): void
+    public function setGoogleAdapter(GoogleAdapter $googleAdapter): void
     {
-        $this->googAdapter = $googAdapter;
+        $this->googleAdapter = $googleAdapter;
     }
     
     /**
@@ -81,7 +81,7 @@ class GoogCalendar extends BasicCalendar
     }
 
     /**
-     * @throws \EventCalendar\Goog\GoogApiException
+     * @throws \EventCalendar\Google\GoogleApiException
      */
     public function render(): void
     {
@@ -90,10 +90,10 @@ class GoogCalendar extends BasicCalendar
         $year = $this->year;
         /** @var int $month */
         $month = $this->month;
-        $this->googAdapter->setBoundary($year, $month);
+        $this->googleAdapter->setBoundary($year, $month);
         try {
-            $this->events = $this->googAdapter->loadEvents();
-        } catch (GoogApiException $e) {
+            $this->events = $this->googleAdapter->loadEvents();
+        } catch (GoogleApiException $e) {
             throw $e;
         }
         parent::render();

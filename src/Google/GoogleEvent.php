@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace EventCalendar\Goog;
+namespace EventCalendar\Google;
 
 /**
  * Represent single event from Google Calendar

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace EventCalendar\Goog;
+namespace EventCalendar\Google;
 
 use \EventCalendar\IEventModel;
 
@@ -10,7 +10,7 @@ use \EventCalendar\IEventModel;
  * @property string $description
  * @property-read array $events
  */
-class GoogData implements IEventModel
+class GoogleData implements IEventModel
 {
     use \Nette\SmartObject;
     
