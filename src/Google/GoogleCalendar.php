@@ -63,7 +63,7 @@ class GoogleCalendar extends BasicCalendar
     
     protected function getTemplateFile(): string
     {
-        return __DIR__ . '/GoogCalendar.latte';
+        return __DIR__ . '/GoogleCalendar.latte';
     }
     
     public function setGoogleAdapter(GoogleAdapter $googleAdapter): void
@@ -72,7 +72,7 @@ class GoogleCalendar extends BasicCalendar
     }
     
     /**
-     * Do not set events directly, use GoogAdapter. Mix of events from Google with customs events is not implemented yet.
+     * Do not set events directly, use GoogleAdapter. Mix of events from Google with customs events is not implemented yet.
      * @throws \LogicException
      */
     public function setEvents(\EventCalendar\IEventModel $events): void
