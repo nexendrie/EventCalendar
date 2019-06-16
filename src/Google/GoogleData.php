@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace EventCalendar\Google;
 
 use \EventCalendar\IEventModel;
+use Nette\Utils\Arrays;
 
 /**
  * @property string $name
@@ -62,7 +63,7 @@ class GoogleData implements IEventModel
     
     public function getForDate(int $year, int $month, int $day): array
     {
-        return $this->events[$this->numbersToDate($year, $month, $day)];
+        return Arrays::get($this->events, $this->numbersToDate($year, $month, $day), []);
     }
     
     public function isForDate(int $year, int $month, int $day): bool
