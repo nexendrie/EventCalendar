@@ -28,7 +28,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
             $this->calendar = new GoogleCalendar();
             $this->calendar->setTranslator(new class implements \Nette\Localization\ITranslator
             {
-                public function translate($message, ... $parameters): string
+                public function translate($message, ...$parameters): string
                 {
                     return $message;
                 }

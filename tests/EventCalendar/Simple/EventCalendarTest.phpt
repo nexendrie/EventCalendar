@@ -23,7 +23,7 @@ final class EventCalendarTest extends \Tester\TestCase
             $this->calendar = new EventCalendar();
             $this->calendar->setTranslator(new class implements \Nette\Localization\ITranslator
             {
-                public function translate($message, ... $parameters): string
+                public function translate($message, ...$parameters): string
                 {
                     return $message;
                 }
