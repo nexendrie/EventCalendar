@@ -1,6 +1,7 @@
 Version 0.5.0-dev
 - raised minimal version of PHP to 7.2
 - renamed namespace EventCalendar\Goog to EventCalendar\Google, renamed classes in it to Google*, renamed property GoogCalendar::$googAdapter to $googleAdapter
+- re-added support for Latte 2.5
 
 Version 0.4.0
 - updated for Nette 3, dropped support for older versions
