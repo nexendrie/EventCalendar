@@ -18,7 +18,6 @@ matrix:
           env: TESTER_PHP_BIN=phpdbg
     allow_failures:
         - php: nightly
-        - php: '7.4'
 
 before_install:
     - composer self-update
