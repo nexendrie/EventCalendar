@@ -3,7 +3,7 @@ language: php
 php:
     - '7.2'
     - '7.3'
-    - 7.4snapshot
+    - '7.4'
     - nightly
 
 notifications:
@@ -18,7 +18,7 @@ matrix:
           env: TESTER_PHP_BIN=phpdbg
     allow_failures:
         - php: nightly
-        - php: 7.4snapshot
+        - php: '7.4'
 
 before_install:
     - composer self-update
