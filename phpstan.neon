@@ -4,6 +4,7 @@ includes:
     - vendor/phpstan/phpstan-nette/rules.neon
     - vendor/phpstan/phpstan-strict-rules/rules.neon
 parameters:
+    checkMissingIterableValueType: false
     ignoreErrors:
         - '#Parameter \#1 \$input of static method Nette\\Neon\\Neon::decode\(\) expects string, string\|false given#'
         - '#Construct empty\(\) is not allowed. Use more strict comparison#'
