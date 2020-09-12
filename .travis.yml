@@ -1,7 +1,6 @@
 language: php
 
 php:
-    - '7.3'
     - '7.4'
     - nightly
 
@@ -13,7 +12,7 @@ env:
 
 matrix:
     include:
-        - php: '7.3'
+        - php: '7.4'
           env: TESTER_PHP_BIN=phpdbg
     allow_failures:
         - php: nightly
