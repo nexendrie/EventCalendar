@@ -17,18 +17,9 @@ class GoogleData implements IEventModel
     
     public const DATE_FORMAT = 'Y-m-d';
 
-  /**
-   * @var array
-   */
-    private $events = [];
-    /**
-     * @var string
-     */
-    private $name;
-    /**
-     * @var string
-     */
-    private $description;
+    private array $events = [];
+    private string $name;
+    private string $description;
     
     public function setName(string $name): void
     {

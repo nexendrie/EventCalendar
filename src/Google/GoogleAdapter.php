@@ -20,56 +20,20 @@ use \Nette\Caching\Cache;
 class GoogleAdapter
 {
     use \Nette\SmartObject;
-    
-    /**
-     * @var string
-     */
-    private $calendarId;
-  /**
-   * @var string
-   */
-    private $apiKey;
-    /**
-     * @var Cache
-     */
-    private $cache;
-    /**
-     * @var \DateTime
-     */
-    private $cacheExpiration;
-  /**
-   * @var string
-   */
-    private $searchTerm;
-  /**
-   * @var bool
-   */
-    private $showDeleted = false;
-  /**
-   * @var bool
-   */
-    private $expandRecurringEvents = false;
-  /**
-   * @var string
-   */
-    private $timeMax;
-  /**
-   * @var string
-   */
-    private $timeMin;
-  /**
-   * @var int
-   */
-    private $year;
-  /**
-   * @var int
-   */
-    private $month;
 
-    /**
-     * @var \DateTimeZone
-     */
-    private $timeZone;
+    private string $calendarId;
+    private string $apiKey;
+    private Cache $cache;
+    private \DateTime $cacheExpiration;
+    private string $searchTerm;
+    private bool $showDeleted = false;
+    private bool $expandRecurringEvents = false;
+    private string $timeMax;
+    private string $timeMin;
+    private int $year;
+    private int $month;
+
+    private \DateTimeZone $timeZone;
     
     public function __construct(string $calendarId, string $apiKey)
     {

@@ -9,10 +9,7 @@ namespace EventCalendar;
 abstract class BasicCalendar extends AbstractCalendar
 {
 
-    /**
-     * @var \Nette\Localization\ITranslator
-     */
-    protected $translator;
+    protected \Nette\Localization\ITranslator $translator;
 
     /**
      * set translator for calendar control

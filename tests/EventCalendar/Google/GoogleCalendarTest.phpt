@@ -16,15 +16,12 @@ use Tester\Assert;
 final class GoogleCalendarTest extends \Tester\TestCase
 {
     use \Testbench\TComponent;
-    
-    /**
-     * @var GoogleCalendar
-     */
-    private $calendar;
+
+    private GoogleCalendar $calendar;
     
     protected function setUp()
     {
-        if (is_null($this->calendar)) {
+        if (!isset($this->calendar)) {
             $this->calendar = new GoogleCalendar();
             $this->calendar->setTranslator(new class implements \Nette\Localization\ITranslator
             {

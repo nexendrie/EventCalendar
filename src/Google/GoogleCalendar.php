@@ -44,11 +44,8 @@ class GoogleCalendar extends BasicCalendar
      */
     public const OPT_EVENT_DATEFORMAT = 'eventDateformat';
 
-    /**
-     * @var GoogleAdapter
-     */
-    private $googleAdapter;
-    
+    private GoogleAdapter $googleAdapter;
+
     public function __construct()
     {
         $this->setOptions([

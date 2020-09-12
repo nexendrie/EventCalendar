@@ -21,51 +21,18 @@ namespace EventCalendar\Google;
 class GoogleEvent
 {
     use \Nette\SmartObject;
-    
-    /**
-     * @var string
-     */
-    private $id;
-    /**
-     * @var string
-     */
-    private $status;
-    /**
-     * @var string
-     */
-    private $htmlLink;
-    /**
-     * @var \DateTime
-     */
-    private $created;
-    /**
-     * @var \DateTime
-     */
-    private $updated;
-    /**
-     * @var string
-     */
-    private $summary;
-    /**
-     * @var string|NULL
-     */
-    private $location = null;
-    /**
-     * @var string|NULL
-     */
-    private $description = null;
-  /**
-   * @var string
-   */
-    private $creator = '';
-    /**
-     * @var \DateTime
-     */
-    private $start;
-    /**
-     * @var \DateTime
-     */
-    private $end;
+
+    private string $id;
+    private string $status;
+    private string $htmlLink;
+    private \DateTime $created;
+    private \DateTime $updated;
+    private string $summary;
+    private ?string $location = null;
+    private ?string $description = null;
+    private string $creator = '';
+    private \DateTime $start;
+    private \DateTime $end;
     
     public function __construct(string $id)
     {

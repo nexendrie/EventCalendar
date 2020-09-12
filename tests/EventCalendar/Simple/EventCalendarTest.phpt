@@ -11,15 +11,12 @@ use Tester\Assert;
 final class EventCalendarTest extends \Tester\TestCase
 {
     use \Testbench\TComponent;
-    
-    /**
-     * @var EventCalendar
-     */
-    private $calendar;
+
+    private EventCalendar $calendar;
     
     protected function setUp()
     {
-        if (is_null($this->calendar)) {
+        if (!isset($this->calendar)) {
             $this->calendar = new EventCalendar();
             $this->calendar->setTranslator(new class implements \Nette\Localization\ITranslator
             {

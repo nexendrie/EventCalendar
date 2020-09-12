@@ -11,15 +11,12 @@ use Tester\Assert;
 final class SimpleCalendarTest extends \Tester\TestCase
 {
     use \Testbench\TComponent;
-    
-    /**
-     * @var SimpleCalendar
-     */
-    private $calendar;
+
+    private SimpleCalendar $calendar;
     
     protected function setUp()
     {
-        if (is_null($this->calendar)) {
+        if (!isset($this->calendar)) {
             $this->calendar = new SimpleCalendar();
         }
         $this->attachToPresenter($this->calendar);

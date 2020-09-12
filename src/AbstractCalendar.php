@@ -32,36 +32,28 @@ abstract class AbstractCalendar extends UI\Control
     public const OPT_WDAY_MAX_LEN = 'wdayMaxLen';
 
     /**
-     * @var int|NULL
      * @persistent
      */
-    public $year = NULL;
+    public ?int $year = null;
 
     /**
-     * @var int|NULL
      * @persistent
      */
-    public $month = NULL;
+    public ?int $month = null;
 
     /**
      * @var callable[]
      */
-    public $onDateChange;
-    
-    /**
-     * @var int
-     */
-    protected $firstDay = self::FIRST_SUNDAY;
+    public array $onDateChange;
 
-    /**
-     * @var IEventModel
-     */
-    protected $events;
-    
+    protected int $firstDay = self::FIRST_SUNDAY;
+
+    protected IEventModel $events;
+
     /**
      * @var array default options for calendar - you can change defaults by setOptions()
      */
-    protected $options = [
+    protected array $options = [
         'showTopNav' => true,
         'showBottomNav' => true,
         'wdayMaxLen' => NULL,
@@ -123,7 +115,7 @@ abstract class AbstractCalendar extends UI\Control
         $this->template->next = $this->getNextMonth($year, $month);
         $this->template->prev = $this->getPrevMonth($year, $month);
         $this->template->options = $this->options;
-        $this->template->events = $this->events;
+        $this->template->events = $this->events ?? null;
 
         $this->template->render();
     }
