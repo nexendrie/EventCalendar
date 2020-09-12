@@ -7,6 +7,9 @@ require __DIR__ . '/../../bootstrap.php';
 
 use Tester\Assert;
 
+/**
+ * @testCase
+ */
 final class GoogleDataTest extends \Tester\TestCase
 {
     public function testEvents()

@@ -8,6 +8,9 @@ require __DIR__ . '/../../bootstrap.php';
 use Tester\DomQuery;
 use Tester\Assert;
 
+/**
+ * @testCase
+ */
 final class SimpleCalendarTest extends \Tester\TestCase
 {
     use \Testbench\TComponent;

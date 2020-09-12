@@ -12,6 +12,7 @@ use Tester\Assert;
 
 /**
  * @skip
+ * @testCase
  */
 final class GoogleCalendarTest extends \Tester\TestCase
 {

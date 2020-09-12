@@ -9,6 +9,9 @@ use Nette\Caching\Cache;
 use Nette\Caching\Storages\MemoryStorage;
 use Tester\Assert;
 
+/**
+ * @testCase
+ */
 final class GoogleAdapterTest extends \Tester\TestCase
 {
     public function testCachedEvents()
