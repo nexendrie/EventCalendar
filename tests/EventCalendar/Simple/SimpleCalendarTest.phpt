@@ -44,7 +44,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
     
     public function testWrongLang()
     {
-        $this->calendar->setLanguage('esperanto');
+        $this->calendar->language = 'esperanto';
         Assert::exception(function () {
             $this->calendar->render();
         }, \LogicException::class);
@@ -55,8 +55,8 @@ final class SimpleCalendarTest extends \Tester\TestCase
      */
     public function testCzechCalendar()
     {
-        $this->calendar->setFirstDay(SimpleCalendar::FIRST_MONDAY);
-        $this->calendar->setLanguage(SimpleCalendar::LANG_CZ);
+        $this->calendar->firstDay = SimpleCalendar::FIRST_MONDAY;
+        $this->calendar->language = SimpleCalendar::LANG_CZ;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $elem = $dom->find('.ec-monthTable th');
@@ -66,7 +66,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
     
     public function testDisabledBottomNav()
     {
-        $this->calendar->setOptions([SimpleCalendar::OPT_SHOW_BOTTOM_NAV => false]);
+        $this->calendar->options[SimpleCalendar::OPT_SHOW_BOTTOM_NAV] = false;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         Assert::true(!$dom->has('.ec-bottomNavigation'));
@@ -77,9 +77,9 @@ final class SimpleCalendarTest extends \Tester\TestCase
      */
     public function testMaxLenOfWday()
     {
-        $this->calendar->setLanguage(SimpleCalendar::LANG_DE);
-        $this->calendar->setFirstDay(SimpleCalendar::FIRST_MONDAY);
-        $this->calendar->setOptions([SimpleCalendar::OPT_WDAY_MAX_LEN => 3]);
+        $this->calendar->language = SimpleCalendar::LANG_DE;
+        $this->calendar->firstDay = SimpleCalendar::FIRST_MONDAY;
+        $this->calendar->options[SimpleCalendar::OPT_WDAY_MAX_LEN] = 3;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $wednesElem = $dom->find('.ec-monthTable th');
@@ -114,8 +114,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
     {
         ob_start();
         $this->calendar->render();
-        $html = ob_get_clean();
-        return $html;
+        return ob_get_clean();
     }
 }
 

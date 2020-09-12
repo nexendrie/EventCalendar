@@ -8,8 +8,7 @@ use EventCalendar\IEventModel;
 final class TestEvent implements IEventModel
 {
 
-    /** @var array */
-    private $events = [];
+    private array $events = [];
     
     public function __construct()
     {

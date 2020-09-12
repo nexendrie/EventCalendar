@@ -23,13 +23,13 @@ final class GoogleCalendarTest extends \Tester\TestCase
     {
         if (!isset($this->calendar)) {
             $this->calendar = new GoogleCalendar();
-            $this->calendar->setTranslator(new class implements \Nette\Localization\ITranslator
+            $this->calendar->translator = new class implements \Nette\Localization\ITranslator
             {
                 public function translate($message, ...$parameters): string
                 {
                     return $message;
                 }
-            });
+            };
             $this->calendar->googleAdapter = $googleAdapter = new GoogleAdapter('1', 'x');
             $googleAdapter->cache = $cache = new Cache(new MemoryStorage());
             $date = new \DateTime();
@@ -51,8 +51,8 @@ final class GoogleCalendarTest extends \Tester\TestCase
     
     public function testMaxLenOfWday()
     {
-        $this->calendar->setFirstDay(GoogleCalendar::FIRST_MONDAY);
-        $this->calendar->setOptions([GoogleCalendar::OPT_WDAY_MAX_LEN => 3]);
+        $this->calendar->firstDay = GoogleCalendar::FIRST_MONDAY;
+        $this->calendar->options[GoogleCalendar::OPT_WDAY_MAX_LEN] = 3;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $wednesElem = $dom->find('.ec-monthTable th');
@@ -62,7 +62,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
     
     public function testDisabledTopNav()
     {
-        $this->calendar->setOptions([GoogleCalendar::OPT_SHOW_TOP_NAV => false]);
+        $this->calendar->options[GoogleCalendar::OPT_SHOW_TOP_NAV] = false;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         Assert::true(!$dom->has('.ec-monthTable a'));
@@ -72,8 +72,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
     {
         ob_start();
         $this->calendar->render();
-        $html = ob_get_clean();
-        return $html;
+        return ob_get_clean();
     }
 }
 

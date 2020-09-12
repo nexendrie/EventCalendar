@@ -9,20 +9,6 @@ use Tester\Assert;
 
 final class GoogleDataTest extends \Tester\TestCase
 {
-    public function testName()
-    {
-        $googleData = new GoogleData();
-        $googleData->name = 'name';
-        Assert::same('name', $googleData->name);
-    }
-
-    public function testDescription()
-    {
-        $googleData = new GoogleData();
-        $googleData->description = 'description';
-        Assert::same('description', $googleData->description);
-    }
-
     public function testEvents()
     {
         $date = new \DateTime();
@@ -39,9 +25,9 @@ final class GoogleDataTest extends \Tester\TestCase
         Assert::type('array', $events);
         Assert::count(0, $events);
 
-        $event = (new GoogleEvent('1'))
-            ->setStart($date)
-            ->setEnd($date);
+        $event = (new GoogleEvent('1'));
+        $event->start = $date;
+        $event->end = $date;
 
         $googleData->addEvent($event);
         $events = $googleData->events;

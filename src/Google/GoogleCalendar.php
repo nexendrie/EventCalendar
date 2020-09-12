@@ -10,7 +10,6 @@ use EventCalendar\BasicCalendar;
  *
  * Experimental
  *
- * @property-write GoogleAdapter $googleAdapter
  * @todo Allow mix of events from Google Calendar with custom events
  */
 class GoogleCalendar extends BasicCalendar
@@ -44,28 +43,21 @@ class GoogleCalendar extends BasicCalendar
      */
     public const OPT_EVENT_DATEFORMAT = 'eventDateformat';
 
-    private GoogleAdapter $googleAdapter;
+    public GoogleAdapter $googleAdapter;
 
     public function __construct()
     {
-        $this->setOptions([
-            'showEventLink' => true,
-            'showEventLocation' => true,
-            'showEventDescription' => true,
-            'showEventStart' => true,
-            'showEventEnd' => true,
-            'eventDateformat' => 'F j, Y, g:i a',
-        ]);
+        $this->options[static::OPT_SHOW_EVENT_LINK] = true;
+        $this->options[static::OPT_SHOW_EVENT_LOCATION] = true;
+        $this->options[static::OPT_SHOW_EVENT_DESCRIPTION] = true;
+        $this->options[static::OPT_SHOW_EVENT_START] = true;
+        $this->options[static::OPT_SHOW_EVENT_END] = true;
+        $this->options[static::OPT_EVENT_DATEFORMAT] = 'F j, Y, g:i a';
     }
     
     protected function getTemplateFile(): string
     {
         return __DIR__ . '/GoogleCalendar.latte';
-    }
-    
-    public function setGoogleAdapter(GoogleAdapter $googleAdapter): void
-    {
-        $this->googleAdapter = $googleAdapter;
     }
     
     /**

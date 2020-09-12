@@ -3,21 +3,10 @@ declare(strict_types=1);
 
 namespace EventCalendar;
 
-/**
- * @property-write \Nette\Localization\ITranslator $translator
- */
 abstract class BasicCalendar extends AbstractCalendar
 {
 
-    protected \Nette\Localization\ITranslator $translator;
-
-    /**
-     * set translator for calendar control
-     */
-    public function setTranslator(\Nette\Localization\ITranslator $translator): void
-    {
-        $this->translator = $translator;
-    }
+    public \Nette\Localization\ITranslator $translator;
     
     public function render(): void
     {

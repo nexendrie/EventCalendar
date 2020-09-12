@@ -18,13 +18,13 @@ final class EventCalendarTest extends \Tester\TestCase
     {
         if (!isset($this->calendar)) {
             $this->calendar = new EventCalendar();
-            $this->calendar->setTranslator(new class implements \Nette\Localization\ITranslator
+            $this->calendar->translator = new class implements \Nette\Localization\ITranslator
             {
                 public function translate($message, ...$parameters): string
                 {
                     return $message;
                 }
-            });
+            };
         }
         $this->attachToPresenter($this->calendar);
     }
@@ -42,8 +42,8 @@ final class EventCalendarTest extends \Tester\TestCase
     
     public function testMaxLenOfWday()
     {
-        $this->calendar->setFirstDay(EventCalendar::FIRST_MONDAY);
-        $this->calendar->setOptions([EventCalendar::OPT_WDAY_MAX_LEN => 3]);
+        $this->calendar->firstDay = EventCalendar::FIRST_MONDAY;
+        $this->calendar->options[EventCalendar::OPT_WDAY_MAX_LEN] = 3;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $wednesElem = $dom->find('.ec-monthTable th');
@@ -53,7 +53,7 @@ final class EventCalendarTest extends \Tester\TestCase
     
     public function testDisabledTopNav()
     {
-        $this->calendar->setOptions([EventCalendar::OPT_SHOW_TOP_NAV => false]);
+        $this->calendar->options[EventCalendar::OPT_SHOW_TOP_NAV] = false;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         Assert::true(!$dom->has('.ec-monthTable a'));
@@ -76,8 +76,7 @@ final class EventCalendarTest extends \Tester\TestCase
     {
         ob_start();
         $this->calendar->render();
-        $html = ob_get_clean();
-        return $html;
+        return ob_get_clean();
     }
 }
 

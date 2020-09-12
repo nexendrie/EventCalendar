@@ -9,9 +9,7 @@ use \Nette\Neon\Neon;
 /**
  * Simple alternative for calendar control if you don't want to use translator.
  *
- * Specify your language by calling setLanguage($lang)
- *
- * @property-write string $language
+ * Specify your language by setting property $language
  */
 class SimpleCalendar extends AbstractCalendar
 {
@@ -35,22 +33,14 @@ class SimpleCalendar extends AbstractCalendar
      */
     public const OPT_BOTTOM_NAV_NEXT = 'bottomNavNext';
 
-    /** @var string */
-    protected $language = self::LANG_EN;
+    public string $language = self::LANG_EN;
     
     public function __construct()
     {
-        $this->setOptions([
-            'topNavPrev' => '<',
-            'topNavNext' => '>',
-            'bottomNavPrev' => 'Previous month',
-            'bottomNavNext' => 'Next month',
-        ]);
-    }
-    
-    public function setLanguage(string $lang): void
-    {
-        $this->language = $lang;
+        $this->options[static::OPT_TOP_NAV_PREV] = '<';
+        $this->options[static::OPT_TOP_NAV_NEXT] = '>';
+        $this->options[static::OPT_BOTTOM_NAV_PREV] = 'Previous month';
+        $this->options[static::OPT_BOTTOM_NAV_NEXT] = 'Next month';
     }
     
     public function render(): void

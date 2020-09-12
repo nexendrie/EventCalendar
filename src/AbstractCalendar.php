@@ -7,8 +7,6 @@ use Nette\Application\UI;
 use Nette\Utils\Strings;
 
 /**
- * @property-write int $firstDay
- * @property-write array $options
  * @property-write IEventModel $events
  * @property-read \Nette\Bridges\ApplicationLatte\Template $template
  * @method void onDateChange(int $year, int $month)
@@ -46,38 +44,20 @@ abstract class AbstractCalendar extends UI\Control
      */
     public array $onDateChange;
 
-    protected int $firstDay = self::FIRST_SUNDAY;
+    public int $firstDay = self::FIRST_SUNDAY;
 
     protected IEventModel $events;
 
     /**
-     * @var array default options for calendar - you can change defaults by setOptions()
+     * @var array default options for calendar - see OPT constants for currently supported options for each type of calendar
      */
-    protected array $options = [
+    public array $options = [
         'showTopNav' => true,
         'showBottomNav' => true,
         'wdayMaxLen' => NULL,
     ];
     
     abstract protected function getTemplateFile(): string;
-
-    /**
-     * Specify the date on which the week starts
-     */
-    public function setFirstDay(int $day): void
-    {
-        $this->firstDay = $day;
-    }
-
-    /**
-     * Changes default options, see OPT constants for currently supported options for each type of calendar
-     */
-    public function setOptions(array $options): void
-    {
-        foreach ($options as $key => $value) {
-            $this->options[$key] = $value;
-        }
-    }
 
     public function setEvents(IEventModel $events): void
     {

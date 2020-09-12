@@ -11,11 +11,6 @@ use \Nette\Caching\Cache;
  * Currently, only public calendars are allowed
  *
  * See API doc for Google Calendar events: https://developers.google.com/google-apps/calendar/v3/reference/events/list
- *
- * @property-write Cache $cache
- * @property-write \DateTime $cacheExpiration
- * @property-write string $searchTerm
- * @property-write \DateTimeZone $timeZone
  */
 class GoogleAdapter
 {
@@ -23,70 +18,22 @@ class GoogleAdapter
 
     private string $calendarId;
     private string $apiKey;
-    private Cache $cache;
-    private \DateTime $cacheExpiration;
-    private string $searchTerm;
-    private bool $showDeleted = false;
-    private bool $expandRecurringEvents = false;
+    public Cache $cache;
+    public \DateTime $cacheExpiration;
+    public string $searchTerm;
+    public bool $showDeleted = false;
+    public bool $expandRecurringEvents = false;
     private string $timeMax;
     private string $timeMin;
     private int $year;
     private int $month;
 
-    private \DateTimeZone $timeZone;
+    public \DateTimeZone $timeZone;
     
     public function __construct(string $calendarId, string $apiKey)
     {
         $this->calendarId = $calendarId;
         $this->apiKey = $apiKey;
-    }
-    
-    public function setCache(Cache $cache): GoogleAdapter
-    {
-        $this->cache = $cache;
-        return $this;
-    }
-
-    /**
-     * set expiration for cache
-     */
-    public function setCacheExpiration(\DateTime $dateTime): GoogleAdapter
-    {
-        $this->cacheExpiration = $dateTime;
-        return $this;
-    }
-
-    /**
-     * filter events by search term
-     */
-    public function setSearchTerm(string $searchTerm): GoogleAdapter
-    {
-        $this->searchTerm = $searchTerm;
-        return $this;
-    }
-    
-    public function showDeleted(bool $boolean): GoogleAdapter
-    {
-        $this->showDeleted = $boolean;
-        return $this;
-    }
-
-    /**
-     * Return recurring events one by one
-     */
-    public function expandRecurringEvents(bool $boolean): GoogleAdapter
-    {
-        $this->expandRecurringEvents = $boolean;
-        return $this;
-    }
-
-    /**
-     * Set timezone in which results are returned
-     */
-    public function setTimeZone(\DateTimeZone $timeZone): GoogleAdapter
-    {
-        $this->timeZone = $timeZone;
-        return $this;
     }
 
     /**
@@ -128,23 +75,23 @@ class GoogleAdapter
             throw new GoogleApiException($json->error->message, $json->error->code);
         }
         $googData = new GoogleData();
-        $googData->setName($json->summary);
-        $googData->setDescription($json->description);
+        $googData->name = $json->summary;
+        $googData->description = $json->description;
         if (isset($json->items)) {
             foreach ($json->items as $item) {
                 $event = new GoogleEvent($item->id);
-                $event->setStatus($item->status)
-                        ->setSummary($item->summary)
-                        ->setCreated($item->created)
-                        ->setUpdated($item->updated)
-                        ->setHtmlLink($item->htmlLink)
-                        ->setStart($item->start->dateTime)
-                        ->setEnd($item->end->dateTime);
+                $event->status = $item->status;
+                $event->summary = $item->summary;
+                $event->created = $item->created;
+                $event->updated = $item->updated;
+                $event->htmlLink = $item->htmlLink;
+                $event->start = $item->start->dateTime;
+                $event->end = $item->end->dateTime;
                 if (isset($item->location)) {
-                    $event->setLocation($item->location);
+                    $event->location = $item->location;
                 }
                 if (isset($item->description)) {
-                    $event->setDescription($item->description);
+                    $event->description = $item->description;
                 }
                 
                 $googData->addEvent($event);
