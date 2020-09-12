@@ -180,7 +180,7 @@ class GoogleAdapter
         $url .= '/events?key=' . $this->apiKey;
         $url .= '&timeMin=' . urlencode($this->timeMin);
         $url .= '&timeMax=' . urlencode($this->timeMax);
-        if (!empty($this->expandRecurringEvents)) {
+        if ($this->expandRecurringEvents) {
             $url .= '&singleEvents=true';
         }
         if (isset($this->timeZone)) {
@@ -189,7 +189,7 @@ class GoogleAdapter
         if (isset($this->searchTerm)) {
             $url .= '&q=' . urlencode($this->searchTerm);
         }
-        if (!empty($this->showDeleted)) {
+        if ($this->showDeleted) {
             $url .= '&showDeleted=true';
         }
         return $url;
