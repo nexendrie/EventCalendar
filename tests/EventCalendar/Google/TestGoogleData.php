@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EventCalendar\Google;
 
-class TestGoogleData extends GoogleData
+final class TestGoogleData extends GoogleData
 {
     public function __construct()
     {
