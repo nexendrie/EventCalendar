@@ -1,9 +1,9 @@
 <div class="eventCalendar" n:snippet="ecCalendar">
     <table class="ec-monthTable">
         <caption>
-        {if $options["showTopNav"]==TRUE}<a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_"<"}</a>{/if}
+        {if $options["showTopNav"]}<a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_"<"}</a>{/if}
         <span class="ec-month">{_$monthNames[$dateInfo["month"]-1]}</span><span class="ec-year">{$dateInfo["year"]}</span>
-        {if $options["showTopNav"]==TRUE}<a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_">"}</a>{/if}
+        {if $options["showTopNav"]}<a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_">"}</a>{/if}
         </caption>
         <tr>
 {for $i = 0; $i < 7; $i++} 
@@ -35,7 +35,7 @@
     {breakIf ($dayNum >= $dateInfo['noOfDays'] && $i != 6)}
 {/for}
     </table>
-{if $options["showBottomNav"]==TRUE}
+{if $options["showBottomNav"]}
     <div class="ec-bottomNavigation">
         <a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_"Previous month"}</a>
         <a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_"Next month"}</a>
