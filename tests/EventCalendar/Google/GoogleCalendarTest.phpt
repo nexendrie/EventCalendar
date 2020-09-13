@@ -6,7 +6,6 @@ namespace EventCalendar\Google;
 
 require __DIR__ . '/../../bootstrap.php';
 
-use EventCalendar\Translator;
 use Nette\Caching\Cache;
 use Nette\Caching\Storages\MemoryStorage;
 use Tester\DomQuery;
@@ -26,7 +25,6 @@ final class GoogleCalendarTest extends \Tester\TestCase
     {
         if (!isset($this->calendar)) {
             $this->calendar = new GoogleCalendar();
-            $this->calendar->translator = new Translator();
             $this->calendar->googleAdapter = $googleAdapter = new GoogleAdapter('1', 'x');
             $googleAdapter->cache = $cache = new Cache(new MemoryStorage());
             $date = new \DateTime();

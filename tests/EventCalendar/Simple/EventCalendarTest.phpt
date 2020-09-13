@@ -6,7 +6,6 @@ namespace EventCalendar\Simple;
 
 require __DIR__ . '/../../bootstrap.php';
 
-use EventCalendar\Translator;
 use Tester\DomQuery;
 use Tester\Assert;
 
@@ -23,7 +22,6 @@ final class EventCalendarTest extends \Tester\TestCase
     {
         if (!isset($this->calendar)) {
             $this->calendar = new EventCalendar();
-            $this->calendar->translator = new Translator();
         }
         $this->attachToPresenter($this->calendar);
     }

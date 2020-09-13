@@ -7,11 +7,8 @@ namespace EventCalendar;
 abstract class BasicCalendar extends AbstractCalendar
 {
 
-    public \Nette\Localization\ITranslator $translator;
-    
     public function render(): void
     {
-        $this->template->setTranslator($this->translator);
         $this->template->wdays = $this->getWdays();
         $this->template->monthNames = $this->getMonthNames();
         parent::render();
