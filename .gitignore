@@ -1,4 +1,4 @@
 /vendor/
-tests/_temp/
-composer.lock
+/tests/_temp/
+/composer.lock
 coverage.*
