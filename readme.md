@@ -16,10 +16,19 @@ Quick start
 Add to your code (in presenter/control):
 
 ```php
-    protected function createComponentCalendar() {
-        $cal = new EventCalendar\Simple\SimpleCalendar();
+<?php
+
+declare(strict_types=1);
+
+use EventCalendar\Simple\SimpleCalendar;
+
+class MyPresenter extends \Nette\Application\UI\Presenter
+{
+    protected function createComponentCalendar(): SimpleCalendar {
+        $cal = new SimpleCalendar();
         return $cal;
     }
+} 
 ```
 
 and in template:
