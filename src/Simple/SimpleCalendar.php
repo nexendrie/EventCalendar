@@ -11,6 +11,8 @@ use Nette\Neon\Neon;
  * Simple alternative for calendar control if you don't want to use translator.
  *
  * Specify your language by setting property $language
+ *
+ * @deprecated Use EventCalendar
  */
 class SimpleCalendar extends AbstractCalendar
 {
