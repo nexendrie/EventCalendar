@@ -53,9 +53,9 @@ abstract class AbstractCalendar extends UI\Control
      * @var array default options for calendar - see OPT constants for currently supported options for each type of calendar
      */
     public array $options = [
-        'showTopNav' => true,
-        'showBottomNav' => true,
-        'wdayMaxLen' => null,
+        self::OPT_SHOW_TOP_NAV => true,
+        self::OPT_SHOW_BOTTOM_NAV => true,
+        self::OPT_WDAY_MAX_LEN => null,
     ];
     
     abstract protected function getTemplateFile(): string;
