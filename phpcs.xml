@@ -11,22 +11,14 @@
   <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
   <rule ref="Generic.Classes.DuplicateClassName"/>
   <rule ref="Generic.CodeAnalysis"/>
-  <rule ref="Generic.ControlStructures.InlineControlStructure">
-    <properties>
-      <property name="error" value="false"/>
-    </properties>
-  </rule>
   <rule ref="Generic.Files.EndFileNewline"/>
   <rule ref="Generic.Files.InlineHTML"/>
-  <rule ref="Generic.Files.LineEndings"/>
   <rule ref="Generic.Formatting.SpaceAfterCast"/>
   <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
   <rule ref="Generic.Metrics"/>
   <rule ref="Generic.NamingConventions.ConstructorName"/>
   <rule ref="Generic.PHP">
     <exclude name="Generic.PHP.ClosingPHPTag"/>
-    <exclude name="Generic.PHP.LowerCaseConstant"/>
-    <exclude name="Generic.PHP.LowerCaseKeyword"/>
     <exclude name="Generic.PHP.UpperCaseConstant"/>
   </rule>
   <rule ref="Generic.Strings"/>
@@ -45,5 +37,5 @@
   <rule ref="PSR1.Files.SideEffects">
     <exclude-pattern>*/tests/*</exclude-pattern>
   </rule>
-  <rule ref="PSR2"/>
+  <rule ref="PSR12"/>
 </ruleset>

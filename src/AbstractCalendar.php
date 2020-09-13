@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EventCalendar;
@@ -54,7 +55,7 @@ abstract class AbstractCalendar extends UI\Control
     public array $options = [
         'showTopNav' => true,
         'showBottomNav' => true,
-        'wdayMaxLen' => NULL,
+        'wdayMaxLen' => null,
     ];
     
     abstract protected function getTemplateFile(): string;
@@ -152,7 +153,7 @@ abstract class AbstractCalendar extends UI\Control
     
     protected function prepareDate(): void
     {
-        if ($this->month === NULL || $this->year === NULL) {
+        if ($this->month === null || $this->year === null) {
             $today = getdate();
             $this->month = $today['mon'];
             $this->year = $today['year'];

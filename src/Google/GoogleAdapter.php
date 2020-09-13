@@ -1,9 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EventCalendar\Google;
 
-use \Nette\Caching\Cache;
+use Nette\Caching\Cache;
 
 /**
  * Class for accessing data in Google Calendar by its API
@@ -65,7 +66,7 @@ class GoogleAdapter
         // return from cache
         if (isset($this->cache)) {
             $alreadySaved = $this->cache->load($this->year . '-' . $this->month);
-            if ($alreadySaved !== NULL) {
+            if ($alreadySaved !== null) {
                 return $alreadySaved;
             }
         }

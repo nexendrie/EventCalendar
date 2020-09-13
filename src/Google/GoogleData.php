@@ -1,9 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EventCalendar\Google;
 
-use \EventCalendar\IEventModel;
+use EventCalendar\IEventModel;
 use Nette\Utils\Arrays;
 
 /**

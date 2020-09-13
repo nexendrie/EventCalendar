@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace EventCalendar\Simple;
 
-use \EventCalendar\AbstractCalendar;
-use \Nette\Neon\Neon;
+use EventCalendar\AbstractCalendar;
+use Nette\Neon\Neon;
 
 /**
  * Simple alternative for calendar control if you don't want to use translator.
