@@ -104,13 +104,14 @@ abstract class AbstractCalendar extends UI\Control
     protected function getFirstDayInMonth(int $year, int $month): int
     {
         $day = getdate(mktime(0, 0, 0, $month, 1, $year));
-        if ($this->firstDay == self::FIRST_SUNDAY) {
-            return $day['wday'];
+        $wday = (int) $day['wday'];
+        if ($this->firstDay === self::FIRST_SUNDAY) {
+            return $wday;
         } else {
-            if ($day['wday'] == 0) {
+            if ($wday === 0) {
                 return 6;
             } else {
-                return $day['wday'] - 1;
+                return $wday - 1;
             }
         }
     }
@@ -118,7 +119,7 @@ abstract class AbstractCalendar extends UI\Control
     protected function getNextMonth(int $year, int $month): array
     {
         $next = [];
-        if ($month == 12) {
+        if ($month === 12) {
             $next['month'] = 1;
             $next['year'] = $year + 1;
         } else {
@@ -131,7 +132,7 @@ abstract class AbstractCalendar extends UI\Control
     protected function getPrevMonth(int $year, int $month): array
     {
         $prev = [];
-        if ($month == 1) {
+        if ($month === 1) {
             $prev['month'] = 12;
             $prev['year'] = $year - 1;
         } else {

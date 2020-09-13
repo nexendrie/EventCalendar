@@ -20,7 +20,7 @@ abstract class BasicCalendar extends AbstractCalendar
     protected function getWdays(): array
     {
         $wdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        if ($this->firstDay == self::FIRST_MONDAY) {
+        if ($this->firstDay === self::FIRST_MONDAY) {
             array_push($wdays, array_shift($wdays));
         }
         return $this->truncateWdays($wdays);
