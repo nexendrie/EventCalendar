@@ -95,7 +95,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
     {
         $this->calendar->year = 2012;
         $this->calendar->month = 2;
-        $this->calendar->setEvents(new TestEvent());
+        $this->calendar->events = new TestEvent();
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $noOfEvents = count($dom->find('.ec-event'));
@@ -106,7 +106,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
     {
         $this->calendar->year = 2012;
         $this->calendar->month = 2;
-        $this->calendar->setEvents(new TestEvent());
+        $this->calendar->events = new TestEvent();
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $dayElems = $dom->find('.ec-eventDay .ec-dayOfEvents');

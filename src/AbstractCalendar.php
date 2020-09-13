@@ -60,7 +60,7 @@ abstract class AbstractCalendar extends UI\Control
     
     abstract protected function getTemplateFile(): string;
 
-    public function setEvents(IEventModel $events): void
+    protected function setEvents(IEventModel $events): void
     {
         $this->events = $events;
     }

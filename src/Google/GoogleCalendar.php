@@ -65,7 +65,7 @@ class GoogleCalendar extends BasicCalendar
      * Do not set events directly, use GoogleAdapter. Mix of events from Google with customs events is not implemented yet.
      * @throws \LogicException
      */
-    public function setEvents(\EventCalendar\IEventModel $events): void
+    protected function setEvents(\EventCalendar\IEventModel $events): void
     {
         throw new \LogicException('Do not set events directly, use GoogleAdapter.');
     }
