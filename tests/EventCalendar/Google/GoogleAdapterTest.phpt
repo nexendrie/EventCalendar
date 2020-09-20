@@ -15,6 +15,8 @@ use Tester\Assert;
  */
 final class GoogleAdapterTest extends \Tester\TestCase
 {
+    use \Testbench\TCompiledContainer;
+
     public function testCachedEvents()
     {
         $date = new \DateTime();
@@ -25,7 +27,9 @@ final class GoogleAdapterTest extends \Tester\TestCase
         $googleAdapter = new GoogleAdapter('1', 'x');
         $googleAdapter->setBoundary($year, $month);
         $googleAdapter->cache = $cache = new Cache(new MemoryStorage());
-        $cache->save($year . '-' . $month, new TestGoogleData());
+        /** @var TestGoogleData $googleData */
+        $googleData = $this->getService(TestGoogleData::class);
+        $cache->save($year . '-' . $month, $googleData->getData());
 
         $googleData = $googleAdapter->loadEvents();
         $events = $googleData->events;

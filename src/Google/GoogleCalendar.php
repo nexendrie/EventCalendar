@@ -11,7 +11,7 @@ use EventCalendar\AbstractCalendar;
  *
  * Experimental
  */
-class GoogleCalendar extends AbstractCalendar
+final class GoogleCalendar extends AbstractCalendar
 {
     /**
      * Show top navigation for changing months, default <b>true</b>

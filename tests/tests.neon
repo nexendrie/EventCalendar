@@ -4,6 +4,7 @@ extensions:
     translation: Nexendrie\Translation\Bridges\NetteDI\TranslationExtension
 services:
     testbench.presenterMock: Testbench\Mocks\PresenterMock
+    googleData: EventCalendar\Google\TestGoogleData
 translation:
     localeResolver: manual
     loader:

@@ -10,7 +10,7 @@ use Nette\Utils\Arrays;
 /**
  * @property-read array $events
  */
-class GoogleData implements IEventModel
+final class GoogleData implements IEventModel
 {
     use \Nette\SmartObject;
     

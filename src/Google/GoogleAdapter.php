@@ -13,7 +13,7 @@ use Nette\Caching\Cache;
  *
  * See API doc for Google Calendar events: https://developers.google.com/google-apps/calendar/v3/reference/events/list
  */
-class GoogleAdapter
+final class GoogleAdapter
 {
     use \Nette\SmartObject;
 

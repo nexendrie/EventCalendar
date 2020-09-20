@@ -15,7 +15,7 @@ use Nette\Utils\Strings;
  *
  * @deprecated Use EventCalendar
  */
-class SimpleCalendar extends AbstractCalendar
+final class SimpleCalendar extends AbstractCalendar
 {
     
     public const LANG_EN = 'en', LANG_CZ = 'cz', LANG_SK = 'sk', LANG_DE = 'de';

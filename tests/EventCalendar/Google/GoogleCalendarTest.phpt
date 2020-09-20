@@ -17,6 +17,7 @@ use Tester\Assert;
 final class GoogleCalendarTest extends \Tester\TestCase
 {
     use \Testbench\TComponent;
+    use \Testbench\TCompiledContainer;
 
     private GoogleCalendar $calendar;
     
@@ -29,7 +30,9 @@ final class GoogleCalendarTest extends \Tester\TestCase
             $date = new \DateTime();
             $year = (int) $date->format('Y');
             $month = (int) $date->format('n');
-            $cache->save($year . '-' . $month, new TestGoogleData());
+            /** @var TestGoogleData $googleData */
+            $googleData = $this->getService(TestGoogleData::class);
+            $cache->save($year . '-' . $month, $googleData->getData());
         }
         $this->attachToPresenter($this->calendar);
     }

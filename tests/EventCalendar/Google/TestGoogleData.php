@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace EventCalendar\Google;
 
-final class TestGoogleData extends GoogleData
+final class TestGoogleData
 {
-    public function __construct()
+    public function getData(): GoogleData
     {
-        $this->name = 'name';
-        $this->description = 'description';
+        $data = new GoogleData();
+        $data->name = 'name';
+        $data->description = 'description';
         $events = [];
         $event1 = (new GoogleEvent('1'));
         $event1->status = 'status';
@@ -23,7 +24,8 @@ final class TestGoogleData extends GoogleData
         $event1->location = 'location';
         $events[] = $event1;
         foreach ($events as $event) {
-            $this->addEvent($event);
+            $data->addEvent($event);
         }
+        return $data;
     }
 }

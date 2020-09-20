@@ -6,6 +6,7 @@ Version 0.6.0-dev
 - allowed custom events in GoogleCalendar
 - BC break: translations use message ids
 - BC break: day and month names are no longer automatically truncated in BasicCalendar
+- BC break: marked most classes as final
 
 Version 0.5.0
 - raised minimal version of PHP to 7.3

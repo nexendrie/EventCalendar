@@ -12,7 +12,7 @@ use EventCalendar\AbstractCalendar;
  * Also, you can use Texy! syntax in your events, just install Texy! into your project and use it.
  *
  */
-class EventCalendar extends AbstractCalendar
+final class EventCalendar extends AbstractCalendar
 {
     
     protected function createTemplate(): \Nette\Application\UI\ITemplate

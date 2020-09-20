@@ -10,7 +10,7 @@ namespace EventCalendar\Google;
  * @property-read string $id
  * @property-read string $creator
  */
-class GoogleEvent
+final class GoogleEvent
 {
     use \Nette\SmartObject;
 
