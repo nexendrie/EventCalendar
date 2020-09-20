@@ -22,14 +22,12 @@ before_install:
     - phpenv config-rm xdebug.ini || true
 
 install:
-    - composer install -a --prefer-dist --no-progress --no-suggest --no-interaction
+    - wget https://www.phing.info/get/phing-latest.phar && mv phing-latest.phar phing && chmod +x phing
+    - composer update --prefer-dist --no-progress --no-suggest --no-interaction
 
 script:
-    - ./vendor/bin/parallel-lint src tests -e php,phpt
-    - ./vendor/bin/phpcs --extensions=php,phpt . --colors -p
-    - ./vendor/bin/phpstan analyze -l 8 -c phpstan.neon src tests
-    - if [ "$TESTER_PHP_BIN" == "php" ]; then ./vendor/bin/run-tests -p php tests -s; fi
-    - if [ "$TESTER_PHP_BIN" == "phpdbg" ]; then ./vendor/bin/run-tests -p phpdbg tests -s --coverage coverage.xml --coverage-src src; fi
+    - if [ "$TESTER_PHP_BIN" == "php" ]; then ./phing test; fi
+    - if [ "$TESTER_PHP_BIN" == "phpdbg" ]; then ./phing test-coverage; fi
 
 after_failure:
     - for i in $(find ./tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
