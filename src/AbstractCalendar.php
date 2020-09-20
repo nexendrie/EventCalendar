@@ -42,7 +42,7 @@ abstract class AbstractCalendar extends UI\Control
     /**
      * @var callable[]
      */
-    public array $onDateChange;
+    public array $onDateChange = [];
 
     public int $firstDay = self::FIRST_SUNDAY;
 
