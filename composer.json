@@ -29,7 +29,8 @@
         "nexendrie/translation": "^2.3"
     },
     "suggest": {
-        "texy/texy": "To use Texy! syntax in events"
+        "texy/texy": "To use Texy! syntax in events",
+        "nexendrie/translation": "Translator"
     },
     "conflict": {
         "texy/texy": "<3.0.1",
