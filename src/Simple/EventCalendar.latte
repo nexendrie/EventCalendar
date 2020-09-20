@@ -20,7 +20,7 @@
                 <div class="ec-dayOfEvents">{$dayNum}</div>
                 <div class="ec-eventBox">
                     {foreach $events->getForDate($dateInfo["year"],$dateInfo["month"],$dayNum) as $event}
-                        <div class="ec-event">{$event|texy|noescape}</div>
+                        {block event}<div class="ec-event">{$event|texy|noescape}</div>{/block}
                     {/foreach}
                 </div>
             </td>

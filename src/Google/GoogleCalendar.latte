@@ -1,54 +1,14 @@
-<div class="eventCalendar" n:snippet="ecCalendar">
-    <table class="ec-monthTable">
-        <caption>
-        {if $options["showTopNav"]}<a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_"eventCalendar.topNavPrev"}</a>{/if}
-        <span class="ec-month">{_"eventCalendar.months.{$dateInfo["month"]}"}</span><span class="ec-year">{$dateInfo["year"]}</span>
-        {if $options["showTopNav"]}<a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_"eventCalendar.topNavNext"}</a>{/if}
-        </caption>
-        <tr>
-{for $i = 0; $i < 7; $i++} 
-            <th>{_"eventCalendar.days.{$i}"|truncate:$wdayMaxLen,''}</th>
-{/for}
-        </tr>
-{for $i = 0; $i < 6; $i++}
-        <tr>
-    {for $j = 1; $j <= 7; $j++}
-        {var $dayNum = $j + $i*7 - $dateInfo['firstDayInMonth']}
-        {if $dayNum > 0 && $dayNum <= $dateInfo['noOfDays']}
-            {if $events && $events->isForDate($dateInfo["year"],$dateInfo["month"],$dayNum)}
-            <td class="ec-validDay ec-eventDay">
-                <div class="ec-dayOfEvents">{$dayNum}</div>
-                <div class="ec-eventBox">
-                    {foreach $events->getForDate($dateInfo["year"],$dateInfo["month"],$dayNum) as $event}
-                        {if $event instanceof EventCalendar\Google\GoogleEvent}
-                    <div class="ec-event" data-status="{$event->status}">
-                        <span class="ec-event-summary">{$event->summary}</span>
-                        {if $options['showEventLink']}<a href="{$event->htmlLink}" class="ec-event-link">{_"eventCalendar.link"}</a>{/if}
-                        {if $options['showEventLocation']}<span class="ec-event-location">{$event->location}</span>{/if}
-                        {if $options['showEventStart']}<span class="ec-event-start">{$event->start|date:$options['eventDateformat']}</span>{/if}
-                        {if $options['showEventEnd']}<span class="ec-event-end">{$event->end|date:$options['eventDateformat']}</span>{/if}
-                    </div>
-                            {else}
-                            <div class="ec-event">{$event|noescape}</div>
-                            {/if}
-                    {/foreach}
-                </div>
-            </td>
-            {else}
-            <td class="ec-validDay">{$dayNum}</td>
-            {/if}
-        {else}
-            <td class="ec-empty"></td>
-        {/if}
-    {/for}
-        </tr>
-    {breakIf ($dayNum >= $dateInfo['noOfDays'] && $i != 6)}
-{/for}
-    </table>
-{if $options["showBottomNav"]}
-    <div class="ec-bottomNavigation">
-        <a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_"eventCalendar.previousMonth"}</a>
-        <a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_"eventCalendar.nextMonth"}</a>
+{layout "../Simple/EventCalendar.latte"}
+{block event}
+    {if $event instanceof EventCalendar\Google\GoogleEvent}
+    <div class="ec-event" data-status="{$event->status}">
+        <span class="ec-event-summary">{$event->summary}</span>
+        {if $options['showEventLink']}<a href="{$event->htmlLink}" class="ec-event-link">{_"eventCalendar.link"}</a>{/if}
+        {if $options['showEventLocation']}<span class="ec-event-location">{$event->location}</span>{/if}
+        {if $options['showEventStart']}<span class="ec-event-start">{$event->start|date:$options['eventDateformat']}</span>{/if}
+        {if $options['showEventEnd']}<span class="ec-event-end">{$event->end|date:$options['eventDateformat']}</span>{/if}
     </div>
-{/if}
-</div>
+    {else}
+    <div class="ec-event">{$event|noescape}</div>
+    {/if}
+{/block}
