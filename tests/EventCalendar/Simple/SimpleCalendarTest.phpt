@@ -73,7 +73,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $this->calendar->options[SimpleCalendar::OPT_SHOW_BOTTOM_NAV] = false;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
-        Assert::true(!$dom->has('.ec-bottomNavigation'));
+        Assert::false($dom->has('.ec-bottomNavigation'));
     }
     
     /**

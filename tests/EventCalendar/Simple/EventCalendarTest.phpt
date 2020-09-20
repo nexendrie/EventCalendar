@@ -33,8 +33,9 @@ final class EventCalendarTest extends \Tester\TestCase
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $noOfValidDays = count($dom->find('.ec-validDay'));
+        Assert::same(31, $noOfValidDays);
         $noOfEmptyDays = count($dom->find('.ec-empty'));
-        Assert::true($noOfValidDays === 31 && $noOfEmptyDays === 4);
+        Assert::same(4, $noOfEmptyDays);
     }
     
     public function testMaxLenOfWday()
@@ -53,7 +54,7 @@ final class EventCalendarTest extends \Tester\TestCase
         $this->calendar->options[EventCalendar::OPT_SHOW_TOP_NAV] = false;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
-        Assert::true(!$dom->has('.ec-monthTable a'));
+        Assert::false($dom->has('.ec-monthTable a'));
     }
     
     public function testTexy()
