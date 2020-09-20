@@ -8,7 +8,6 @@ use Nette\Application\UI;
 use Nette\Utils\Strings;
 
 /**
- * @property-write IEventModel $events
  * @property-read \Nette\Bridges\ApplicationLatte\Template $template
  * @method void onDateChange(int $year, int $month)
  */
@@ -47,7 +46,7 @@ abstract class AbstractCalendar extends UI\Control
 
     public int $firstDay = self::FIRST_SUNDAY;
 
-    protected IEventModel $events;
+    public IEventModel $events;
 
     /**
      * @var array default options for calendar - see OPT constants for currently supported options for each type of calendar
@@ -59,11 +58,6 @@ abstract class AbstractCalendar extends UI\Control
     ];
     
     abstract protected function getTemplateFile(): string;
-
-    protected function setEvents(IEventModel $events): void
-    {
-        $this->events = $events;
-    }
 
     /** changes current month and invokes onDateChange event */
     public function handleChangeMonth(): void

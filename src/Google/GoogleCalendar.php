@@ -10,8 +10,6 @@ use EventCalendar\BasicCalendar;
  * Integration with events from Google Calendar
  *
  * Experimental
- *
- * @todo Allow mix of events from Google Calendar with custom events
  */
 class GoogleCalendar extends BasicCalendar
 {
@@ -59,15 +57,6 @@ class GoogleCalendar extends BasicCalendar
     protected function getTemplateFile(): string
     {
         return __DIR__ . '/GoogleCalendar.latte';
-    }
-    
-    /**
-     * Do not set events directly, use GoogleAdapter. Mix of events from Google with customs events is not implemented yet.
-     * @throws \LogicException
-     */
-    protected function setEvents(\EventCalendar\IEventModel $events): void
-    {
-        throw new \LogicException('Do not set events directly, use GoogleAdapter.');
     }
 
     /**

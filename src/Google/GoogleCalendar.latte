@@ -20,6 +20,7 @@
                 <div class="ec-dayOfEvents">{$dayNum}</div>
                 <div class="ec-eventBox">
                     {foreach $events->getForDate($dateInfo["year"],$dateInfo["month"],$dayNum) as $event}
+                        {if $event instanceof EventCalendar\Google\GoogleEvent}
                     <div class="ec-event" data-status="{$event->status}">
                         <span class="ec-event-summary">{$event->summary}</span>
                         {if $options['showEventLink']}<a href="{$event->htmlLink}" class="ec-event-link">{_"link"}</a>{/if}
@@ -27,6 +28,9 @@
                         {if $options['showEventStart']}<span class="ec-event-start">{$event->start|date:$options['eventDateformat']}</span>{/if}
                         {if $options['showEventEnd']}<span class="ec-event-end">{$event->end|date:$options['eventDateformat']}</span>{/if}
                     </div>
+                            {else}
+                            <div class="ec-event">{$event|noescape}</div>
+                            {/if}
                     {/foreach}
                 </div>
             </td>

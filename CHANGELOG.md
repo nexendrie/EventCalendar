@@ -3,6 +3,7 @@ Version 0.6.0-dev
 - made most properties readable, removed most getters and setters
 - BC break: BasicCalendar (and its descendants) uses translator registered to Latte
 - deprecated SimpleCalendar
+- allowed custom events in GoogleCalendar
 
 Version 0.5.0
 - raised minimal version of PHP to 7.3
