@@ -1,0 +1,31 @@
+image: nexendrie/php:7.4
+
+stages:
+  - test
+  - deploy
+
+cache:
+  paths:
+  - vendor/
+
+before_script:
+  - composer update --prefer-dist --no-progress --no-suggest --no-interaction
+
+.job_template: &test_job
+  stage: test
+  script:
+  - phing test
+
+test:default:
+  <<: *test_job
+
+test:default:lowest-deps:
+  <<: *test_job
+  before_script:
+    - composer update --prefer-lowest --prefer-dist --no-progress --no-suggest --no-interaction
+
+test:cc:
+  <<: *test_job
+  script:
+  - phing test-coverage
+  coverage: '/(\d+\%) covered/'
