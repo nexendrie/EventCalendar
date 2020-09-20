@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace EventCalendar\Google;
 
-use EventCalendar\BasicCalendar;
+use EventCalendar\AbstractCalendar;
 
 /**
  * Integration with events from Google Calendar
  *
  * Experimental
  */
-class GoogleCalendar extends BasicCalendar
+class GoogleCalendar extends AbstractCalendar
 {
     /**
      * Show top navigation for changing months, default <b>true</b>

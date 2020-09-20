@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace EventCalendar\Simple;
 
+use EventCalendar\AbstractCalendar;
+
 /**
  * Calendar control with the need to define a translator
  *
  * Also, you can use Texy! syntax in your events, just install Texy! into your project and use it.
  *
  */
-class EventCalendar extends \EventCalendar\BasicCalendar
+class EventCalendar extends AbstractCalendar
 {
     
     protected function createTemplate(): \Nette\Application\UI\ITemplate
