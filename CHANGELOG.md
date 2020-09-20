@@ -1,4 +1,4 @@
-Version 0.6.0+dev
+Version 0.6.1
 - initialized AbstractCalender::$onDateChange
 - AbstractCalendar::render() now triggers event onDateChange
 
