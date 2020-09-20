@@ -1,4 +1,4 @@
-Version 0.6.0-dev
+Version 0.6.0
 - raised minimal version of PHP to 7.4
 - made most properties readable, removed most getters and setters
 - BC break: BasicCalendar (and its descendants) uses translator registered to Latte
