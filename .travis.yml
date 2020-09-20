@@ -27,7 +27,7 @@ install:
 
 script:
     - if [ "$TESTER_PHP_BIN" == "php" ]; then ./phing test; fi
-    - if [ "$TESTER_PHP_BIN" == "phpdbg" ]; then ./phing test-coverage; fi
+    - if [ "$TESTER_PHP_BIN" == "phpdbg" ]; then ./phing test-phpdbg; fi
 
 after_failure:
     - for i in $(find ./tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
