@@ -18,10 +18,6 @@ matrix:
         - php: nightly
     fast_finish: true
 
-before_install:
-    - composer self-update
-    - phpenv config-rm xdebug.ini || true
-
 install:
     - wget https://www.phing.info/get/phing-latest.phar && mv phing-latest.phar phing && chmod +x phing
     - composer update --prefer-dist --no-progress --no-suggest --no-interaction
