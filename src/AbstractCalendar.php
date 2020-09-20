@@ -54,7 +54,7 @@ abstract class AbstractCalendar extends UI\Control
     public array $options = [
         self::OPT_SHOW_TOP_NAV => true,
         self::OPT_SHOW_BOTTOM_NAV => true,
-        self::OPT_WDAY_MAX_LEN => null,
+        self::OPT_WDAY_MAX_LEN => PHP_INT_MAX,
     ];
     
     abstract protected function getTemplateFile(): string;

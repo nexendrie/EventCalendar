@@ -1,3 +1,6 @@
+Version 0.6.1+dev
+- fixed default value for option wdayMaxLen
+
 Version 0.6.1
 - initialized AbstractCalender::$onDateChange
 - AbstractCalendar::render() now triggers event onDateChange
