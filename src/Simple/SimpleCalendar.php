@@ -6,6 +6,7 @@ namespace EventCalendar\Simple;
 
 use EventCalendar\AbstractCalendar;
 use Nette\Neon\Neon;
+use Nette\Utils\Strings;
 
 /**
  * Simple alternative for calendar control if you don't want to use translator.
@@ -50,6 +51,16 @@ class SimpleCalendar extends AbstractCalendar
     {
         $this->template->names = $this->getNames($this->language);
         parent::render();
+    }
+
+    protected function truncateWdays(array $wdays): array
+    {
+        if ($this->options['wdayMaxLen'] > 0) {
+            foreach ($wdays as &$value) {
+                $value = Strings::substring($value, 0, $this->options['wdayMaxLen']);
+            }
+        }
+        return $wdays;
     }
     
     protected function getNames(string $lang): array

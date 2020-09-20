@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace EventCalendar;
 
 use Nette\Application\UI;
-use Nette\Utils\Strings;
+use Nette\Utils\Arrays;
 
 /**
  * @property-read \Nette\Bridges\ApplicationLatte\Template $template
@@ -92,6 +92,9 @@ abstract class AbstractCalendar extends UI\Control
         $this->template->options = $this->options;
         $this->template->events = $this->events ?? null;
 
+        $wdayMaxLen = (int) Arrays::get($this->options, static::OPT_WDAY_MAX_LEN, PHP_INT_MAX);
+        $this->template->wdayMaxLen = $wdayMaxLen;
+
         $this->template->render();
     }
     
@@ -134,16 +137,6 @@ abstract class AbstractCalendar extends UI\Control
             $prev['year'] = $year;
         }
         return $prev;
-    }
-    
-    protected function truncateWdays(array $wdays): array
-    {
-        if ($this->options['wdayMaxLen'] > 0) {
-            foreach ($wdays as &$value) {
-                $value = Strings::substring($value, 0, $this->options['wdayMaxLen']);
-            }
-        }
-        return $wdays;
     }
     
     protected function prepareDate(): void

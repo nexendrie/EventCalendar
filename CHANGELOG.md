@@ -4,6 +4,8 @@ Version 0.6.0-dev
 - BC break: BasicCalendar (and its descendants) uses translator registered to Latte
 - deprecated SimpleCalendar
 - allowed custom events in GoogleCalendar
+- BC break: translations use message ids
+- BC break: day and month names are no longer automatically truncated in BasicCalendar
 
 Version 0.5.0
 - raised minimal version of PHP to 7.3

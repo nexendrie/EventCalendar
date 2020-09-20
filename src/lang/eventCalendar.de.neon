@@ -1,0 +1,26 @@
+days:
+    0: Sonntag
+    - Montag
+    - Dienstag
+    - Mittwoch
+    - Donnerstag
+    - Freitag
+    - Samstag
+months:
+    1: Januar
+    - Februar
+    - März
+    - April
+    - Mai
+    - Juni
+    - Juli
+    - August
+    - September
+    - Oktober
+    - November
+    - Dezember
+previousMonth: Vorheriger Monat
+nextMonth: Nächsten Monat
+topNavPrev: "<"
+topNavNext: ">"
+link: link

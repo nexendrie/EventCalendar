@@ -1,8 +1,12 @@
 application:
     scanDirs: false
+extensions:
+    translation: Nexendrie\Translation\Bridges\NetteDI\TranslationExtension
 services:
     testbench.presenterMock: Testbench\Mocks\PresenterMock
-    translator: EventCalendar\Translator
-    latte.latteFactory:
-        setup:
-            - addFilter(translate, [@translator, translate])
+translation:
+    localeResolver: manual
+    loader:
+        name: neon
+        folders!:
+            - %appDir%/../src/lang

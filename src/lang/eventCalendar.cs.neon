@@ -1,0 +1,26 @@
+days:
+    0: Neděle
+    - Pondělí
+    - Úterý
+    - Středa
+    - Čtvrtek
+    - Pátek
+    - Sobota
+months:
+    1: Leden
+    - Únor
+    - Březen
+    - Duben
+    - Květen
+    - Červen
+    - Červenec
+    - Srpen
+    - Září
+    - Říjen
+    - Listopad
+    - Prosinec
+previousMonth: Předchozí měsíc
+nextMonth: Následující měsíc
+topNavPrev: "<"
+topNavNext: ">"
+link: odkaz

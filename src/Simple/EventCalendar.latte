@@ -1,13 +1,13 @@
 <div class="eventCalendar" n:snippet="ecCalendar">
     <table class="ec-monthTable">
         <caption>
-        {if $options["showTopNav"]}<a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_"<"}</a>{/if}
-        <span class="ec-month">{_$monthNames[$dateInfo["month"]-1]}</span><span class="ec-year">{$dateInfo["year"]}</span>
-        {if $options["showTopNav"]}<a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_">"}</a>{/if}
+        {if $options["showTopNav"]}<a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_"eventCalendar.topNavPrev"}</a>{/if}
+        <span class="ec-month">{_"eventCalendar.months.{$dateInfo["month"]}"}</span><span class="ec-year">{$dateInfo["year"]}</span>
+        {if $options["showTopNav"]}<a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_"eventCalendar.topNavNext"}</a>{/if}
         </caption>
         <tr>
 {for $i = 0; $i < 7; $i++} 
-            <th>{_$wdays[$i]}</th>  
+            <th>{_"eventCalendar.days.{$i}"|truncate:$wdayMaxLen,''}</th>
 {/for}
         </tr>
 {for $i = 0; $i < 6; $i++}
@@ -37,8 +37,8 @@
     </table>
 {if $options["showBottomNav"]}
     <div class="ec-bottomNavigation">
-        <a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_"Previous month"}</a>
-        <a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_"Next month"}</a>
+        <a n:href="changeMonth!, 'year' => $prev['year'], 'month' => $prev['month']" class="ajax">{_"eventCalendar.previousMonth"}</a>
+        <a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{_"eventCalendar.nextMonth"}</a>
     </div>
 {/if}
 </div>

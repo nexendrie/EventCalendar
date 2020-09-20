@@ -1,0 +1,26 @@
+days:
+    0: Nedeľa
+    - Pondelok
+    - Utorok
+    - Streda
+    - Štvrtok
+    - Piatok
+    - Sobota
+months:
+    1: Január
+    - Február
+    - Marec
+    - Apríl
+    - Máj
+    - Jún
+    - Jul
+    - August
+    - September
+    - Október
+    - November
+    - December
+previousMonth: Predchádzajúci mesiac
+nextMonth: Další mesiac
+topNavPrev: "<"
+topNavNext: ">"
+link: odkaz

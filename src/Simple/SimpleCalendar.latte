@@ -6,8 +6,8 @@
         {if $options["showTopNav"]}<a n:href="changeMonth!, 'year' => $next['year'], 'month' => $next['month']" class="ajax">{$options["topNavNext"]}</a>{/if}
         </caption>
         <tr>
-{for $i = 0; $i < 7; $i++} 
-            <th>{$names["wdays"][$i]}</th>  
+{for $i = 0; $i < 7; $i++}
+            <th>{$names["wdays"][$i]}</th>
 {/for}
         </tr>
 {for $i = 0; $i < 6; $i++}
