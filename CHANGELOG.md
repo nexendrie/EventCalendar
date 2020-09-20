@@ -1,5 +1,6 @@
 Version 0.6.0+dev
 - initialized AbstractCalender::$onDateChange
+- AbstractCalendar::render() now triggers event onDateChange
 
 Version 0.6.0
 - raised minimal version of PHP to 7.4

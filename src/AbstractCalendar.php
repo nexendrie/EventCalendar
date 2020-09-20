@@ -80,6 +80,7 @@ abstract class AbstractCalendar extends UI\Control
         $year = $this->year;
         /** @var int $month */
         $month = $this->month;
+        $this->onDateChange($year, $month);
         $dateInfo = [];
         $dateInfo['year'] = $year; // current year
         $dateInfo['month'] = $month; // current month
