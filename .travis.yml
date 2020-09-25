@@ -8,23 +8,21 @@ notifications:
     email: false
 
 env:
-    - TESTER_PHP_BIN="php"
+    - dependencies=lowest
+    - dependencies=highest
 
 matrix:
-    include:
-        - php: '7.4'
-          env: TESTER_PHP_BIN=phpdbg
     allow_failures:
         - php: nightly
     fast_finish: true
 
 install:
     - wget https://www.phing.info/get/phing-latest.phar && mv phing-latest.phar phing && chmod +x phing
-    - composer update --prefer-dist --no-progress --no-suggest --no-interaction
+    - if [ "$dependencies" = "highest" ]; then composer update --prefer-dist --no-progress --no-suggest --no-interaction; fi
+    - if [ "$dependencies" = "lowest" ]; then composer update --prefer-lowest --prefer-dist --no-progress --no-suggest --no-interaction; fi
 
 script:
-    - if [ "$TESTER_PHP_BIN" == "php" ]; then ./phing test; fi
-    - if [ "$TESTER_PHP_BIN" == "phpdbg" ]; then ./phing test-phpdbg; fi
+    - ./phing test
 
 after_failure:
     - for i in $(find ./tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done
