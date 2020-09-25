@@ -1,5 +1,6 @@
 Version 0.7.x-dev
 - fixed default value for option wdayMaxLen
+- renamed package to nexendrie/event-calendar
 
 Version 0.6.1
 - initialized AbstractCalender::$onDateChange

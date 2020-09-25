@@ -1,5 +1,5 @@
 {
-    "name": "konecnyjakub/event-calendar",
+    "name": "nexendrie/event-calendar",
     "description": "Plugin for Nette based web applications for creating calendar with custom events",
     "homepage": "http://www.nimral.cz/calendar",
     "license": "BSD-3-Clause",
@@ -47,7 +47,8 @@
         }
     },
     "replace": {
-        "jaroslav-kubicek/event-calendar": ">=0.2"
+        "jaroslav-kubicek/event-calendar": ">=0.2",
+        "konecnyjakub/event-calendar": ">=0.6.1"
     },
     "extra": {
         "branch-alias": {
