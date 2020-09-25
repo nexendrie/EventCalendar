@@ -1,4 +1,4 @@
-Version 0.6.1+dev
+Version 0.7.x-dev
 - fixed default value for option wdayMaxLen
 
 Version 0.6.1
