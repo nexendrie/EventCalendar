@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EventCalendar;
+namespace Nexendrie\EventCalendar;
 
 use Nette\Application\UI;
 use Nette\Utils\Arrays;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace EventCalendar\Simple;
+namespace Nexendrie\EventCalendar\Simple;
 
-use EventCalendar\IEventModel;
+use Nexendrie\EventCalendar\IEventModel;
 
 final class TestEvent implements IEventModel
 {

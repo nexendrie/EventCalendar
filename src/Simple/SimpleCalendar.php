@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace EventCalendar\Simple;
+namespace Nexendrie\EventCalendar\Simple;
 
-use EventCalendar\AbstractCalendar;
+use Nexendrie\EventCalendar\AbstractCalendar;
 use Nette\Neon\Neon;
 use Nette\Utils\Strings;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace EventCalendar\Google;
+namespace Nexendrie\EventCalendar\Google;
 
-use EventCalendar\AbstractCalendar;
+use Nexendrie\EventCalendar\AbstractCalendar;
 
 /**
  * Integration with events from Google Calendar
@@ -60,7 +60,7 @@ final class GoogleCalendar extends AbstractCalendar
     }
 
     /**
-     * @throws \EventCalendar\Google\GoogleApiException
+     * @throws GoogleApiException
      */
     public function render(): void
     {

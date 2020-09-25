@@ -1,6 +1,6 @@
 {layout "../Simple/EventCalendar.latte"}
 {block event}
-    {if $event instanceof EventCalendar\Google\GoogleEvent}
+    {if $event instanceof Nexendrie\EventCalendar\Google\GoogleEvent}
     <div class="ec-event" data-status="{$event->status}">
         <span class="ec-event-summary">{$event->summary}</span>
         {if $options['showEventLink']}<a href="{$event->htmlLink}" class="ec-event-link">{_"eventCalendar.link"}</a>{/if}

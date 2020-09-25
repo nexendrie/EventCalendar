@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EventCalendar\Simple;
+namespace Nexendrie\EventCalendar\Simple;
 
 require __DIR__ . '/../../bootstrap.php';
 

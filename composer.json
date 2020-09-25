@@ -38,12 +38,12 @@
     },
     "autoload": {
         "psr-4": {
-            "EventCalendar\\": "src/"
+            "Nexendrie\\EventCalendar\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "EventCalendar\\": "tests/EventCalendar"
+            "Nexendrie\\EventCalendar\\": "tests/EventCalendar"
         }
     },
     "replace": {

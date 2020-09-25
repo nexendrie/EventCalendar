@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EventCalendar\Google;
+namespace Nexendrie\EventCalendar\Google;
 
 final class TestGoogleData
 {
