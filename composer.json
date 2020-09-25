@@ -26,7 +26,8 @@
         "phpstan/phpstan-nette": "^0.12",
         "texy/texy": "^3.0.1",
         "nette/caching": "^3.0",
-        "nexendrie/translation": "^2.3"
+        "nexendrie/translation": "^2.3",
+        "nexendrie/site-generator": "^0.7"
     },
     "suggest": {
         "texy/texy": "To use Texy! syntax in events",

@@ -29,3 +29,16 @@ test:cc:
   script:
   - phing test-coverage
   coverage: '/(\d+\%) covered/'
+
+pages:
+  stage: deploy
+  environment:
+    name: documentation
+    url: https://nexendrie.gitlab.io/EventCalendar
+  script:
+  - phing documentation
+  artifacts:
+      paths:
+      - public
+  only:
+  - tags@nexendrie/EventCalendar

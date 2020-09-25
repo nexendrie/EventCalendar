@@ -20,7 +20,7 @@ Add to your code (in presenter/control):
 
 declare(strict_types=1);
 
-use EventCalendar\Simple\SimpleCalendar;
+use Nexendrie\EventCalendar\Simple\SimpleCalendar;
 
 class MyPresenter extends \Nette\Application\UI\Presenter
 {

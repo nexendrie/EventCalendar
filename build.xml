@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="Nexendrie Site Generator" basedir="." default="test">
+<project name="Nexendrie Event Calendar" basedir="." default="test">
     <import file="vendor/nexendrie/code-quality/build.xml"/>
     <property name="phpcs_standard" value="phpcs.xml"/>
     <target name="test" depends="lint,cs,phpstan,tests"/>
@@ -15,5 +15,21 @@
             <arg value="--coverage-src"/>
             <arg path="./src"/>
         </exec>
+    </target>
+    <target name="documentation">
+        <exec executable="vendor/bin/generate-site" logoutput="true" passthru="true" checkreturn="true">
+            <arg value="--source=docs"/>
+            <arg value="--output=public"/>
+        </exec>
+    </target>
+    <target name="release">
+        <input propertyName="version" message="Enter new version number" promptChar=":"/>
+        <replaceregexp file="CHANGELOG.md" pattern='Version ([0-9]+\.)+[0-9]+(\+|-)dev' replace='Version ${version}'/>
+        <echo message="Written new version number to CHANGELOG."/>
+        <exec command="git add CHANGELOG.md" logoutput="true" passthru="true" checkreturn="true"/>
+        <exec command="git commit --message='Version ${version}'" logoutput="true" passthru="true" checkreturn="true"/>
+        <echo message="Created release commit."/>
+        <exec command="git tag ${version} --message='Version ${version}' --sign" logoutput="true" passthru="true" checkreturn="true"/>
+        <echo message="Created tag."/>
     </target>
 </project>
