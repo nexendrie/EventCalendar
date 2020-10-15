@@ -48,9 +48,6 @@ abstract class AbstractCalendar extends UI\Control
 
     public IEventModel $events;
 
-    /**
-     * @var array default options for calendar - see OPT constants for currently supported options for each type of calendar
-     */
     public array $options = [
         self::OPT_SHOW_TOP_NAV => true,
         self::OPT_SHOW_BOTTOM_NAV => true,

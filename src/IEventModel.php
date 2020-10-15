@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nexendrie\EventCalendar;
 
 /**
- * <i>Tip:</i> For max performance you can load events only for current month. If user changes month, handle this by event onDateChange.
+ * You can load events only from 1 month. If user changes month, handle this by event onDateChange.
  */
 interface IEventModel
 {

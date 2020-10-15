@@ -65,8 +65,9 @@ final class EventCalendarTest extends \Tester\TestCase
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $events = $dom->find('.ec-event');
-        $texyOn = class_exists(\Texy::class) && strpos($events[0]->asXML(), 'Custom event with <strong>bold</strong>') !== false;
-        $texyOff = !class_exists(\Texy::class) && strpos($events[0]->asXML(), 'Custom event with **bold** text');
+        $text = $events[0]->asXML();
+        $texyOn = class_exists(\Texy::class) && strpos($text, 'Custom event with <strong>bold</strong>') !== false;
+        $texyOff = !class_exists(\Texy::class) && strpos($text, 'Custom event with **bold** text');
         Assert::true($texyOn || $texyOff);
     }
     

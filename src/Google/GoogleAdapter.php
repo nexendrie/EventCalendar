@@ -38,7 +38,7 @@ final class GoogleAdapter
     }
 
     /**
-     * Time constraint for events from Google Calendar. Used by GoogleCalendar for getting events only for current month.
+     * Time constraint for events from Google Calendar.
      */
     public function setBoundary(int $year, int $month): GoogleAdapter
     {
