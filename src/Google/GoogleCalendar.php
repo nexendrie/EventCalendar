@@ -14,10 +14,6 @@ use Nexendrie\EventCalendar\AbstractCalendar;
 final class GoogleCalendar extends AbstractCalendar
 {
     /**
-     * Show top navigation for changing months, default <b>true</b>
-     */
-
-    /**
      * show link to event in Google Calendar, default is <b>true</b>
      */
     public const OPT_SHOW_EVENT_LINK = 'showEventLink';

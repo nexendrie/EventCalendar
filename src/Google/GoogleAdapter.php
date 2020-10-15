@@ -12,7 +12,7 @@ use Nette\Caching\Storages\DevNullStorage;
  *
  * Currently, only public calendars are allowed
  *
- * See API doc for Google Calendar events: https://developers.google.com/google-apps/calendar/v3/reference/events/list
+ * @see https://developers.google.com/google-apps/calendar/v3/reference/events/list API doc for Google Calendar events
  */
 final class GoogleAdapter
 {
@@ -61,6 +61,7 @@ final class GoogleAdapter
 
     /**
      * Load events from Google Calendar via API or from cache
+     *
      * @throws GoogleApiException
      */
     public function loadEvents(): GoogleData

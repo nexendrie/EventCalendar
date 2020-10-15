@@ -56,7 +56,9 @@ abstract class AbstractCalendar extends UI\Control
     
     abstract protected function getTemplateFile(): string;
 
-    /** changes current month and invokes onDateChange event */
+    /**
+     * changes current month and invokes onDateChange event
+     */
     public function handleChangeMonth(): void
     {
         $this->onDateChange($this->year, $this->month);

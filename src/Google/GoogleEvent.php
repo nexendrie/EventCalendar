@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nexendrie\EventCalendar\Google;
 
 /**
- * Represent single event from Google Calendar
+ * Represents single event from Google Calendar
  *
  * @property-read string $id
  * @property-read string $creator

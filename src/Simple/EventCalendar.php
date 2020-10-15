@@ -10,7 +10,6 @@ use Nexendrie\EventCalendar\AbstractCalendar;
  * Calendar control with the need to define a translator
  *
  * Also, you can use Texy! syntax in your events, just install Texy! into your project and use it.
- *
  */
 final class EventCalendar extends AbstractCalendar
 {
