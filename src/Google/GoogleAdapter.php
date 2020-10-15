@@ -99,10 +99,9 @@ final class GoogleAdapter
             }
         }
         // save loaded data to cache
+        $dependencies = null;
         if (isset($this->cacheExpiration)) {
             $dependencies = [Cache::EXPIRATION => $this->cacheExpiration->getTimestamp()];
-        } else {
-            $dependencies = null;
         }
         $this->cache->save($this->year . '-' . $this->month, $googData, $dependencies);
         return $googData;
