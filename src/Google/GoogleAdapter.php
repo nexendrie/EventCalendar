@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nexendrie\EventCalendar\Google;
 
 use Nette\Caching\Cache;
+use Nette\Caching\Storages\DevNullStorage;
 
 /**
  * Class for accessing data in Google Calendar by its API
@@ -30,11 +31,12 @@ final class GoogleAdapter
     private int $month;
 
     public \DateTimeZone $timeZone;
-    
+
     public function __construct(string $calendarId, string $apiKey)
     {
         $this->calendarId = $calendarId;
         $this->apiKey = $apiKey;
+        $this->cache = new Cache(new DevNullStorage());
     }
 
     /**
@@ -64,11 +66,9 @@ final class GoogleAdapter
     public function loadEvents(): GoogleData
     {
         // return from cache
-        if (isset($this->cache)) {
-            $alreadySaved = $this->cache->load($this->year . '-' . $this->month);
-            if ($alreadySaved !== null) {
-                return $alreadySaved;
-            }
+        $alreadySaved = $this->cache->load($this->year . '-' . $this->month);
+        if ($alreadySaved !== null) {
+            return $alreadySaved;
         }
         // load via api
         $json = json_decode($this->loadByApi());
@@ -94,19 +94,17 @@ final class GoogleAdapter
                 if (isset($item->description)) {
                     $event->description = $item->description;
                 }
-                
+
                 $googData->addEvent($event);
             }
         }
         // save loaded data to cache
-        if (isset($this->cache)) {
-            if (isset($this->cacheExpiration)) {
-                $dependencies = [Cache::EXPIRATION => $this->cacheExpiration->getTimestamp()];
-            } else {
-                $dependencies = null;
-            }
-            $this->cache->save($this->year . '-' . $this->month, $googData, $dependencies);
+        if (isset($this->cacheExpiration)) {
+            $dependencies = [Cache::EXPIRATION => $this->cacheExpiration->getTimestamp()];
+        } else {
+            $dependencies = null;
         }
+        $this->cache->save($this->year . '-' . $this->month, $googData, $dependencies);
         return $googData;
     }
 
@@ -120,7 +118,7 @@ final class GoogleAdapter
         curl_close($curl);
         return $response;
     }
-    
+
     private function prepareUrl(): string
     {
         $url = 'https://www.googleapis.com/calendar/v3/calendars/';
