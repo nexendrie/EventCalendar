@@ -24,7 +24,6 @@
   <rule ref="Generic.Strings"/>
   <rule ref="Squiz.Classes.ClassFileName"/>
   <rule ref="Squiz.Classes.DuplicateProperty"/>
-  <rule ref="Squiz.ControlStructures"/>
   <rule ref="Squiz.PHP.CommentedOutCode"/>
   <rule ref="Squiz.PHP.DiscouragedFunctions"/>
   <rule ref="Squiz.PHP.Eval"/>

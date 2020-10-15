@@ -104,13 +104,10 @@ abstract class AbstractCalendar extends UI\Control
         $wday = (int) $day['wday'];
         if ($this->firstDay === self::FIRST_SUNDAY) {
             return $wday;
-        } else {
-            if ($wday === 0) {
-                return 6;
-            } else {
-                return $wday - 1;
-            }
+        } elseif ($wday === 0) {
+            return 6;
         }
+        return $wday - 1;
     }
     
     protected function getNextMonth(int $year, int $month): array
