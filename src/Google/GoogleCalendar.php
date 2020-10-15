@@ -70,11 +70,7 @@ final class GoogleCalendar extends AbstractCalendar
         /** @var int $month */
         $month = $this->month;
         $this->googleAdapter->setBoundary($year, $month);
-        try {
-            $this->events = $this->googleAdapter->loadEvents();
-        } catch (GoogleApiException $e) {
-            throw $e;
-        }
+        $this->events = $this->googleAdapter->loadEvents();
         parent::render();
     }
 }
