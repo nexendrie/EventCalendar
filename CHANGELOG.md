@@ -3,6 +3,7 @@ Version 0.7.x-dev
 - renamed package to nexendrie/event-calendar
 - BC break: removed BasicCalendar
 - BC break: changed namespace to Nexendrie\EventCalendar
+- made GoogleEvent::$id and GoogleEvent::$creator writable
 
 Version 0.6.1
 - initialized AbstractCalender::$onDateChange
