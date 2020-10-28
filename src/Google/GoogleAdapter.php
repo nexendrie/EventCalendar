@@ -66,46 +66,39 @@ final class GoogleAdapter
      */
     public function loadEvents(): GoogleData
     {
-        // return from cache
-        $alreadySaved = $this->cache->load($this->year . '-' . $this->month);
-        if ($alreadySaved !== null) {
-            return $alreadySaved;
-        }
-        // load via api
-        $json = json_decode($this->loadByApi());
-        if (isset($json->error)) {
-            throw new GoogleApiException($json->error->message, $json->error->code);
-        }
-        $googData = new GoogleData();
-        $googData->name = $json->summary;
-        $googData->description = $json->description;
-        if (isset($json->items)) {
-            foreach ($json->items as $item) {
-                $event = new GoogleEvent($item->id);
-                $event->status = $item->status;
-                $event->summary = $item->summary;
-                $event->created = $item->created;
-                $event->updated = $item->updated;
-                $event->htmlLink = $item->htmlLink;
-                $event->start = $item->start->dateTime;
-                $event->end = $item->end->dateTime;
-                if (isset($item->location)) {
-                    $event->location = $item->location;
-                }
-                if (isset($item->description)) {
-                    $event->description = $item->description;
-                }
-
-                $googData->addEvent($event);
+        return $this->cache->load($this->year . '-' . $this->month, function (&$dependencies): GoogleData {
+            $json = json_decode($this->loadByApi());
+            if (isset($json->error)) {
+                throw new GoogleApiException($json->error->message, $json->error->code);
             }
-        }
-        // save loaded data to cache
-        $dependencies = null;
-        if (isset($this->cacheExpiration)) {
-            $dependencies = [Cache::EXPIRATION => $this->cacheExpiration->getTimestamp()];
-        }
-        $this->cache->save($this->year . '-' . $this->month, $googData, $dependencies);
-        return $googData;
+            $googData = new GoogleData();
+            $googData->name = $json->summary;
+            $googData->description = $json->description;
+            if (isset($json->items)) {
+                foreach ($json->items as $item) {
+                    $event = new GoogleEvent($item->id);
+                    $event->status = $item->status;
+                    $event->summary = $item->summary;
+                    $event->created = $item->created;
+                    $event->updated = $item->updated;
+                    $event->htmlLink = $item->htmlLink;
+                    $event->start = $item->start->dateTime;
+                    $event->end = $item->end->dateTime;
+                    if (isset($item->location)) {
+                        $event->location = $item->location;
+                    }
+                    if (isset($item->description)) {
+                        $event->description = $item->description;
+                    }
+
+                    $googData->addEvent($event);
+                }
+            }
+            if (isset($this->cacheExpiration)) {
+                $dependencies[Cache::EXPIRATION] = $this->cacheExpiration->getTimestamp();
+            }
+            return $googData;
+        });
     }
 
     private function loadByApi(): string
