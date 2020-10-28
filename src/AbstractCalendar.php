@@ -13,9 +13,9 @@ use Nette\Utils\Arrays;
  */
 abstract class AbstractCalendar extends UI\Control
 {
-    
+
     public const FIRST_SUNDAY = 0, FIRST_MONDAY = 1;
-    
+
     /**
      * Show top navigation for changing months, default <b>true</b>
      */
@@ -53,7 +53,7 @@ abstract class AbstractCalendar extends UI\Control
         self::OPT_SHOW_BOTTOM_NAV => true,
         self::OPT_WDAY_MAX_LEN => PHP_INT_MAX,
     ];
-    
+
     abstract protected function getTemplateFile(): string;
 
     /**
@@ -68,7 +68,7 @@ abstract class AbstractCalendar extends UI\Control
             $this->redirect('this');
         }
     }
-    
+
     public function render(): void
     {
         $this->template->setFile($this->getTemplateFile());
@@ -97,7 +97,7 @@ abstract class AbstractCalendar extends UI\Control
 
         $this->template->render();
     }
-    
+
     protected function getFirstDayInMonth(int $year, int $month): int
     {
         $day = getdate(mktime(0, 0, 0, $month, 1, $year));
@@ -109,7 +109,7 @@ abstract class AbstractCalendar extends UI\Control
         }
         return $wday - 1;
     }
-    
+
     protected function getNextMonth(int $year, int $month): array
     {
         $next = [];
@@ -122,7 +122,7 @@ abstract class AbstractCalendar extends UI\Control
         }
         return $next;
     }
-    
+
     protected function getPrevMonth(int $year, int $month): array
     {
         $prev = [];
@@ -135,7 +135,7 @@ abstract class AbstractCalendar extends UI\Control
         }
         return $prev;
     }
-    
+
     protected function prepareDate(): void
     {
         if ($this->month === null || $this->year === null) {

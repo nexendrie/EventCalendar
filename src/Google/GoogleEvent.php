@@ -22,7 +22,7 @@ final class GoogleEvent
     public string $creator = '';
     public \DateTime $start;
     public \DateTime $end;
-    
+
     public function __construct(string $id)
     {
         $this->id = $id;

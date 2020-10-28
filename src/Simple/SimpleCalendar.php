@@ -17,9 +17,9 @@ use Nette\Utils\Strings;
  */
 final class SimpleCalendar extends AbstractCalendar
 {
-    
+
     public const LANG_EN = 'en', LANG_CZ = 'cz', LANG_SK = 'sk', LANG_DE = 'de';
-    
+
     /**
      * text for top link to previous month, default <b><</b>
      */
@@ -38,7 +38,7 @@ final class SimpleCalendar extends AbstractCalendar
     public const OPT_BOTTOM_NAV_NEXT = 'bottomNavNext';
 
     public string $language = self::LANG_EN;
-    
+
     public function __construct()
     {
         $this->options[static::OPT_TOP_NAV_PREV] = '<';
@@ -46,7 +46,7 @@ final class SimpleCalendar extends AbstractCalendar
         $this->options[static::OPT_BOTTOM_NAV_PREV] = 'Previous month';
         $this->options[static::OPT_BOTTOM_NAV_NEXT] = 'Next month';
     }
-    
+
     public function render(): void
     {
         $this->template->names = $this->getNames($this->language);
@@ -62,7 +62,7 @@ final class SimpleCalendar extends AbstractCalendar
         }
         return $wdays;
     }
-    
+
     protected function getNames(string $lang): array
     {
         $neon = Neon::decode(file_get_contents(__DIR__ . '/simpleCalData.neon'));
@@ -76,7 +76,7 @@ final class SimpleCalendar extends AbstractCalendar
             throw new \LogicException('Specified language is not supported.');
         }
     }
-    
+
     protected function getTemplateFile(): string
     {
         return __DIR__ . '/SimpleCalendar.latte';

@@ -13,7 +13,7 @@ use Nexendrie\EventCalendar\AbstractCalendar;
  */
 final class EventCalendar extends AbstractCalendar
 {
-    
+
     protected function createTemplate(): \Nette\Application\UI\ITemplate
     {
         /** @var \Nette\Bridges\ApplicationLatte\Template $template */
@@ -28,7 +28,7 @@ final class EventCalendar extends AbstractCalendar
 
         return $template;
     }
-    
+
     protected function getTemplateFile(): string
     {
         return __DIR__ . '/EventCalendar.latte';

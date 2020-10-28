@@ -49,7 +49,7 @@ final class GoogleCalendar extends AbstractCalendar
         $this->options[static::OPT_SHOW_EVENT_END] = true;
         $this->options[static::OPT_EVENT_DATEFORMAT] = 'F j, Y, g:i a';
     }
-    
+
     protected function getTemplateFile(): string
     {
         return __DIR__ . '/GoogleCalendar.latte';

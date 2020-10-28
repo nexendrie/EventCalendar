@@ -20,7 +20,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
     use \Testbench\TCompiledContainer;
 
     private GoogleCalendar $calendar;
-    
+
     protected function setUp()
     {
         if (!isset($this->calendar)) {
@@ -36,7 +36,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
         }
         $this->attachToPresenter($this->calendar);
     }
-    
+
     public function testStructure()
     {
         $html = $this->renderAndReturnHtml();
@@ -46,7 +46,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
         Assert::same((int) date('t'), $noOfValidDays);
         Assert::true($noOfEmptyDays > 0); // 4
     }
-    
+
     public function testMaxLenOfWday()
     {
         $this->calendar->firstDay = GoogleCalendar::FIRST_MONDAY;
@@ -65,7 +65,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
         $dom = DomQuery::fromHtml($html);
         Assert::false($dom->has('.ec-monthTable a'));
     }*/
-    
+
     private function renderAndReturnHtml(): string
     {
         ob_start();

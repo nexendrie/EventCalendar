@@ -17,7 +17,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
     use \Testbench\TComponent;
 
     private SimpleCalendar $calendar;
-    
+
     protected function setUp()
     {
         if (!isset($this->calendar)) {
@@ -25,14 +25,14 @@ final class SimpleCalendarTest extends \Tester\TestCase
         }
         $this->attachToPresenter($this->calendar);
     }
-    
+
     public function testBasic()
     {
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         Assert::true($dom->has('.ec-monthTable'));
     }
-    
+
     /**
      * Check if the month name is called January
      */
@@ -45,15 +45,18 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $elem = $dom->find('caption');
         Assert::contains('January', $elem[0]->asXML());
     }
-    
+
     public function testWrongLang()
     {
         $this->calendar->language = 'esperanto';
-        Assert::exception(function () {
-            $this->calendar->render();
-        }, \LogicException::class);
+        Assert::exception(
+            function () {
+                $this->calendar->render();
+            },
+            \LogicException::class
+        );
     }
-    
+
     /**
      * Check if the first day of week is called "Pondělí"
      */
@@ -67,7 +70,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $mondayName = $elem[0]->asXML();
         Assert::same('Pondělí', utf8_decode(strip_tags($mondayName)));
     }
-    
+
     public function testDisabledBottomNav()
     {
         $this->calendar->options[SimpleCalendar::OPT_SHOW_BOTTOM_NAV] = false;
@@ -75,7 +78,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $dom = DomQuery::fromHtml($html);
         Assert::false($dom->has('.ec-bottomNavigation'));
     }
-    
+
     /**
      * Check if the german calendar starting on Monday has wday truncated to three chars
      */
@@ -90,7 +93,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $wednesdayName = $wednesElem[2]->asXML();
         Assert::same('Mit', strip_tags($wednesdayName));
     }
-    
+
     public function testEvent()
     {
         $this->calendar->year = 2012;
@@ -101,7 +104,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $noOfEvents = count($dom->find('.ec-event'));
         Assert::equal(2, $noOfEvents);
     }
-    
+
     public function testEventPosition()
     {
         $this->calendar->year = 2012;
@@ -113,7 +116,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $day = (int) strip_tags($dayElems[0]->asXML());
         Assert::true($dom->has('.ec-eventDay .ec-eventBox') && $day === 2);
     }
-    
+
     private function renderAndReturnHtml(): string
     {
         ob_start();

@@ -17,7 +17,7 @@ final class EventCalendarTest extends \Tester\TestCase
     use \Testbench\TComponent;
 
     private EventCalendar $calendar;
-    
+
     protected function setUp()
     {
         if (!isset($this->calendar)) {
@@ -25,7 +25,7 @@ final class EventCalendarTest extends \Tester\TestCase
         }
         $this->attachToPresenter($this->calendar);
     }
-    
+
     public function testStructure()
     {
         $this->calendar->year = 2013;
@@ -37,7 +37,7 @@ final class EventCalendarTest extends \Tester\TestCase
         $noOfEmptyDays = count($dom->find('.ec-empty'));
         Assert::same(4, $noOfEmptyDays);
     }
-    
+
     public function testMaxLenOfWday()
     {
         $this->calendar->firstDay = EventCalendar::FIRST_MONDAY;
@@ -48,7 +48,7 @@ final class EventCalendarTest extends \Tester\TestCase
         $wednesdayName = $wednesElem[2]->asXML();
         Assert::same('Wed', strip_tags($wednesdayName));
     }
-    
+
     public function testDisabledTopNav()
     {
         $this->calendar->options[EventCalendar::OPT_SHOW_TOP_NAV] = false;
@@ -56,7 +56,7 @@ final class EventCalendarTest extends \Tester\TestCase
         $dom = DomQuery::fromHtml($html);
         Assert::false($dom->has('.ec-monthTable a'));
     }
-    
+
     public function testTexy()
     {
         $this->calendar->year = 2012;
@@ -70,7 +70,7 @@ final class EventCalendarTest extends \Tester\TestCase
         $texyOff = !class_exists(\Texy::class) && strpos($text, 'Custom event with **bold** text');
         Assert::true($texyOn || $texyOff);
     }
-    
+
     private function renderAndReturnHtml(): string
     {
         ob_start();
