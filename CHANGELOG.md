@@ -4,6 +4,7 @@ Version 0.7.x-dev
 - BC break: removed BasicCalendar
 - BC break: changed namespace to Nexendrie\EventCalendar
 - made GoogleEvent::$id and GoogleEvent::$creator writable
+- compatibility with PHP 8.0
 
 Version 0.6.1
 - initialized AbstractCalender::$onDateChange
