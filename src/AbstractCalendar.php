@@ -100,7 +100,7 @@ abstract class AbstractCalendar extends UI\Control
 
     protected function getFirstDayInMonth(int $year, int $month): int
     {
-        $day = getdate(mktime(0, 0, 0, $month, 1, $year));
+        $day = getdate((int) mktime(0, 0, 0, $month, 1, $year));
         $wday = (int) $day['wday'];
         if ($this->firstDay === self::FIRST_SUNDAY) {
             return $wday;

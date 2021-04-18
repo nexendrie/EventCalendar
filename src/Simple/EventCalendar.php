@@ -14,7 +14,7 @@ use Nexendrie\EventCalendar\AbstractCalendar;
 final class EventCalendar extends AbstractCalendar
 {
 
-    protected function createTemplate(): \Nette\Application\UI\ITemplate
+    protected function createTemplate(): \Nette\Application\UI\Template
     {
         /** @var \Nette\Bridges\ApplicationLatte\Template $template */
         $template = parent::createTemplate();
