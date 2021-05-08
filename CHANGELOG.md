@@ -1,4 +1,4 @@
-Version 0.7.x-dev
+Version 0.7.0
 - fixed default value for option wdayMaxLen
 - renamed package to nexendrie/event-calendar
 - BC break: removed BasicCalendar
