@@ -8,7 +8,6 @@ use Nexendrie\EventCalendar\IEventModel;
 
 final class TestEvent implements IEventModel
 {
-
     private array $events = [];
 
     public function __construct()

@@ -13,7 +13,6 @@ use Nette\Utils\Arrays;
  */
 abstract class AbstractCalendar extends UI\Control
 {
-
     public const FIRST_SUNDAY = 0, FIRST_MONDAY = 1;
 
     /**

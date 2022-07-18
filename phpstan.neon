@@ -8,3 +8,4 @@ parameters:
     ignoreErrors:
         - '#Parameter \#1 \$input of static method Nette\\Neon\\Neon::decode\(\) expects string, string\|false given#'
         - '#Parameter \#1 \$timestamp of function getdate expects int\|null, int\|false given#'
+        - "#Casting to int something that's already int#"

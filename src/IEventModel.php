@@ -9,7 +9,6 @@ namespace Nexendrie\EventCalendar;
  */
 interface IEventModel
 {
-
     /**
      * exists some event for that day?
      */
