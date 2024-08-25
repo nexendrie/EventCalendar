@@ -21,7 +21,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
 
     private GoogleCalendar $calendar;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         if (!isset($this->calendar)) {
             $this->calendar = new GoogleCalendar();
@@ -37,7 +37,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
         $this->attachToPresenter($this->calendar);
     }
 
-    public function testStructure()
+    public function testStructure(): void
     {
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
@@ -47,18 +47,18 @@ final class GoogleCalendarTest extends \Tester\TestCase
         Assert::true($noOfEmptyDays > 0); // 4
     }
 
-    public function testMaxLenOfWday()
+    public function testMaxLenOfWday(): void
     {
         $this->calendar->firstDay = GoogleCalendar::FIRST_MONDAY;
         $this->calendar->options[GoogleCalendar::OPT_WDAY_MAX_LEN] = 3;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $wednesElem = $dom->find('.ec-monthTable th');
-        $wednesdayName = $wednesElem[2]->asXML();
+        $wednesdayName = (string) $wednesElem[2]->asXML();
         Assert::same('Wed', strip_tags($wednesdayName));
     }
 
-    /*public function testDisabledTopNav()
+    /*public function testDisabledTopNav(): void
     {
         $this->calendar->options[GoogleCalendar::OPT_SHOW_TOP_NAV] = false;
         $html = $this->renderAndReturnHtml();
@@ -70,7 +70,7 @@ final class GoogleCalendarTest extends \Tester\TestCase
     {
         ob_start();
         $this->calendar->render();
-        return ob_get_clean();
+        return (string) ob_get_clean();
     }
 }
 

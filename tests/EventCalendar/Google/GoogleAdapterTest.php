@@ -17,7 +17,7 @@ final class GoogleAdapterTest extends \Tester\TestCase
 {
     use \Testbench\TCompiledContainer;
 
-    public function testCachedEvents()
+    public function testCachedEvents(): void
     {
         $date = new \DateTime();
         $year = (int) $date->format('Y');

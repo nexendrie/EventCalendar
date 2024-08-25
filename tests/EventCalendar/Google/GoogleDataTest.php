@@ -13,7 +13,7 @@ use Tester\Assert;
  */
 final class GoogleDataTest extends \Tester\TestCase
 {
-    public function testEvents()
+    public function testEvents(): void
     {
         $date = new \DateTime();
         $year = (int) $date->format('Y');
