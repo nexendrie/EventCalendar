@@ -153,7 +153,7 @@ coding_style:
 build:
     environment:
         php:
-            version: 7.4
+            version: 8.0.30
             pecl_extensions:
                 - pcov
         postgresql: false
@@ -171,7 +171,7 @@ build:
             tests:
                 override:
                     - php-scrutinizer-run
-                    - command: ./vendor/bin/phpcs . --extensions=php,phpt --report=checkstyle --report-file=codesniffer.cs --standard=phpcs.xml
+                    - command: ./vendor/bin/phpcs . --extensions=php --report=checkstyle --report-file=codesniffer.cs --standard=phpcs.xml
                       analysis:
                             file: codesniffer.cs
                             format: 'general-checkstyle'
