@@ -95,7 +95,7 @@ final class GoogleAdapter
                 }
             }
             if (isset($this->cacheExpiration)) {
-                $dependencies[Cache::EXPIRATION] = $this->cacheExpiration->getTimestamp();
+                $dependencies[Cache::Expire] = $this->cacheExpiration->getTimestamp();
             }
             return $googData;
         });

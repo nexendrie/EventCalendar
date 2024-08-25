@@ -24,6 +24,7 @@
     "require-dev": {
         "ext-curl": "*",
         "ext-json": "*",
+        "ext-mbstring": "*",
         "nexendrie/code-quality": "@dev",
         "phpstan/phpstan-nette": "^1.0",
         "texy/texy": "^3.1.6",
