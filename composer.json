@@ -1,7 +1,7 @@
 {
     "name": "nexendrie/event-calendar",
     "description": "Plugin for Nette based web applications for creating calendar with custom events",
-    "homepage": "http://www.nimral.cz/calendar",
+    "homepage": "https://nexendrie.gitlab.io",
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -13,6 +13,11 @@
             "email": "jakub.konecny2@centrum.cz"
         }
     ],
+    "support": {
+        "source": "https://gitlab.com/EventCalendar/EventCalendar/",
+        "issues": "https://gitlab.com/nexendrie/EventCalendar/-/issues",
+        "docs": "https://nexendrie.gitlab.io/EventCalendar"
+    },
     "require": {
         "php": ">=7.4.0",
         "ext-calendar": "*",
