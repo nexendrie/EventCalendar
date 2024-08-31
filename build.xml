@@ -3,7 +3,6 @@
     <import file="vendor/nexendrie/code-quality/build.xml"/>
     <property name="phpcs_standard" value="phpcs.xml"/>
     <target name="test" depends="lint,cs,phpstan,tests"/>
-    <target name="test-coverage" depends="lint,cs,phpstan,tests-coverage"/>
     <target name="ci-coverage">
         <exec executable="vendor/bin/run-tests" logoutput="true" passthru="true" checkreturn="true">
             <arg value="-p"/>
