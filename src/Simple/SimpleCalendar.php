@@ -64,7 +64,7 @@ final class SimpleCalendar extends AbstractCalendar
 
     protected function getNames(string $lang): array
     {
-        $neon = Neon::decode(file_get_contents(__DIR__ . '/simpleCalData.neon'));
+        $neon = Neon::decode((string) file_get_contents(__DIR__ . '/simpleCalData.neon'));
         if (array_key_exists($lang, $neon)) {
             $wdays = $this->truncateWdays($neon[$lang]['wdays']);
             if ($this->firstDay === self::FIRST_MONDAY) {
