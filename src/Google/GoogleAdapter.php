@@ -105,7 +105,7 @@ final class GoogleAdapter
     {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_URL, $this->prepareUrl());
+        curl_setopt($curl, CURLOPT_URL, $this->prepareUrl()); // @phpstan-ignore argument.type
         /** @var string $response */
         $response = curl_exec($curl);
         curl_close($curl);
