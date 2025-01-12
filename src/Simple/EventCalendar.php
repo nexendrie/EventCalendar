@@ -17,9 +17,7 @@ final class EventCalendar extends AbstractCalendar
     {
         /** @var \Nette\Bridges\ApplicationLatte\Template $template */
         $template = parent::createTemplate();
-        $callback = function ($string) {
-            return $string;
-        };
+        $callback = fn($string) => $string;
         if (class_exists(\Texy::class)) {
             $callback = [new \Texy(), "process"];
         }
