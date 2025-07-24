@@ -7,7 +7,7 @@ namespace Nexendrie\EventCalendar;
 /**
  * You can load events only from 1 month. If user changes month, handle this by event onDateChange.
  */
-interface IEventModel
+interface EventModel
 {
     /**
      * exists some event for that day?

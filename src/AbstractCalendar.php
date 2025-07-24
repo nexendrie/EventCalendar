@@ -45,7 +45,7 @@ abstract class AbstractCalendar extends UI\Control
 
     public int $firstDay = self::FIRST_SUNDAY;
 
-    public IEventModel $events;
+    public EventModel $events;
 
     public array $options = [
         self::OPT_SHOW_TOP_NAV => true,

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Nexendrie\EventCalendar\Google;
 
-use Nexendrie\EventCalendar\IEventModel;
+use Nexendrie\EventCalendar\EventModel;
 use Nette\Utils\Arrays;
 
 /**
  * @property-read array $events
  */
-final class GoogleData implements IEventModel
+final class GoogleData implements EventModel
 {
     use \Nette\SmartObject;
 

@@ -1,6 +1,7 @@
 Version 0.8.0-dev
 - raised minimal version of PHP to 8.1
 - BC break: made method GoogleData::getEvents protected
+- BC break: renamed IEventModel to EventModel
 
 Version 0.7.0
 - fixed default value for option wdayMaxLen

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Nexendrie\EventCalendar\Simple;
 
-use Nexendrie\EventCalendar\IEventModel;
+use Nexendrie\EventCalendar\EventModel;
 
-final class TestEvent implements IEventModel
+final class TestEvent implements EventModel
 {
     private array $events = [];
 
