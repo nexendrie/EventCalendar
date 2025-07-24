@@ -42,12 +42,12 @@ final class GoogleCalendar extends AbstractCalendar
 
     public function __construct()
     {
-        $this->options[static::OPT_SHOW_EVENT_LINK] = true;
-        $this->options[static::OPT_SHOW_EVENT_LOCATION] = true;
-        $this->options[static::OPT_SHOW_EVENT_DESCRIPTION] = true;
-        $this->options[static::OPT_SHOW_EVENT_START] = true;
-        $this->options[static::OPT_SHOW_EVENT_END] = true;
-        $this->options[static::OPT_EVENT_DATEFORMAT] = 'F j, Y, g:i a';
+        $this->options[self::OPT_SHOW_EVENT_LINK] = true;
+        $this->options[self::OPT_SHOW_EVENT_LOCATION] = true;
+        $this->options[self::OPT_SHOW_EVENT_DESCRIPTION] = true;
+        $this->options[self::OPT_SHOW_EVENT_START] = true;
+        $this->options[self::OPT_SHOW_EVENT_END] = true;
+        $this->options[self::OPT_EVENT_DATEFORMAT] = 'F j, Y, g:i a';
     }
 
     protected function getTemplateFile(): string

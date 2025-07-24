@@ -40,10 +40,10 @@ final class SimpleCalendar extends AbstractCalendar
 
     public function __construct()
     {
-        $this->options[static::OPT_TOP_NAV_PREV] = '<';
-        $this->options[static::OPT_TOP_NAV_NEXT] = '>';
-        $this->options[static::OPT_BOTTOM_NAV_PREV] = 'Previous month';
-        $this->options[static::OPT_BOTTOM_NAV_NEXT] = 'Next month';
+        $this->options[self::OPT_TOP_NAV_PREV] = '<';
+        $this->options[self::OPT_TOP_NAV_NEXT] = '>';
+        $this->options[self::OPT_BOTTOM_NAV_PREV] = 'Previous month';
+        $this->options[self::OPT_BOTTOM_NAV_NEXT] = 'Next month';
     }
 
     public function render(): void
@@ -52,7 +52,7 @@ final class SimpleCalendar extends AbstractCalendar
         parent::render();
     }
 
-    protected function truncateWdays(array $wdays): array
+    private function truncateWdays(array $wdays): array
     {
         if ($this->options['wdayMaxLen'] > 0) {
             foreach ($wdays as &$value) {
@@ -62,7 +62,7 @@ final class SimpleCalendar extends AbstractCalendar
         return $wdays;
     }
 
-    protected function getNames(string $lang): array
+    private function getNames(string $lang): array
     {
         $neon = Neon::decode((string) file_get_contents(__DIR__ . '/simpleCalData.neon'));
         if (array_key_exists($lang, $neon)) {
