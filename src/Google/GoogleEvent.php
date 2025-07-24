@@ -9,8 +9,6 @@ namespace Nexendrie\EventCalendar\Google;
  */
 final class GoogleEvent
 {
-    use \Nette\SmartObject;
-
     public string $status;
     public string $htmlLink;
     public \DateTime $created;

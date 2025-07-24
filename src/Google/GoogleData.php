@@ -26,7 +26,7 @@ final class GoogleData implements IEventModel
         $this->events[$event->end->format(self::DATE_FORMAT)][$event->id] = $event;
     }
 
-    public function getEvents(): array
+    protected function getEvents(): array
     {
         return $this->events;
     }

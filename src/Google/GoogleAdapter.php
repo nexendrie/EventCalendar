@@ -16,8 +16,6 @@ use Nette\Caching\Storages\DevNullStorage;
  */
 final class GoogleAdapter
 {
-    use \Nette\SmartObject;
-
     public \DateTime $cacheExpiration;
     public string $searchTerm;
     public bool $showDeleted = false;
