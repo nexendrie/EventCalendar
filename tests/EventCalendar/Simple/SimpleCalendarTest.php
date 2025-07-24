@@ -68,7 +68,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $dom = DomQuery::fromHtml($html);
         $elem = $dom->find('.ec-monthTable th');
         $mondayName = (string) $elem[0]->asXML();
-        Assert::same('Pondělí', mb_convert_encoding(strip_tags($mondayName), 'ISO-8859-1'));
+        Assert::same('Pondělí', strip_tags($mondayName));
     }
 
     public function testDisabledBottomNav(): void

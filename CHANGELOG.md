@@ -1,3 +1,6 @@
+Version 0.8.0-dev
+- raised minimal version of PHP to 8.1
+
 Version 0.7.0
 - fixed default value for option wdayMaxLen
 - renamed package to nexendrie/event-calendar

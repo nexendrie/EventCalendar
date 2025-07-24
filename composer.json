@@ -19,7 +19,7 @@
         "docs": "https://nexendrie.gitlab.io/EventCalendar"
     },
     "require": {
-        "php": ">=7.4.0",
+        "php": ">=8.1.0",
         "ext-calendar": "*",
         "nette/utils": "^3.2.7",
         "latte/latte": "^2.8.3",
@@ -63,7 +63,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.7.x-dev"
+            "dev-master": "0.8.x-dev"
         }
     },
     "minimum-stability": "dev",
