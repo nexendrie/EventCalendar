@@ -18,7 +18,6 @@ final class GoogleAdapter
 {
     use \Nette\SmartObject;
 
-    public Cache $cache;
     public \DateTime $cacheExpiration;
     public string $searchTerm;
     public bool $showDeleted = false;
@@ -30,9 +29,11 @@ final class GoogleAdapter
 
     public \DateTimeZone $timeZone;
 
-    public function __construct(private readonly string $calendarId, private readonly string $apiKey)
-    {
-        $this->cache = new Cache(new DevNullStorage());
+    public function __construct(
+        private readonly string $calendarId,
+        private readonly string $apiKey,
+        public Cache $cache = new Cache(new DevNullStorage())
+    ) {
     }
 
     /**
