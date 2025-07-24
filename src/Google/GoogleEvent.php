@@ -11,7 +11,6 @@ final class GoogleEvent
 {
     use \Nette\SmartObject;
 
-    public string $id;
     public string $status;
     public string $htmlLink;
     public \DateTime $created;
@@ -23,8 +22,7 @@ final class GoogleEvent
     public \DateTime $start;
     public \DateTime $end;
 
-    public function __construct(string $id)
+    public function __construct(public string $id)
     {
-        $this->id = $id;
     }
 }

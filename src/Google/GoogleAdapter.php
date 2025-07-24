@@ -18,8 +18,6 @@ final class GoogleAdapter
 {
     use \Nette\SmartObject;
 
-    private string $calendarId;
-    private string $apiKey;
     public Cache $cache;
     public \DateTime $cacheExpiration;
     public string $searchTerm;
@@ -32,10 +30,8 @@ final class GoogleAdapter
 
     public \DateTimeZone $timeZone;
 
-    public function __construct(string $calendarId, string $apiKey)
+    public function __construct(private readonly string $calendarId, private readonly string $apiKey)
     {
-        $this->calendarId = $calendarId;
-        $this->apiKey = $apiKey;
         $this->cache = new Cache(new DevNullStorage());
     }
 
