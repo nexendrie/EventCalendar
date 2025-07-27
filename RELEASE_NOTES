@@ -1,0 +1,5 @@
+A new version of Event Calendar is out. It requires PHP 8.1 and uses some of its new features.
+
+Interface IEventModel was renamed to EventModel. Method GoogleData::getEvents is protected now.
+
+For complete list of changes since previous version, see CHANGELOG.md.
