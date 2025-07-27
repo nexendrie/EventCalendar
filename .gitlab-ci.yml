@@ -37,6 +37,8 @@ pages:
     name: documentation
     url: https://nexendrie.gitlab.io/EventCalendar
   image: nexendrie/php:8.1
+  before_script:
+    - composer update --prefer-dist --no-progress --no-interaction
   script:
   - phing documentation
   cache:
