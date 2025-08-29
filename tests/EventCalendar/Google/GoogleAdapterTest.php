@@ -42,6 +42,5 @@ final class GoogleAdapterTest extends \Tester\TestCase
     }
 }
 
-
 $testCase = new GoogleAdapterTest();
 $testCase->run();

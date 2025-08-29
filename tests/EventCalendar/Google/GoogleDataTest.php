@@ -44,6 +44,5 @@ final class GoogleDataTest extends \Tester\TestCase
     }
 }
 
-
 $testCase = new GoogleDataTest();
 $testCase->run();

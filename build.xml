@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="Nexendrie Event Calendar" basedir="." default="test">
     <import file="vendor/nexendrie/code-quality/build.xml"/>
-    <property name="phpcs_standard" value="phpcs.xml"/>
+    <property name="phpcs_standard" value="vendor/nexendrie/code-quality/phpcs.xml"/>
     <target name="test" depends="lint,cs,phpstan,tests"/>
     <target name="ci-coverage">
         <exec executable="vendor/bin/run-tests" logoutput="true" passthru="true" checkreturn="true">

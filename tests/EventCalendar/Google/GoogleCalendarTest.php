@@ -74,6 +74,5 @@ final class GoogleCalendarTest extends \Tester\TestCase
     }
 }
 
-
 $testCase = new GoogleCalendarTest();
 $testCase->run();

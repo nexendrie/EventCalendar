@@ -79,6 +79,5 @@ final class EventCalendarTest extends \Tester\TestCase
     }
 }
 
-
 $testCase = new EventCalendarTest();
 $testCase->run();
