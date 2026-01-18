@@ -14,8 +14,6 @@
         }
     ],
     "support": {
-        "source": "https://gitlab.com/EventCalendar/EventCalendar/",
-        "issues": "https://gitlab.com/nexendrie/EventCalendar/-/issues",
         "docs": "https://nexendrie.gitlab.io/EventCalendar"
     },
     "require": {
