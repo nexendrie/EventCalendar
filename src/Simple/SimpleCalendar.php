@@ -6,7 +6,6 @@ namespace Nexendrie\EventCalendar\Simple;
 
 use Nexendrie\EventCalendar\AbstractCalendar;
 use Nette\Neon\Neon;
-use Nette\Utils\Strings;
 
 /**
  * Simple alternative for calendar control if you don't want to use translator.
@@ -56,7 +55,7 @@ final class SimpleCalendar extends AbstractCalendar
     {
         if ($this->options['wdayMaxLen'] > 0) {
             foreach ($wdays as &$value) {
-                $value = Strings::substring($value, 0, $this->options['wdayMaxLen']);
+                $value = mb_substr($value, 0, $this->options['wdayMaxLen'], "UTF-8");
             }
         }
         return $wdays;

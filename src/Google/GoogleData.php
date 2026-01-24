@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Nexendrie\EventCalendar\Google;
 
 use Nexendrie\EventCalendar\EventModel;
-use Nette\Utils\Arrays;
 
 /**
  * @property-read array $events
@@ -33,7 +32,7 @@ final class GoogleData implements EventModel
 
     public function getForDate(int $year, int $month, int $day): array
     {
-        return Arrays::get($this->events, $this->numbersToDate($year, $month, $day), []);
+        return $this->events[$this->numbersToDate($year, $month, $day)] ?? [];
     }
 
     public function isForDate(int $year, int $month, int $day): bool
