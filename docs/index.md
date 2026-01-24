@@ -7,7 +7,7 @@ Links
 -----
 
 Primary repository: https://gitlab.com/nexendrie/EventCalendar
-Github repository: https://github.com/nexendrie/EventCalendar
+GitHub repository: https://github.com/nexendrie/EventCalendar
 Packagist: https://packagist.org/packages/nexendrie/event-calendar
 
 Installation
