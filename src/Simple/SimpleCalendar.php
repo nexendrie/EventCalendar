@@ -16,24 +16,27 @@ use Nette\Neon\Neon;
  */
 final class SimpleCalendar extends AbstractCalendar
 {
-    public const LANG_EN = 'en', LANG_CZ = 'cz', LANG_SK = 'sk', LANG_DE = 'de';
+    public const string LANG_EN = 'en';
+    public const string LANG_CZ = 'cz';
+    public const string LANG_SK = 'sk';
+    public const string LANG_DE = 'de';
 
     /**
      * text for top link to previous month, default <b><</b>
      */
-    public const OPT_TOP_NAV_PREV = 'topNavPrev';
+    public const string OPT_TOP_NAV_PREV = 'topNavPrev';
     /**
      * text for top link to next month, default <b>></b>
      */
-    public const OPT_TOP_NAV_NEXT = 'topNavNext';
+    public const string OPT_TOP_NAV_NEXT = 'topNavNext';
     /**
      * text for bottom link to previous month, default <b>Previous month</b>
      */
-    public const OPT_BOTTOM_NAV_PREV = 'bottomNavPrev';
+    public const string OPT_BOTTOM_NAV_PREV = 'bottomNavPrev';
     /**
      * text for bottom link to next month, default <b>Next month</b>
      */
-    public const OPT_BOTTOM_NAV_NEXT = 'bottomNavNext';
+    public const string OPT_BOTTOM_NAV_NEXT = 'bottomNavNext';
 
     public string $language = self::LANG_EN;
 

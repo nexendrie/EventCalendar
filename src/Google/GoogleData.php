@@ -13,7 +13,7 @@ final class GoogleData implements EventModel
 {
     use \Nette\SmartObject;
 
-    public const DATE_FORMAT = 'Y-m-d';
+    public const string DATE_FORMAT = 'Y-m-d';
 
     private array $events = [];
     public string $name;

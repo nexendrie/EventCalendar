@@ -16,27 +16,27 @@ final class GoogleCalendar extends AbstractCalendar
     /**
      * show link to event in Google Calendar, default is <b>true</b>
      */
-    public const OPT_SHOW_EVENT_LINK = 'showEventLink';
+    public const string OPT_SHOW_EVENT_LINK = 'showEventLink';
     /**
      * show location if it is set, default is <b>true</b>
      */
-    public const OPT_SHOW_EVENT_LOCATION = 'showEventLocation';
+    public const string OPT_SHOW_EVENT_LOCATION = 'showEventLocation';
     /**
      * show description of event if it is set, default is <b>true</b>
      */
-    public const OPT_SHOW_EVENT_DESCRIPTION = 'showEventDescription';
+    public const string OPT_SHOW_EVENT_DESCRIPTION = 'showEventDescription';
     /**
      * show start date of event, default is <b>true</b>
      */
-    public const OPT_SHOW_EVENT_START = 'showEventStart';
+    public const string OPT_SHOW_EVENT_START = 'showEventStart';
     /**
      * show end date of event, default is <b>true</b>
      */
-    public const OPT_SHOW_EVENT_END = 'showEventEnd';
+    public const string OPT_SHOW_EVENT_END = 'showEventEnd';
     /**
      * Datetime format for start and end date, default is <b>F j, Y, g:i a</b>
      */
-    public const OPT_EVENT_DATEFORMAT = 'eventDateformat';
+    public const string OPT_EVENT_DATEFORMAT = 'eventDateformat';
 
     public GoogleAdapter $googleAdapter;
 

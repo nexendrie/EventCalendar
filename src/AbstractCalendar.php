@@ -12,20 +12,21 @@ use Nette\Application\UI;
  */
 abstract class AbstractCalendar extends UI\Control
 {
-    public const FIRST_SUNDAY = 0, FIRST_MONDAY = 1;
+    public const int FIRST_SUNDAY = 0;
+    public const int FIRST_MONDAY = 1;
 
     /**
      * Show top navigation for changing months, default <b>true</b>
      */
-    public const OPT_SHOW_TOP_NAV = 'showTopNav';
+    public const string OPT_SHOW_TOP_NAV = 'showTopNav';
     /**
      * Show bottom navigation for changing months, default <b>true</b>
      */
-    public const OPT_SHOW_BOTTOM_NAV = 'showBottomNav';
+    public const string OPT_SHOW_BOTTOM_NAV = 'showBottomNav';
     /**
      * maximum length of wday names, by default, full name is used (<b>null</b>)
      */
-    public const OPT_WDAY_MAX_LEN = 'wdayMaxLen';
+    public const string OPT_WDAY_MAX_LEN = 'wdayMaxLen';
 
     /**
      * @persistent
