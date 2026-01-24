@@ -19,7 +19,7 @@ final class EventCalendar extends AbstractCalendar
         $template = parent::createTemplate();
         $callback = fn($string) => $string;
         if (class_exists(\Texy::class)) {
-            $callback = [new \Texy(), "process"];
+            $callback = (new \Texy())->process(...);
         }
         $template->getLatte()->addFilter('texy', $callback);
 
