@@ -1,3 +1,6 @@
+Version 0.9.0-dev
+- raised minimal version of PHP to 8.3
+
 Version 0.8.0
 - raised minimal version of PHP to 8.1
 - BC break: made method GoogleData::getEvents protected
