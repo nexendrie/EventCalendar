@@ -1,5 +1,6 @@
 Version 0.9.0-dev
 - raised minimal version of PHP to 8.3
+- added support for Latte 3
 
 Version 0.8.0
 - raised minimal version of PHP to 8.1
