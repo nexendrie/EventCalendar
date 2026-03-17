@@ -3,7 +3,7 @@ EventCalendar
 
 [![Total Downloads](https://poser.pugx.org/nexendrie/event-calendar/downloads)](https://packagist.org/packages/nexendrie/event-calendar)  [![Latest Stable Version](https://poser.pugx.org/nexendrie/event-calendar/v/stable)](https://gitlab.com/nexendrie/EventCalendar/-/releases) [![Build Status](https://gitlab.com/nexendrie/EventCalendar/badges/master/pipeline.svg?ignore_skipped=true)](https://gitlab.com/nexendrie/EventCalendar/-/commits/master) [![Code Coverage](https://gitlab.com/nexendrie/EventCalendar/badges/master/coverage.svg)](https://gitlab.com/nexendrie/EventCalendar/-/commits/master)
 
-This is an add-on component for Nette framework which enables displaying various events in calendar. It provides methods for localisation & customization. You can also use html and Texy! in your event texts.
+This is an add-on component for Nette framework which enables displaying various events in calendar. It provides methods for localization & customization. You can also use html and Texy! in your event texts.
 
 Installation
 ------------
