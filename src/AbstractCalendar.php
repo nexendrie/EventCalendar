@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace Nexendrie\EventCalendar;
 
 use Nette\Application\UI;
+use Nexendrie\EventCalendar\Events\DateChanged;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**
  * @property-read \Nette\Bridges\ApplicationLatte\Template $template
- * @method void onDateChange(int $year, int $month)
  */
 abstract class AbstractCalendar extends UI\Control
 {
@@ -38,11 +39,6 @@ abstract class AbstractCalendar extends UI\Control
      */
     public ?int $month = null;
 
-    /**
-     * @var callable[]
-     */
-    public array $onDateChange = [];
-
     public int $firstDay = self::FIRST_SUNDAY;
 
     public EventModel $events;
@@ -53,6 +49,10 @@ abstract class AbstractCalendar extends UI\Control
         self::OPT_WDAY_MAX_LEN => PHP_INT_MAX,
     ];
 
+    public function __construct(protected ?EventDispatcherInterface $eventDispatcher = null)
+    {
+    }
+
     abstract protected function getTemplateFile(): string;
 
     /**
@@ -60,7 +60,7 @@ abstract class AbstractCalendar extends UI\Control
      */
     public function handleChangeMonth(): void
     {
-        $this->onDateChange($this->year, $this->month);
+        $this->eventDispatcher?->dispatch(new DateChanged((int) $this->year, (int) $this->month));
         if ($this->presenter->isAjax()) {
             $this->redrawControl('ecCalendar');
         } else {
@@ -78,7 +78,7 @@ abstract class AbstractCalendar extends UI\Control
         $year = $this->year;
         /** @var int $month */
         $month = $this->month;
-        $this->onDateChange($year, $month);
+        $this->eventDispatcher?->dispatch(new DateChanged($year, $month));
         $dateInfo = [];
         $dateInfo['year'] = $year; // current year
         $dateInfo['month'] = $month; // current month

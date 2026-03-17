@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nexendrie\EventCalendar\Google;
 
 use Nexendrie\EventCalendar\AbstractCalendar;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Integration with events from Google Calendar
@@ -40,8 +41,9 @@ final class GoogleCalendar extends AbstractCalendar
 
     public GoogleAdapter $googleAdapter;
 
-    public function __construct()
+    public function __construct(?EventDispatcherInterface $eventDispatcher = null)
     {
+        parent::__construct($eventDispatcher);
         $this->options[self::OPT_SHOW_EVENT_LINK] = true;
         $this->options[self::OPT_SHOW_EVENT_LOCATION] = true;
         $this->options[self::OPT_SHOW_EVENT_DESCRIPTION] = true;

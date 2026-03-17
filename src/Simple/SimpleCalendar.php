@@ -6,6 +6,7 @@ namespace Nexendrie\EventCalendar\Simple;
 
 use Nexendrie\EventCalendar\AbstractCalendar;
 use Nette\Neon\Neon;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Simple alternative for calendar control if you don't want to use translator.
@@ -40,8 +41,9 @@ final class SimpleCalendar extends AbstractCalendar
 
     public string $language = self::LANG_EN;
 
-    public function __construct()
+    public function __construct(?EventDispatcherInterface $eventDispatcher = null)
     {
+        parent::__construct($eventDispatcher);
         $this->options[self::OPT_TOP_NAV_PREV] = '<';
         $this->options[self::OPT_TOP_NAV_NEXT] = '>';
         $this->options[self::OPT_BOTTOM_NAV_PREV] = 'Previous month';

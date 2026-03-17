@@ -6,6 +6,9 @@ namespace Nexendrie\EventCalendar\Simple;
 
 require __DIR__ . '/../../bootstrap.php';
 
+use Konecnyjakub\EventDispatcher\AutoListenerProvider;
+use Konecnyjakub\EventDispatcher\EventDispatcher;
+use Nexendrie\EventCalendar\Events\DateChanged;
 use Tester\DomQuery;
 use Tester\Assert;
 
@@ -18,12 +21,21 @@ final class EventCalendarTest extends \Tester\TestCase
 
     private EventCalendar $calendar;
 
+    /** @var DateChanged[] */
+    private array $events = [];
+
     protected function setUp(): void
     {
         if (!isset($this->calendar)) {
-            $this->calendar = new EventCalendar();
+            $listenerProvider = new AutoListenerProvider();
+            $listenerProvider->addListener(function (DateChanged $event): void {
+                $this->events[] = $event;
+            });
+            $eventDispatcher = new EventDispatcher($listenerProvider);
+            $this->calendar = new EventCalendar($eventDispatcher);
         }
         $this->attachToPresenter($this->calendar);
+        $this->events = [];
     }
 
     public function testStructure(): void
@@ -69,6 +81,17 @@ final class EventCalendarTest extends \Tester\TestCase
         $texyOn = class_exists(\Texy::class) && str_contains($text, 'Custom event with <strong>bold</strong>');
         $texyOff = !class_exists(\Texy::class) && str_contains($text, 'Custom event with **bold** text');
         Assert::true($texyOn || $texyOff);
+    }
+
+    public function testEvent(): void
+    {
+        $this->calendar->year = 2026;
+        $this->calendar->month = 3;
+        $this->renderAndReturnHtml();
+        Assert::count(1, $this->events);
+        Assert::type(DateChanged::class, $this->events[0]);
+        Assert::same(2026, $this->events[0]->year);
+        Assert::same(3, $this->events[0]->month);
     }
 
     private function renderAndReturnHtml(): string

@@ -1,3 +1,6 @@
+Version 0.10.0-dev
+- BC break: replaced Nette style event with PSR-14 event dispatcher
+
 Version 0.9.0
 - raised minimal version of PHP to 8.3
 - added support for Latte 3
