@@ -15,12 +15,12 @@ final class EventCalendar extends AbstractCalendar
 {
     protected function createTemplate(): \Nette\Application\UI\Template
     {
-        /** @var \Nette\Bridges\ApplicationLatte\Template $template */
-        $template = parent::createTemplate();
         $callback = static fn ($string) => $string;
         if (class_exists(\Texy::class)) {
             $callback = (new \Texy())->process(...);
         }
+        /** @var \Nette\Bridges\ApplicationLatte\Template $template */
+        $template = parent::createTemplate();
         $template->getLatte()->addFilter('texy', $callback);
 
         return $template;
