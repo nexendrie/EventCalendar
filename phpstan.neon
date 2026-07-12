@@ -5,3 +5,5 @@ includes:
     - vendor/nexendrie/code-quality/phpstan.neon
 parameters:
     ignoreErrors:
+    excludePaths:
+        - tests/EventCalendar/DomQuery.php

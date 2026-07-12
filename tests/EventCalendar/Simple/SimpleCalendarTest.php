@@ -4,21 +4,19 @@ declare(strict_types=1);
 
 namespace Nexendrie\EventCalendar\Simple;
 
-require __DIR__ . '/../../bootstrap.php';
+use MyTester\Attributes\BeforeTest;
+use MyTester\Attributes\TestSuite;
+use Nexendrie\EventCalendar\DomQuery;
 
-use Tester\DomQuery;
-use Tester\Assert;
-
-/**
- * @testCase
- */
-final class SimpleCalendarTest extends \Tester\TestCase
+#[TestSuite("SimpleCalendar")]
+final class SimpleCalendarTest extends \MyTester\TestCase
 {
-    use \Testbench\TComponent;
+    use \MyTester\Bridges\NetteApplication\TComponent;
 
     private SimpleCalendar $calendar;
 
-    protected function setUp(): void
+    #[BeforeTest]
+    public function prepareComponent(): void
     {
         if (!isset($this->calendar)) {
             $this->calendar = new SimpleCalendar();
@@ -30,7 +28,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
     {
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
-        Assert::true($dom->has('.ec-monthTable'));
+        $this->assertTrue($dom->has('.ec-monthTable'));
     }
 
     /**
@@ -43,13 +41,13 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $elem = $dom->find('caption');
-        Assert::contains('January', (string) $elem[0]->asXML());
+        $this->assertContains('January', (string) $elem[0]->asXML());
     }
 
     public function testWrongLang(): void
     {
         $this->calendar->language = 'esperanto';
-        Assert::exception(
+        $this->assertThrowsException(
             function () {
                 $this->calendar->render();
             },
@@ -68,7 +66,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $dom = DomQuery::fromHtml($html);
         $elem = $dom->find('.ec-monthTable th');
         $mondayName = (string) $elem[0]->asXML();
-        Assert::same('Pondělí', strip_tags($mondayName));
+        $this->assertSame('Pondělí', strip_tags($mondayName));
     }
 
     public function testDisabledBottomNav(): void
@@ -76,7 +74,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $this->calendar->options[SimpleCalendar::OPT_SHOW_BOTTOM_NAV] = false;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
-        Assert::false($dom->has('.ec-bottomNavigation'));
+        $this->assertFalse($dom->has('.ec-bottomNavigation'));
     }
 
     /**
@@ -91,7 +89,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $dom = DomQuery::fromHtml($html);
         $wednesElem = $dom->find('.ec-monthTable th');
         $wednesdayName = (string) $wednesElem[2]->asXML();
-        Assert::same('Mit', strip_tags($wednesdayName));
+        $this->assertSame('Mit', strip_tags($wednesdayName));
     }
 
     public function testEvent(): void
@@ -102,7 +100,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $noOfEvents = count($dom->find('.ec-event'));
-        Assert::equal(2, $noOfEvents);
+        $this->assertSame(2, $noOfEvents);
     }
 
     public function testEventPosition(): void
@@ -114,7 +112,7 @@ final class SimpleCalendarTest extends \Tester\TestCase
         $dom = DomQuery::fromHtml($html);
         $dayElems = $dom->find('.ec-eventDay .ec-dayOfEvents');
         $day = (int) strip_tags((string) $dayElems[0]->asXML());
-        Assert::true($dom->has('.ec-eventDay .ec-eventBox') && $day === 2);
+        $this->assertTrue($dom->has('.ec-eventDay .ec-eventBox') && $day === 2);
     }
 
     private function renderAndReturnHtml(): string
@@ -124,6 +122,3 @@ final class SimpleCalendarTest extends \Tester\TestCase
         return (string) ob_get_clean();
     }
 }
-
-$testCase = new SimpleCalendarTest();
-$testCase->run();

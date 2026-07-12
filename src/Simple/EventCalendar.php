@@ -13,7 +13,7 @@ use Nexendrie\EventCalendar\AbstractCalendar;
  */
 final class EventCalendar extends AbstractCalendar
 {
-    protected function createTemplate(): \Nette\Application\UI\Template
+    protected function createTemplate(?string $class = null): \Nette\Application\UI\Template
     {
         $callback = static fn ($string) => $string;
         if (class_exists(\Texy::class)) {

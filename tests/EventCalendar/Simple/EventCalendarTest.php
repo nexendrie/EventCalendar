@@ -4,27 +4,25 @@ declare(strict_types=1);
 
 namespace Nexendrie\EventCalendar\Simple;
 
-require __DIR__ . '/../../bootstrap.php';
-
 use Konecnyjakub\EventDispatcher\AutoListenerProvider;
 use Konecnyjakub\EventDispatcher\EventDispatcher;
+use MyTester\Attributes\BeforeTest;
+use MyTester\Attributes\TestSuite;
+use Nexendrie\EventCalendar\DomQuery;
 use Nexendrie\EventCalendar\Events\DateChanged;
-use Tester\DomQuery;
-use Tester\Assert;
 
-/**
- * @testCase
- */
-final class EventCalendarTest extends \Tester\TestCase
+#[TestSuite("EventCalendar")]
+final class EventCalendarTest extends \MyTester\TestCase
 {
-    use \Testbench\TComponent;
+    use \MyTester\Bridges\NetteApplication\TComponent;
 
     private EventCalendar $calendar;
 
     /** @var DateChanged[] */
     private array $events = [];
 
-    protected function setUp(): void
+    #[BeforeTest]
+    public function prepareComponent(): void
     {
         if (!isset($this->calendar)) {
             $listenerProvider = new AutoListenerProvider();
@@ -45,9 +43,9 @@ final class EventCalendarTest extends \Tester\TestCase
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
         $noOfValidDays = count($dom->find('.ec-validDay'));
-        Assert::same(31, $noOfValidDays);
+        $this->assertSame(31, $noOfValidDays);
         $noOfEmptyDays = count($dom->find('.ec-empty'));
-        Assert::same(4, $noOfEmptyDays);
+        $this->assertSame(4, $noOfEmptyDays);
     }
 
     public function testMaxLenOfWday(): void
@@ -58,7 +56,7 @@ final class EventCalendarTest extends \Tester\TestCase
         $dom = DomQuery::fromHtml($html);
         $wednesElem = $dom->find('.ec-monthTable th');
         $wednesdayName = (string) $wednesElem[2]->asXML();
-        Assert::same('Wed', strip_tags($wednesdayName));
+        $this->assertSame('Wed', strip_tags($wednesdayName));
     }
 
     public function testDisabledTopNav(): void
@@ -66,7 +64,7 @@ final class EventCalendarTest extends \Tester\TestCase
         $this->calendar->options[EventCalendar::OPT_SHOW_TOP_NAV] = false;
         $html = $this->renderAndReturnHtml();
         $dom = DomQuery::fromHtml($html);
-        Assert::false($dom->has('.ec-monthTable a'));
+        $this->assertFalse($dom->has('.ec-monthTable a'));
     }
 
     public function testTexy(): void
@@ -80,7 +78,7 @@ final class EventCalendarTest extends \Tester\TestCase
         $text = (string) $events[0]->asXML();
         $texyOn = class_exists(\Texy::class) && str_contains($text, 'Custom event with <strong>bold</strong>');
         $texyOff = !class_exists(\Texy::class) && str_contains($text, 'Custom event with **bold** text');
-        Assert::true($texyOn || $texyOff);
+        $this->assertTrue($texyOn || $texyOff);
     }
 
     public function testEvent(): void
@@ -88,10 +86,10 @@ final class EventCalendarTest extends \Tester\TestCase
         $this->calendar->year = 2026;
         $this->calendar->month = 3;
         $this->renderAndReturnHtml();
-        Assert::count(1, $this->events);
-        Assert::type(DateChanged::class, $this->events[0]);
-        Assert::same(2026, $this->events[0]->year);
-        Assert::same(3, $this->events[0]->month);
+        $this->assertCount(1, $this->events);
+        $this->assertType(DateChanged::class, $this->events[0]);
+        $this->assertSame(2026, $this->events[0]->year);
+        $this->assertSame(3, $this->events[0]->month);
     }
 
     private function renderAndReturnHtml(): string
@@ -101,6 +99,3 @@ final class EventCalendarTest extends \Tester\TestCase
         return (string) ob_get_clean();
     }
 }
-
-$testCase = new EventCalendarTest();
-$testCase->run();

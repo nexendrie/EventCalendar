@@ -3,7 +3,6 @@ application:
 extensions:
     translation: Nexendrie\Translation\Bridges\NetteDI\TranslationExtension
 services:
-    testbench.presenterMock: Testbench\Mocks\PresenterMock
     googleData: Nexendrie\EventCalendar\Google\TestGoogleData
 translation:
     localeResolver: manual
@@ -11,3 +10,6 @@ translation:
         name: neon
         folders!:
             - %appDir%/../src/lang
+mytester:
+    colors: true
+    coverageFormat: cobertura

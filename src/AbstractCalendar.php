@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nexendrie\EventCalendar;
 
+use Nette\Application\Attributes\Persistent;
 use Nette\Application\UI;
 use Nexendrie\EventCalendar\Events\DateChanged;
 use Psr\EventDispatcher\EventDispatcherInterface;
@@ -29,14 +30,10 @@ abstract class AbstractCalendar extends UI\Control
      */
     public const string OPT_WDAY_MAX_LEN = 'wdayMaxLen';
 
-    /**
-     * @persistent
-     */
+    #[Persistent]
     public ?int $year = null;
 
-    /**
-     * @persistent
-     */
+    #[Persistent]
     public ?int $month = null;
 
     public int $firstDay = self::FIRST_SUNDAY;

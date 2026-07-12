@@ -4,14 +4,10 @@ declare(strict_types=1);
 
 namespace Nexendrie\EventCalendar\Google;
 
-require __DIR__ . '/../../bootstrap.php';
+use MyTester\Attributes\TestSuite;
 
-use Tester\Assert;
-
-/**
- * @testCase
- */
-final class GoogleDataTest extends \Tester\TestCase
+#[TestSuite("GoogleData")]
+final class GoogleDataTest extends \MyTester\TestCase
 {
     public function testEvents(): void
     {
@@ -22,12 +18,12 @@ final class GoogleDataTest extends \Tester\TestCase
 
         $googleData = new GoogleData();
         $events = $googleData->events;
-        Assert::type('array', $events);
-        Assert::count(0, $events);
-        Assert::false($googleData->isForDate($year, $month, $day));
+        $this->assertType('array', $events);
+        $this->assertCount(0, $events);
+        $this->assertFalse($googleData->isForDate($year, $month, $day));
         $events = $googleData->getForDate($year, $month, $day);
-        Assert::type('array', $events);
-        Assert::count(0, $events);
+        $this->assertType('array', $events);
+        $this->assertCount(0, $events);
 
         $event = (new GoogleEvent('1'));
         $event->start = $date;
@@ -35,14 +31,11 @@ final class GoogleDataTest extends \Tester\TestCase
 
         $googleData->addEvent($event);
         $events = $googleData->events;
-        Assert::type('array', $events);
-        Assert::count(1, $events);
-        Assert::true($googleData->isForDate($year, $month, $day));
+        $this->assertType('array', $events);
+        $this->assertCount(1, $events);
+        $this->assertTrue($googleData->isForDate($year, $month, $day));
         $events = $googleData->getForDate($year, $month, $day);
-        Assert::type('array', $events);
-        Assert::count(1, $events);
+        $this->assertType('array', $events);
+        $this->assertCount(1, $events);
     }
 }
-
-$testCase = new GoogleDataTest();
-$testCase->run();

@@ -4,18 +4,14 @@ declare(strict_types=1);
 
 namespace Nexendrie\EventCalendar\Google;
 
-require __DIR__ . '/../../bootstrap.php';
-
+use MyTester\Attributes\TestSuite;
 use Nette\Caching\Cache;
 use Nette\Caching\Storages\MemoryStorage;
-use Tester\Assert;
 
-/**
- * @testCase
- */
-final class GoogleAdapterTest extends \Tester\TestCase
+#[TestSuite("GoogleAdapter")]
+final class GoogleAdapterTest extends \MyTester\TestCase
 {
-    use \Testbench\TCompiledContainer;
+    use \MyTester\Bridges\NetteDI\TCompiledContainer;
 
     public function testCachedEvents(): void
     {
@@ -27,20 +23,16 @@ final class GoogleAdapterTest extends \Tester\TestCase
         $googleAdapter = new GoogleAdapter('1', 'x');
         $googleAdapter->setBoundary($year, $month);
         $googleAdapter->cache = $cache = new Cache(new MemoryStorage());
-        /** @var TestGoogleData $googleData */
         $googleData = $this->getService(TestGoogleData::class);
         $cache->save($year . '-' . $month, $googleData->getData());
 
         $googleData = $googleAdapter->loadEvents();
         $events = $googleData->events;
-        Assert::type('array', $events);
-        Assert::count(1, $events);
-        Assert::true($googleData->isForDate($year, $month, $day));
+        $this->assertType('array', $events);
+        $this->assertCount(1, $events);
+        $this->assertTrue($googleData->isForDate($year, $month, $day));
         $events = $googleData->getForDate($year, $month, $day);
-        Assert::type('array', $events);
-        Assert::count(1, $events);
+        $this->assertType('array', $events);
+        $this->assertCount(1, $events);
     }
 }
-
-$testCase = new GoogleAdapterTest();
-$testCase->run();
